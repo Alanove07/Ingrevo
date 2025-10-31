@@ -4,36 +4,65 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    initializeProfilePage();
-    loadSavedProducts();
-    loadScanHistory();
-    initializePreferences();
-    initializeAllergens();
-    initializeSettings();
-    initializeSearchAndFilters();
-    initializeAvatarUpload();
+    console.log('📱 Profile page DOM loaded, initializing...');
+    
+    try {
+        initializeProfilePage();
+        loadSavedProducts();
+        loadScanHistory();
+        initializePreferences();
+        initializeAllergens();
+        initializeSettings();
+        initializeSearchAndFilters();
+        initializeAvatarUpload();
+        
+        console.log('✅ All profile page modules initialized successfully');
+    } catch (error) {
+        console.error('❌ Error initializing profile page:', error);
+    }
 });
 
 /**
  * Initialize profile page
  */
 function initializeProfilePage() {
+    console.log('🔧 Initializing profile page navigation...');
+    
     // Profile navigation
     const navItems = document.querySelectorAll('.profile-nav-item');
     const sections = document.querySelectorAll('.profile-section');
     
-    navItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const sectionId = item.dataset.section + '-section';
+    console.log(`Found ${navItems.length} navigation items and ${sections.length} sections`);
+    
+    if (navItems.length === 0) {
+        console.error('❌ No navigation items found!');
+        return;
+    }
+    
+    navItems.forEach((item, index) => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const sectionId = this.getAttribute('data-section') + '-section';
+            
+            console.log(`🔄 Switching to section: ${sectionId}`);
             
             // Remove active class from all
             navItems.forEach(nav => nav.classList.remove('active'));
             sections.forEach(section => section.classList.remove('active'));
             
             // Add active class to clicked
-            item.classList.add('active');
-            document.getElementById(sectionId).classList.add('active');
+            this.classList.add('active');
+            
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+                console.log(`✅ Section ${sectionId} is now active`);
+            } else {
+                console.error(`❌ Section ${sectionId} not found!`);
+            }
         });
+        
+        console.log(`✅ Added listener to nav item ${index + 1}: ${item.getAttribute('data-section')}`);
     });
     
     // Dietary preferences
@@ -954,3 +983,5 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+console.log('✨ Profile script loaded successfully');
