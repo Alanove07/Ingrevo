@@ -8,12 +8,14 @@ let currentPage = 1;
 const itemsPerPage = 10;
 let filteredProducts = [];
 let editingProductId = null;
+let availableAllergens = [];
 const db = firebase.firestore();
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Products page loaded');
 
     // Initialize
+    loadAllergensFromFirebase();
     loadProductsFromFirebase();
     setupEventListeners();
 });
@@ -96,9 +98,14 @@ function renderProducts() {
                 <td><span class="badge badge-secondary">${product.category}</span></td>
                 <td><small>${product.ingredients.slice(0, 3).join(', ')}${product.ingredients.length > 3 ? '...' : ''}</small></td>
                 <td>
-                    ${product.allergens.map(a => 
-                        `<span class="badge badge-warning">${a}</span>`
-                    ).join(' ')}
+                    ${product.allergens.map(a => {
+                        const allergen = availableAllergens.find(al => 
+                            al.name.toLowerCase() === a.toLowerCase()
+                        );
+                        const icon = allergen ? `<i class="fas ${allergen.icon}"></i> ` : '';
+                        const color = allergen ? allergen.color : '#F59E0B';
+                        return `<span class="badge badge-warning" style="background: ${color}20; color: ${color}; border: 1px solid ${color};">${icon}${a}</span>`;
+                    }).join(' ')}
                 </td>
                 <td>
                     <span class="badge badge-${product.status === 'active' ? 'success' : 'secondary'}">
@@ -133,6 +140,12 @@ function openAddModal() {
     editingProductId = null;
     document.getElementById('modal-title').textContent = 'Add New Product';
     document.getElementById('product-form').reset();
+    
+    // Ensure allergens are loaded
+    if (availableAllergens.length === 0) {
+        loadAllergensFromFirebase();
+    }
+    
     document.getElementById('product-modal').classList.add('active');
 }
 
@@ -142,6 +155,77 @@ function openAddModal() {
 function closeModal() {
     document.getElementById('product-modal').classList.remove('active');
     editingProductId = null;
+}
+
+/**
+ * Load allergens from Firebase
+ */
+async function loadAllergensFromFirebase() {
+    try {
+        const snapshot = await db.collection('allergens').get();
+        availableAllergens = snapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+        }));
+        
+        renderAllergensCheckboxes();
+        updateAllergenFilters();
+        console.log(`Loaded ${availableAllergens.length} allergens from Firebase`);
+    } catch (error) {
+        console.error('Error loading allergens:', error);
+        // Use fallback allergens if Firebase fails
+        availableAllergens = [
+            { id: '1', name: 'Peanuts', icon: 'fa-peanut', color: '#F59E0B', severity: 'high' },
+            { id: '2', name: 'Lactose', icon: 'fa-cheese', color: '#3B82F6', severity: 'medium' },
+            { id: '3', name: 'Gluten', icon: 'fa-bread-slice', color: '#EF4444', severity: 'high' },
+            { id: '4', name: 'Soy', icon: 'fa-seedling', color: '#10B981', severity: 'low' },
+            { id: '5', name: 'Shellfish', icon: 'fa-fish', color: '#8B5CF6', severity: 'high' },
+            { id: '6', name: 'Eggs', icon: 'fa-egg', color: '#F97316', severity: 'medium' }
+        ];
+        renderAllergensCheckboxes();
+        updateAllergenFilters();
+    }
+}
+
+/**
+ * Render allergens as checkboxes in the form
+ */
+function renderAllergensCheckboxes() {
+    const container = document.getElementById('allergens-checkbox-group');
+    
+    if (availableAllergens.length === 0) {
+        container.innerHTML = `
+            <div class="no-allergens">
+                <i class="fas fa-exclamation-circle"></i>
+                <small>No allergens available. Please add allergens first.</small>
+            </div>
+        `;
+        return;
+    }
+    
+    container.innerHTML = availableAllergens.map(allergen => `
+        <label class="checkbox-label" style="border-left: 3px solid ${allergen.color || '#94A3B8'}">
+            <input type="checkbox" name="allergen" value="${allergen.name.toLowerCase()}">
+            <i class="fas ${allergen.icon || 'fa-exclamation-triangle'}" style="color: ${allergen.color || '#94A3B8'}"></i>
+            <span>${allergen.name}</span>
+            ${allergen.severity ? `<span class="severity-badge severity-${allergen.severity}">${allergen.severity}</span>` : ''}
+        </label>
+    `).join('');
+}
+
+/**
+ * Update allergen filter dropdown
+ */
+function updateAllergenFilters() {
+    const filterSelect = document.getElementById('allergen-filter');
+    
+    // Keep the "All Allergens" option and add dynamic allergens
+    const options = '<option value="">All Allergens</option>' + 
+        availableAllergens.map(allergen => 
+            `<option value="${allergen.name.toLowerCase()}">${allergen.name}</option>`
+        ).join('');
+    
+    filterSelect.innerHTML = options;
 }
 
 /**
@@ -222,10 +306,16 @@ window.editProduct = function(id) {
     document.getElementById('ingredients').value = product.ingredients.join(', ');
     document.getElementById('status').value = product.status;
 
-    // Set allergen checkboxes
-    document.querySelectorAll('input[name="allergen"]').forEach(cb => {
-        cb.checked = product.allergens.includes(cb.value);
-    });
+    // Set allergen checkboxes - use setTimeout to ensure allergens are rendered
+    setTimeout(() => {
+        document.querySelectorAll('input[name="allergen"]').forEach(cb => {
+            // Check if allergen value matches (case-insensitive)
+            const isChecked = product.allergens.some(a => 
+                a.toLowerCase() === cb.value.toLowerCase()
+            );
+            cb.checked = isChecked;
+        });
+    }, 100);
 
     document.getElementById('product-modal').classList.add('active');
 };

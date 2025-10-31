@@ -247,31 +247,12 @@
 
                         <div class="form-group full-width">
                             <label>Allergens</label>
-                            <div class="checkbox-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="allergen" value="peanuts">
-                                    <span>Peanuts</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="allergen" value="lactose">
-                                    <span>Lactose</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="allergen" value="gluten">
-                                    <span>Gluten</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="allergen" value="soy">
-                                    <span>Soy</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="allergen" value="shellfish">
-                                    <span>Shellfish</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="allergen" value="eggs">
-                                    <span>Eggs</span>
-                                </label>
+                            <div class="checkbox-group" id="allergens-checkbox-group">
+                                <!-- Allergens will be loaded dynamically from Firebase -->
+                                <div class="loading-allergens">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    Loading allergens...
+                                </div>
                             </div>
                         </div>
 
