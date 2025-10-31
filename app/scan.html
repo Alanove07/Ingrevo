@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Product - Ingrevo</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="app-style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>Ingrevo</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="scan.html" class="active">Scan</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="recommendations.html">Recommendations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-icon" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-secondary" id="login-btn">
+                    <i class="fas fa-user"></i>
+                    Login
+                </button>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="scan-page">
+        <div class="container">
+            <!-- Scan Section -->
+            <section class="scan-section">
+                <div class="scan-card">
+                    <h1>Scan a Product</h1>
+                    <p>Use your camera or enter a barcode manually</p>
+
+                    <div class="scan-tabs">
+                        <button class="tab-btn active" data-tab="camera">
+                            <i class="fas fa-camera"></i>
+                            Camera Scan
+                        </button>
+                        <button class="tab-btn" data-tab="manual">
+                            <i class="fas fa-keyboard"></i>
+                            Manual Entry
+                        </button>
+                    </div>
+
+                    <!-- Camera Tab -->
+                    <div class="tab-content active" id="camera-tab">
+                        <div class="camera-container">
+                            <video id="camera-video" autoplay playsinline></video>
+                            <canvas id="camera-canvas" style="display: none;"></canvas>
+                            <div class="scan-overlay">
+                                <div class="scan-frame">
+                                    <div class="scan-corner top-left"></div>
+                                    <div class="scan-corner top-right"></div>
+                                    <div class="scan-corner bottom-left"></div>
+                                    <div class="scan-corner bottom-right"></div>
+                                    <div class="scan-line"></div>
+                                </div>
+                                <p class="scan-instruction">Position barcode within the frame</p>
+                            </div>
+                        </div>
+
+                        <div class="camera-controls">
+                            <button class="btn-primary" id="start-camera">
+                                <i class="fas fa-camera"></i>
+                                Start Camera
+                            </button>
+                            <button class="btn-secondary" id="capture-btn" style="display: none;">
+                                <i class="fas fa-circle"></i>
+                                Capture
+                            </button>
+                            <button class="btn-outline" id="stop-camera" style="display: none;">
+                                <i class="fas fa-stop"></i>
+                                Stop
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Manual Entry Tab -->
+                    <div class="tab-content" id="manual-tab">
+                        <form id="barcode-form">
+                            <div class="form-group">
+                                <label>Enter Barcode Number</label>
+                                <div class="input-with-icon">
+                                    <i class="fas fa-barcode"></i>
+                                    <input 
+                                        type="text" 
+                                        id="barcode-input" 
+                                        placeholder="e.g., 123456789012"
+                                        pattern="[0-9]*"
+                                        maxlength="13"
+                                    >
+                                </div>
+                                <small>Enter 12-13 digit barcode number</small>
+                            </div>
+
+                            <button type="submit" class="btn-primary full-width">
+                                <i class="fas fa-search"></i>
+                                Search Product
+                            </button>
+                        </form>
+
+                        <div class="quick-test">
+                            <p>Try with sample barcodes:</p>
+                            <div class="sample-barcodes">
+                                <button class="sample-btn" onclick="fillBarcode('123456789012')">
+                                    123456789012
+                                </button>
+                                <button class="sample-btn" onclick="fillBarcode('987654321098')">
+                                    987654321098
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="results-section" style="display: none;">
+                <!-- Allergen Alert Banner -->
+                <div class="alert alert-danger" id="allergen-alert" style="display: none;">
+                    <div class="alert-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h4>⚠️ Allergen Alert!</h4>
+                        <p>This product contains allergens you're sensitive to</p>
+                    </div>
+                    <button class="alert-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Success Alert -->
+                <div class="alert alert-success" id="success-alert" style="display: none;">
+                    <div class="alert-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h4>✅ Safe to Consume!</h4>
+                        <p>No allergens detected based on your profile</p>
+                    </div>
+                    <button class="alert-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-result">
+                    <div class="product-header">
+                        <div class="product-image-container">
+                            <img id="product-image" src="" alt="Product">
+                            <div class="product-badge">
+                                <i class="fas fa-barcode"></i>
+                                <span id="product-barcode"></span>
+                            </div>
+                        </div>
+
+                        <div class="product-info">
+                            <h2 id="product-name">Loading...</h2>
+                            <p class="product-brand" id="product-brand"></p>
+                            <p class="product-category" id="product-category"></p>
+                            
+                            <div class="product-meta">
+                                <span class="meta-item">
+                                    <i class="fas fa-weight"></i>
+                                    <span id="product-weight">500g</span>
+                                </span>
+                                <span class="meta-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>Scanned Today</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Health Score -->
+                    <div class="health-score-card">
+                        <div class="score-header">
+                            <h3>
+                                <i class="fas fa-brain"></i>
+                                AI Health Score
+                            </h3>
+                            <div class="info-tooltip" data-tooltip="AI-powered analysis of ingredients and nutritional value">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="score-display">
+                            <div class="score-circle">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" class="score-bg"></circle>
+                                    <circle cx="50" cy="50" r="45" class="score-progress" id="score-circle"></circle>
+                                </svg>
+                                <div class="score-value" id="health-score">85</div>
+                            </div>
+                            <div class="score-details">
+                                <p class="score-rating" id="score-rating">Very Good</p>
+                                <p class="score-description">Based on ingredient quality and nutritional balance</p>
+                            </div>
+                        </div>
+
+                        <div class="score-breakdown">
+                            <div class="breakdown-item">
+                                <span>Ingredient Quality</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Nutritional Value</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Processing Level</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ingredients -->
+                    <div class="info-card">
+                        <h3>
+                            <i class="fas fa-flask"></i>
+                            Ingredients
+                        </h3>
+                        <div class="ingredients-list" id="ingredients-list">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Allergens -->
+                    <div class="info-card">
+                        <h3>
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Allergen Information
+                        </h3>
+                        <div class="allergens-grid" id="allergens-grid">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Nutritional Info -->
+                    <div class="info-card">
+                        <h3>
+                            <i class="fas fa-chart-pie"></i>
+                            Nutritional Information
+                        </h3>
+                        <div class="nutrition-table">
+                            <div class="nutrition-row">
+                                <span>Calories</span>
+                                <strong>250 kcal</strong>
+                            </div>
+                            <div class="nutrition-row">
+                                <span>Total Fat</span>
+                                <strong>12g</strong>
+                            </div>
+                            <div class="nutrition-row">
+                                <span>Carbohydrates</span>
+                                <strong>30g</strong>
+                            </div>
+                            <div class="nutrition-row">
+                                <span>Protein</span>
+                                <strong>8g</strong>
+                            </div>
+                            <div class="nutrition-row">
+                                <span>Sodium</span>
+                                <strong>450mg</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="result-actions">
+                        <button class="btn-primary" onclick="window.location.href='recommendations.html'">
+                            <i class="fas fa-exchange-alt"></i>
+                            View Alternatives
+                        </button>
+                        <button class="btn-outline" id="save-product-btn">
+                            <i class="fas fa-bookmark"></i>
+                            Save to Profile
+                        </button>
+                        <button class="btn-outline" onclick="window.location.href='scan.html'">
+                            <i class="fas fa-redo"></i>
+                            Scan Another
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Analyzing product...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app-script.js"></script>
+    <script src="scan-script.js"></script>
+</body>
+</html>

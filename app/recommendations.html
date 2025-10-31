@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations - Ingrevo</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="app-style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>Ingrevo</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="scan.html">Scan</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="recommendations.html" class="active">Recommendations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-icon" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-secondary" id="login-btn">
+                    <i class="fas fa-user"></i>
+                    Login
+                </button>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="recommendations-page">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Healthier Alternatives</h1>
+                <p>Discover safer and healthier options based on your preferences</p>
+            </div>
+
+            <!-- Current Product -->
+            <div class="current-product-card">
+                <div class="comparison-badge">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Finding Better Options For</span>
+                </div>
+                
+                <div class="current-product">
+                    <div class="product-image">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="product-details">
+                        <h3>Regular Peanut Butter</h3>
+                        <p class="brand">Brand: Generic Foods</p>
+                        <div class="product-issues">
+                            <span class="issue-badge">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Contains Peanuts
+                            </span>
+                            <span class="issue-badge">
+                                <i class="fas fa-oil-can"></i>
+                                High in Saturated Fat
+                            </span>
+                        </div>
+                        <div class="score-display">
+                            <span class="score-label">Health Score:</span>
+                            <span class="score-value poor">58</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="recommendations-filters">
+                <button class="filter-chip active" data-filter="all">
+                    <i class="fas fa-star"></i>
+                    All Alternatives
+                </button>
+                <button class="filter-chip" data-filter="allergen-free">
+                    <i class="fas fa-shield-check"></i>
+                    Allergen-Free
+                </button>
+                <button class="filter-chip" data-filter="healthier">
+                    <i class="fas fa-heart"></i>
+                    Healthier Options
+                </button>
+                <button class="filter-chip" data-filter="similar">
+                    <i class="fas fa-equals"></i>
+                    Similar Products
+                </button>
+            </div>
+
+            <!-- AI Tips -->
+            <div class="ai-tips-card">
+                <div class="ai-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="ai-content">
+                    <h3>
+                        <i class="fas fa-lightbulb"></i>
+                        AI Recommendation
+                    </h3>
+                    <p>Based on your allergen profile (peanuts, gluten, eggs) and dietary preferences (vegan), 
+                    we recommend trying almond or sunflower seed butter as they're nutritionally similar 
+                    but allergen-safe for you.</p>
+                </div>
+            </div>
+
+            <!-- Recommendations Grid -->
+            <div class="recommendations-grid">
+                <!-- Best Alternative -->
+                <div class="recommendation-card best-match">
+                    <div class="card-badge best">
+                        <i class="fas fa-crown"></i>
+                        Best Match
+                    </div>
+                    
+                    <div class="card-image">
+                        <i class="fas fa-jar"></i>
+                    </div>
+
+                    <div class="card-content">
+                        <h3>Organic Almond Butter</h3>
+                        <p class="brand">Natural Choice</p>
+
+                        <div class="comparison-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Health Score</span>
+                                <span class="stat-value excellent">
+                                    92
+                                    <i class="fas fa-arrow-up"></i>
+                                </span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Price</span>
+                                <span class="stat-value">$8.99</span>
+                            </div>
+                        </div>
+
+                        <div class="benefits">
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Allergen-Free</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Higher Protein</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Organic</span>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="btn-primary">
+                                <i class="fas fa-info-circle"></i>
+                                View Details
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternative 2 -->
+                <div class="recommendation-card">
+                    <div class="card-badge good">
+                        <i class="fas fa-star"></i>
+                        Great Choice
+                    </div>
+                    
+                    <div class="card-image">
+                        <i class="fas fa-jar"></i>
+                    </div>
+
+                    <div class="card-content">
+                        <h3>Sunflower Seed Butter</h3>
+                        <p class="brand">SunButter</p>
+
+                        <div class="comparison-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Health Score</span>
+                                <span class="stat-value good">
+                                    88
+                                    <i class="fas fa-arrow-up"></i>
+                                </span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Price</span>
+                                <span class="stat-value">$6.99</span>
+                            </div>
+                        </div>
+
+                        <div class="benefits">
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Nut-Free</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Rich in Vitamin E</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Budget-Friendly</span>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="btn-primary">
+                                <i class="fas fa-info-circle"></i>
+                                View Details
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternative 3 -->
+                <div class="recommendation-card">
+                    <div class="card-badge">
+                        <i class="fas fa-leaf"></i>
+                        Vegan
+                    </div>
+                    
+                    <div class="card-image">
+                        <i class="fas fa-jar"></i>
+                    </div>
+
+                    <div class="card-content">
+                        <h3>Cashew Butter</h3>
+                        <p class="brand">Nutty Delights</p>
+
+                        <div class="comparison-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Health Score</span>
+                                <span class="stat-value good">
+                                    85
+                                    <i class="fas fa-arrow-up"></i>
+                                </span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Price</span>
+                                <span class="stat-value">$9.99</span>
+                            </div>
+                        </div>
+
+                        <div class="benefits">
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Creamy Texture</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Low Sugar</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-exclamation-circle warning"></i>
+                                <span>Contains Tree Nuts</span>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="btn-primary">
+                                <i class="fas fa-info-circle"></i>
+                                View Details
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternative 4 -->
+                <div class="recommendation-card">
+                    <div class="card-badge">
+                        <i class="fas fa-seedling"></i>
+                        Plant-Based
+                    </div>
+                    
+                    <div class="card-image">
+                        <i class="fas fa-jar"></i>
+                    </div>
+
+                    <div class="card-content">
+                        <h3>Tahini Spread</h3>
+                        <p class="brand">Mediterranean Life</p>
+
+                        <div class="comparison-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Health Score</span>
+                                <span class="stat-value good">
+                                    87
+                                    <i class="fas fa-arrow-up"></i>
+                                </span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Price</span>
+                                <span class="stat-value">$7.49</span>
+                            </div>
+                        </div>
+
+                        <div class="benefits">
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>High in Calcium</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Versatile Use</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mineral-Rich</span>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="btn-primary">
+                                <i class="fas fa-info-circle"></i>
+                                View Details
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternative 5 -->
+                <div class="recommendation-card">
+                    <div class="card-badge">
+                        <i class="fas fa-carrot"></i>
+                        New
+                    </div>
+                    
+                    <div class="card-image">
+                        <i class="fas fa-jar"></i>
+                    </div>
+
+                    <div class="card-content">
+                        <h3>Soy Nut Butter</h3>
+                        <p class="brand">Soy Good</p>
+
+                        <div class="comparison-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Health Score</span>
+                                <span class="stat-value good">
+                                    84
+                                    <i class="fas fa-arrow-up"></i>
+                                </span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Price</span>
+                                <span class="stat-value">$5.99</span>
+                            </div>
+                        </div>
+
+                        <div class="benefits">
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>High Protein</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Affordable</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-exclamation-circle warning"></i>
+                                <span>Contains Soy</span>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="btn-primary">
+                                <i class="fas fa-info-circle"></i>
+                                View Details
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternative 6 -->
+                <div class="recommendation-card">
+                    <div class="card-badge">
+                        <i class="fas fa-heart"></i>
+                        Popular
+                    </div>
+                    
+                    <div class="card-image">
+                        <i class="fas fa-jar"></i>
+                    </div>
+
+                    <div class="card-content">
+                        <h3>Coconut Butter</h3>
+                        <p class="brand">Tropical Treats</p>
+
+                        <div class="comparison-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">Health Score</span>
+                                <span class="stat-value good">
+                                    83
+                                    <i class="fas fa-arrow-up"></i>
+                                </span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Price</span>
+                                <span class="stat-value">$8.49</span>
+                            </div>
+                        </div>
+
+                        <div class="benefits">
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>MCT-Rich</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Unique Flavor</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Natural Sweetness</span>
+                            </div>
+                        </div>
+
+                        <div class="card-actions">
+                            <button class="btn-primary">
+                                <i class="fas fa-info-circle"></i>
+                                View Details
+                            </button>
+                            <button class="btn-icon">
+                                <i class="fas fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="comparison-section">
+                <h2>
+                    <i class="fas fa-balance-scale"></i>
+                    Quick Comparison
+                </h2>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Health Score</th>
+                                <th>Price</th>
+                                <th>Protein</th>
+                                <th>Allergen-Free</th>
+                                <th>Organic</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="original">
+                                <td><strong>Regular Peanut Butter</strong></td>
+                                <td><span class="score-badge poor">58</span></td>
+                                <td>$4.99</td>
+                                <td>7g</td>
+                                <td><i class="fas fa-times text-danger"></i></td>
+                                <td><i class="fas fa-times text-danger"></i></td>
+                            </tr>
+                            <tr class="highlight">
+                                <td><strong>Organic Almond Butter</strong></td>
+                                <td><span class="score-badge excellent">92</span></td>
+                                <td>$8.99</td>
+                                <td>9g</td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sunflower Seed Butter</strong></td>
+                                <td><span class="score-badge good">88</span></td>
+                                <td>$6.99</td>
+                                <td>7g</td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                                <td><i class="fas fa-times text-danger"></i></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tahini Spread</strong></td>
+                                <td><span class="score-badge good">87</span></td>
+                                <td>$7.49</td>
+                                <td>8g</td>
+                                <td><i class="fas fa-check text-success"></i></td>
+                                <td><i class="fas fa-times text-danger"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="app-script.js"></script>
+    <script src="recommendations-script.js"></script>
+</body>
+</html>

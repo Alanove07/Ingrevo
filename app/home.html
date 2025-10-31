@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingrevo - Shop Smarter. Shop Safer.</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="app-style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>Ingrevo</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="scan.html">Scan</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="recommendations.html">Recommendations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="btn-icon" id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-secondary" id="login-btn">
+                    <i class="fas fa-user"></i>
+                    Login
+                </button>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-shield-check"></i>
+                    <span>AI-Powered Safety</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Shop Smarter.<br>
+                    <span class="gradient-text">Shop Safer.</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Your personal ingredient and allergen awareness companion. 
+                    Scan any product to instantly see what's inside, get allergen alerts, 
+                    and discover healthier alternatives—all in real-time.
+                </p>
+
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="window.location.href='scan.html'">
+                        <i class="fas fa-qrcode"></i>
+                        Start Scanning
+                    </button>
+                    <button class="btn-outline" onclick="scrollToFeatures()">
+                        <i class="fas fa-play-circle"></i>
+                        Watch Demo
+                    </button>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Products Scanned</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2K+</div>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">14</div>
+                        <div class="stat-label">Allergens Tracked</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="scan-preview">
+                            <i class="fas fa-camera"></i>
+                            <p>Scan Product</p>
+                            <div class="scan-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Ingrevo?</h2>
+                <p>Everything you need to make informed shopping decisions</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon teal">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h3>Quick Scan</h3>
+                    <p>Instant barcode scanning with camera or manual entry for immediate results</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon blue">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Allergen Alerts</h3>
+                    <p>Real-time warnings for your specific allergens with detailed breakdown</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon green">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Health Score</h3>
+                    <p>Smart analysis of ingredients with personalized health recommendations</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon purple">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Smart Alternatives</h3>
+                    <p>Discover healthier and safer product options instantly</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon orange">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>Scan History</h3>
+                    <p>Track all your scanned products and build your safe shopping list</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon red">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Personal Profile</h3>
+                    <p>Customize dietary preferences and allergen settings for accurate alerts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Three simple steps to safer shopping</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Scan Product</h3>
+                        <p>Use your camera to scan any product barcode or enter it manually</p>
+                        <div class="step-icon">
+                            <i class="fas fa-barcode"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>View Analysis</h3>
+                        <p>See ingredient breakdown, allergen warnings, and AI health score</p>
+                        <div class="step-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-connector"></div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Shop Safer</h3>
+                        <p>Get recommendations and make informed purchasing decisions</p>
+                        <div class="step-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-content">
+                    <h2>Ready to Shop Smarter?</h2>
+                    <p>Join thousands of users making safer shopping decisions every day</p>
+                    <div class="cta-buttons">
+                        <button class="btn-primary" onclick="window.location.href='scan.html'">
+                            <i class="fas fa-qrcode"></i>
+                            Start Scanning Now
+                        </button>
+                        <button class="btn-outline-light">
+                            <i class="fab fa-google"></i>
+                            Sign In with Google
+                        </button>
+                    </div>
+                </div>
+                <div class="cta-image">
+                    <i class="fas fa-mobile-screen-button"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-leaf"></i>
+                        <span>Ingrevo</span>
+                    </div>
+                    <p>Shop Smarter. Shop Safer.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="scan.html">Scanner</a></li>
+                            <li><a href="recommendations.html">Recommendations</a></li>
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Pricing</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="about.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">API Documentation</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ingrevo. All rights reserved.</p>
+                <p>Made with <i class="fas fa-heart"></i> for safer shopping</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="login-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <button class="modal-close" id="close-login">
+                    <i class="fas fa-times"></i>
+                </button>
+                
+                <div class="modal-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to access your personalized experience</p>
+                </div>
+
+                <div class="modal-body">
+                    <button class="social-login google">
+                        <i class="fab fa-google"></i>
+                        Continue with Google
+                    </button>
+
+                    <button class="social-login facebook">
+                        <i class="fab fa-facebook"></i>
+                        Continue with Facebook
+                    </button>
+
+                    <div class="divider">
+                        <span>or</span>
+                    </div>
+
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="you@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="••••••••" required>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox">
+                                <input type="checkbox">
+                                <span>Remember me</span>
+                            </label>
+                            <a href="#">Forgot password?</a>
+                        </div>
+
+                        <button type="submit" class="btn-primary full-width">
+                            Sign In
+                        </button>
+                    </form>
+
+                    <p class="signup-link">
+                        Don't have an account? <a href="#">Sign up free</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app-script.js"></script>
+</body>
+</html>
