@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Ingrevo Admin Portal</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Admin Stylesheet -->
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="brand">
+                <i class="fas fa-leaf"></i>
+                <span class="brand-name">Ingrevo</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="products.html" class="nav-item active">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+            <a href="ingredients.html" class="nav-item">
+                <i class="fas fa-flask"></i>
+                <span>Ingredients</span>
+            </a>
+            <a href="allergens.html" class="nav-item">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Allergens</span>
+            </a>
+            <a href="surveys.html" class="nav-item">
+                <i class="fas fa-poll"></i>
+                <span>Surveys</span>
+            </a>
+            <a href="survey-details.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>Survey Responses</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="users.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>Users</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" class="nav-item" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="topbar-left">
+                <h1 class="page-title">Products</h1>
+            </div>
+
+            <div class="topbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search..." id="search-input">
+                </div>
+                
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+
+                <div class="user-menu">
+                    <img src="../assets/logo.jpg" alt="User" class="user-avatar" onerror="this.style.display='none'">
+                    <div class="user-info">
+                        <span class="user-name" id="user-name">Admin</span>
+                        <span class="user-role">Administrator</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Products Content -->
+        <div class="content-wrapper">
+            <!-- Actions Bar -->
+            <div class="actions-bar">
+                <div class="actions-left">
+                    <button class="btn btn-primary" id="add-product-btn">
+                        <i class="fas fa-plus"></i>
+                        Add Product
+                    </button>
+                    <button class="btn btn-secondary" id="import-btn">
+                        <i class="fas fa-file-import"></i>
+                        Import CSV
+                    </button>
+                </div>
+                <div class="actions-right">
+                    <select class="filter-select" id="category-filter">
+                        <option value="">All Categories</option>
+                        <option value="dairy">Dairy</option>
+                        <option value="bakery">Bakery</option>
+                        <option value="snacks">Snacks</option>
+                        <option value="beverages">Beverages</option>
+                        <option value="frozen">Frozen</option>
+                    </select>
+                    <select class="filter-select" id="allergen-filter">
+                        <option value="">All Allergens</option>
+                        <option value="peanuts">Contains Peanuts</option>
+                        <option value="lactose">Contains Lactose</option>
+                        <option value="gluten">Contains Gluten</option>
+                        <option value="soy">Contains Soy</option>
+                    </select>
+                    <button class="btn btn-secondary" id="export-btn">
+                        <i class="fas fa-file-export"></i>
+                        Export
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>Product List</h2>
+                    <span class="badge badge-primary" id="product-count">0 Products</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table" id="products-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" id="select-all">
+                                </th>
+                                <th>Image</th>
+                                <th>Product Name</th>
+                                <th>Barcode</th>
+                                <th>Category</th>
+                                <th>Ingredients</th>
+                                <th>Allergens</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-tbody">
+                            <!-- Products will be loaded here -->
+                            <tr>
+                                <td colspan="9" class="text-center">
+                                    <div class="loading">
+                                        <i class="fas fa-spinner fa-spin"></i>
+                                        Loading products...
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-footer">
+                    <div class="pagination">
+                        <button class="btn btn-sm" id="prev-page">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span id="page-info">Page 1 of 1</span>
+                        <button class="btn btn-sm" id="next-page">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <h2 id="modal-title">Add New Product</h2>
+                <button class="modal-close" id="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="product-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="product-name">Product Name *</label>
+                            <input type="text" id="product-name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="barcode">Barcode *</label>
+                            <input type="text" id="barcode" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Category *</label>
+                            <select id="category" required>
+                                <option value="">Select Category</option>
+                                <option value="dairy">Dairy</option>
+                                <option value="bakery">Bakery</option>
+                                <option value="snacks">Snacks</option>
+                                <option value="beverages">Beverages</option>
+                                <option value="frozen">Frozen</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="brand">Brand</label>
+                            <input type="text" id="brand">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="description">Description</label>
+                            <textarea id="description" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="ingredients">Ingredients *</label>
+                            <textarea id="ingredients" rows="3" placeholder="Enter ingredients separated by commas" required></textarea>
+                            <small>Separate each ingredient with a comma</small>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label>Allergens</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allergen" value="peanuts">
+                                    <span>Peanuts</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allergen" value="lactose">
+                                    <span>Lactose</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allergen" value="gluten">
+                                    <span>Gluten</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allergen" value="soy">
+                                    <span>Soy</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allergen" value="shellfish">
+                                    <span>Shellfish</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="allergen" value="eggs">
+                                    <span>Eggs</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-image">Product Image</label>
+                            <input type="file" id="product-image" accept="image/*">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select id="status">
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            Save Product
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="../firebase-config.js"></script>
+    
+    <!-- Dashboard Script -->
+    <script src="dashboard.js"></script>
+    
+    <!-- Products Script -->
+    <script src="products.js"></script>
+</body>
+</html>

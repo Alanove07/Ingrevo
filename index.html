@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ingrevo - Read Beyond The Label! Smart Ingredient & Allergen Awareness System for Hypermarkets. Instant product identification, allergen alerts, and health-conscious shopping.">
+    <title>Ingrevo - Read Beyond The Label!</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="home-style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="assets/logo.jpg" alt="Ingrevo Logo" class="logo-small">
+                <span class="logo-text">Ingrevo</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="3d-gallery.html">3D Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="login.html" class="nav-cta">Admin Login</a>
+            <button class="mobile-menu-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="tagline">Read Beyond The Label!</div>
+                <h1 class="hero-title">
+                    Shop <span class="highlight">Smarter</span>,<br>
+                    Live <span class="highlight">Healthier</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Ingrevo is your intelligent shopping companion that instantly identifies product ingredients, 
+                    alerts you to allergens, and recommends healthier alternatives — right in the hypermarket.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#features" class="btn btn-primary">Discover Features</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Product Accuracy</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">2-Beep</span>
+                        <span class="stat-label">Allergen Alert</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">Multi</span>
+                        <span class="stat-label">Language Support</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card card-1">
+                    <i class="fas fa-shopping-cart icon"></i>
+                    <p>Smart Trolley</p>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-exclamation-triangle icon"></i>
+                    <p>Allergen Alert</p>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-search icon"></i>
+                    <p>AI Recognition</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Ingrevo</h2>
+                <p>Revolutionizing how you shop for safer, healthier products</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>The Problem We Solve</h3>
+                    <p>
+                        Shoppers in hypermarkets struggle to understand product ingredients and allergen information. 
+                        Labels are small, technical, and often in English only — creating health risks, especially 
+                        for people with allergies, dietary restrictions, or health conditions.
+                    </p>
+                    <h3>Our Solution</h3>
+                    <p>
+                        Ingrevo combines <strong>smart kiosks</strong>, <strong>intelligent trolleys</strong>, 
+                        and <strong>AI-powered scanning</strong> to give you instant, clear information about 
+                        every product you pick up. Get real-time allergen alerts, personalized health recommendations, 
+                        and safer alternatives — all in your preferred language.
+                    </p>
+                </div>
+                <div class="about-image">
+                    <div class="about-visual">
+                        <div class="visual-item">
+                            <i class="fas fa-mobile-alt visual-icon"></i>
+                            <h4>Instant Scanning</h4>
+                            <p>Barcode & AI recognition</p>
+                        </div>
+                        <div class="visual-item">
+                            <i class="fas fa-bell visual-icon"></i>
+                            <h4>Real-time Alerts</h4>
+                            <p>Two-beep warning system</p>
+                        </div>
+                        <div class="visual-item">
+                            <i class="fas fa-globe visual-icon"></i>
+                            <h4>Multi-Language</h4>
+                            <p>English, Hindi, Malayalam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features</h2>
+                <p>Everything you need for confident, healthy shopping</p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <i class="fas fa-search feature-icon"></i>
+                    <h3>Instant Product ID</h3>
+                    <p>Scan barcodes or use AI image recognition to instantly identify any product in the store.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <i class="fas fa-exclamation-triangle feature-icon"></i>
+                    <h3>Allergen Alert System</h3>
+                    <p>Two-beep audio + visual alert when a product contains your flagged allergens or unsafe ingredients.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <i class="fas fa-robot feature-icon"></i>
+                    <h3>AI Health Advisor</h3>
+                    <p>Get personalized recommendations for healthier alternatives based on your dietary needs.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <i class="fas fa-microphone feature-icon"></i>
+                    <h3>Voice Assistance</h3>
+                    <p>Voice commands and text-to-speech summaries for hands-free, accessible shopping.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <i class="fas fa-shopping-cart feature-icon"></i>
+                    <h3>Smart Trolley</h3>
+                    <p>Auto-scan items as you shop, track totals, and get instant alerts — all from your cart.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt feature-icon"></i>
+                    <h3>Mobile App & AR</h3>
+                    <p>View AR tags on products, save preferences, and get personalized offers through the mobile app.</p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="feature-card">
+                    <i class="fas fa-globe feature-icon"></i>
+                    <h3>Multi-Language UI</h3>
+                    <p>Available in English, Malayalam, Hindi, and more regional languages for accessibility.</p>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="feature-card">
+                    <i class="fas fa-chart-bar feature-icon"></i>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Retailers get insights on shopping trends, allergen queries, and product performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>Who Benefits from Ingrevo?</h2>
+                <p>Creating value for everyone in the shopping ecosystem</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-heartbeat benefit-icon"></i>
+                    <h3>Health-Conscious Shoppers</h3>
+                    <p>People with allergies, diabetes, hypertension, or dietary restrictions can shop with confidence.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-users benefit-icon"></i>
+                    <h3>Families & Parents</h3>
+                    <p>Easily find safe products for children with food sensitivities or specific nutritional needs.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-user-friends benefit-icon"></i>
+                    <h3>Elderly & Visually Impaired</h3>
+                    <p>Voice assistance and clear visual alerts make shopping accessible for everyone.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-store benefit-icon"></i>
+                    <h3>Hypermarket Management</h3>
+                    <p>Improve customer satisfaction, reduce returns, and gain valuable shopping insights.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-leaf benefit-icon"></i>
+                    <h3>Eco-Conscious Consumers</h3>
+                    <p>Get eco-scores and sustainability ratings to make environmentally responsible choices.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-tags benefit-icon"></i>
+                    <h3>Brands & Manufacturers</h3>
+                    <p>Showcase product transparency and build trust with health-conscious shoppers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Simple, fast, and intelligent shopping in 4 easy steps</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Scan the Product</h3>
+                    <p>Use the kiosk or smart trolley to scan a barcode or show the product to the AI camera.</p>
+                </div>
+                <div class="step-arrow">→</div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Get Instant Info</h3>
+                    <p>See ingredient breakdown, allergen highlights, and nutritional information on screen.</p>
+                </div>
+                <div class="step-arrow">→</div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Receive Alerts</h3>
+                    <p>If allergens are detected, hear a two-beep alert and see red visual warnings with alternatives.</p>
+                </div>
+                <div class="step-arrow">→</div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Shop with Confidence</h3>
+                    <p>Add safe products to your cart. Trolley syncs with checkout for a seamless experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Shopping Experience?</h2>
+            <p>Join the future of smart, healthy hypermarket shopping with Ingrevo.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-light">Get in Touch</a>
+                <a href="login.html" class="btn btn-outline">Admin Portal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Interested in partnering with us or learning more? Reach out!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@ingrevo.com</p>
+                            <p>support@ingrevo.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 XXX XXX XXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Hypermarket District</p>
+                            <p>India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-user contact-icon"></i>
+                        <div>
+                            <h4>Project Lead</h4>
+                            <p>Alanove Jenny Bazil</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Organization (Optional)">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ingrevo</h3>
+                <p class="footer-tagline">Read Beyond The Label!</p>
+                <p>Smart Ingredient & Allergen Awareness System for Hypermarkets</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="login.html">Admin Login</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" class="social-icon">LinkedIn</a>
+                    <a href="#" class="social-icon">Twitter</a>
+                    <a href="#" class="social-icon">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Ingrevo. All rights reserved. | Built with ❤️ for healthier shopping.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="home-script.js"></script>
+</body>
+</html>

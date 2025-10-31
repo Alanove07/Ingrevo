@@ -1,0 +1,197 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ========================================
+    // HELPER FUNCTIONS
+    // ========================================
+    
+    // Check if user is authenticated
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    // Check if user is admin
+    function isAdmin() {
+      return isSignedIn() && 
+             request.auth.token.email != null;
+    }
+    
+    // Check if user owns the resource
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    // Validate required fields exist
+    function hasRequiredFields(required) {
+      return request.resource.data.keys().hasAll(required);
+    }
+    
+    // ========================================
+    // PRODUCTS COLLECTION
+    // ========================================
+    match /products/{productId} {
+      // Anyone can read products (for public app usage)
+      allow read: if true;
+      
+      // Only authenticated admins can create products
+      allow create: if isAdmin() && 
+                      hasRequiredFields(['name', 'barcode', 'category', 'status']) &&
+                      request.resource.data.name is string &&
+                      request.resource.data.barcode is string &&
+                      request.resource.data.category in ['dairy', 'bakery', 'snacks', 'beverages', 'frozen'] &&
+                      request.resource.data.status in ['active', 'inactive'];
+      
+      // Only authenticated admins can update products
+      allow update: if isAdmin() &&
+                      request.resource.data.name is string &&
+                      request.resource.data.status in ['active', 'inactive'];
+      
+      // Only authenticated admins can delete products
+      allow delete: if isAdmin();
+    }
+    
+    // ========================================
+    // INGREDIENTS COLLECTION
+    // ========================================
+    match /ingredients/{ingredientId} {
+      // Anyone can read ingredients
+      allow read: if true;
+      
+      // Only authenticated admins can create ingredients
+      allow create: if isAdmin() && 
+                      hasRequiredFields(['name', 'category', 'riskLevel', 'status']) &&
+                      request.resource.data.name is string &&
+                      request.resource.data.category in ['additive', 'preservative', 'natural', 'synthetic', 'flavor', 'coloring'] &&
+                      request.resource.data.riskLevel in ['safe', 'low', 'medium', 'high'] &&
+                      request.resource.data.status in ['active', 'inactive'];
+      
+      // Only authenticated admins can update ingredients
+      allow update: if isAdmin();
+      
+      // Only authenticated admins can delete ingredients
+      allow delete: if isAdmin();
+    }
+    
+    // ========================================
+    // ALLERGENS COLLECTION
+    // ========================================
+    match /allergens/{allergenId} {
+      // Anyone can read allergens
+      allow read: if true;
+      
+      // Only authenticated admins can create allergens
+      allow create: if isAdmin() && 
+                      hasRequiredFields(['name', 'severity']) &&
+                      request.resource.data.name is string &&
+                      request.resource.data.severity in ['low', 'medium', 'high'];
+      
+      // Only authenticated admins can update allergens
+      allow update: if isAdmin();
+      
+      // Only authenticated admins can delete allergens
+      allow delete: if isAdmin();
+    }
+    
+    // ========================================
+    // USERS COLLECTION
+    // ========================================
+    match /users/{userId} {
+      // Users can read their own data, admins can read all
+      allow read: if isSignedIn() && (isOwner(userId) || isAdmin());
+      
+      // Only admins can create user documents
+      allow create: if isAdmin() &&
+                      hasRequiredFields(['name', 'email', 'role', 'status']) &&
+                      request.resource.data.role in ['user', 'admin', 'moderator'] &&
+                      request.resource.data.status in ['active', 'inactive', 'suspended'];
+      
+      // Users can update their own allergen preferences, admins can update all
+      allow update: if (isOwner(userId) && 
+                        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['allergenTracking'])) ||
+                       isAdmin();
+      
+      // Only admins can delete users
+      allow delete: if isAdmin();
+    }
+    
+    // ========================================
+    // SURVEY COLLECTION
+    // ========================================
+    match /survey/{surveyId} {
+      // Anyone can read surveys
+      allow read: if true;
+      
+      // Anyone can create survey responses
+      allow create: if true;
+      
+      // Only authenticated admins can update surveys
+      allow update: if isAdmin();
+      
+      // Only authenticated admins can delete surveys
+      allow delete: if isAdmin();
+    }
+    
+    // ========================================
+    // ANALYTICS COLLECTION
+    // ========================================
+    match /analytics/{analyticId} {
+      // Authenticated users can read analytics
+      allow read: if isSignedIn();
+      
+      // Authenticated users can create analytics (log their actions)
+      allow create: if isSignedIn() &&
+                      hasRequiredFields(['type', 'dateTime']) &&
+                      request.resource.data.type in ['product_scan', 'allergen_alert', 'search'] &&
+                      request.resource.data.dateTime is timestamp;
+      
+      // Only admins can update analytics
+      allow update: if isAdmin();
+      
+      // Only admins can delete analytics
+      allow delete: if isAdmin();
+    }
+    
+    // ========================================
+    // SURVEY RESPONSES COLLECTION
+    // ========================================
+    match /surveyResponses/{responseId} {
+      // Only admins can read survey responses
+      allow read: if isAdmin();
+      
+      // Anyone can submit VOS survey responses (public surveys)
+      allow create: if true;
+      
+      // Only admins can update responses
+      allow update: if isAdmin();
+      
+      // Only admins can delete responses
+      allow delete: if isAdmin();
+    }
+    
+    // ========================================
+    // ADMIN SETTINGS COLLECTION (Optional)
+    // ========================================
+    match /settings/{settingId} {
+      // Only admins can read settings
+      allow read: if isAdmin();
+      
+      // Only admins can create settings
+      allow create: if isAdmin();
+      
+      // Only admins can update settings
+      allow update: if isAdmin();
+      
+      // Only admins can delete settings
+      allow delete: if isAdmin();
+    }
+    
+    // ========================================
+    // DEFAULT DENY
+    // ========================================
+    // Deny all other access by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

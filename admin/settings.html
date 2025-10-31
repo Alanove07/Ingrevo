@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Ingrevo Admin Portal</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Admin Stylesheet -->
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="brand">
+                <i class="fas fa-leaf"></i>
+                <span class="brand-name">Ingrevo</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="products.html" class="nav-item">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+            <a href="ingredients.html" class="nav-item">
+                <i class="fas fa-flask"></i>
+                <span>Ingredients</span>
+            </a>
+            <a href="allergens.html" class="nav-item">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Allergens</span>
+            </a>
+            <a href="surveys.html" class="nav-item">
+                <i class="fas fa-poll"></i>
+                <span>Surveys</span>
+            </a>
+            <a href="survey-details.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>Survey Responses</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="users.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>Users</span>
+            </a>
+            <a href="settings.html" class="nav-item active">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" class="nav-item" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="topbar-left">
+                <h1 class="page-title">Settings</h1>
+            </div>
+
+            <div class="topbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search settings...">
+                </div>
+                
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+
+                <div class="user-menu">
+                    <img src="../assets/logo.jpg" alt="User" class="user-avatar" onerror="this.style.display='none'">
+                    <div class="user-info">
+                        <span class="user-name" id="user-name">Admin</span>
+                        <span class="user-role">Administrator</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Settings Content -->
+        <div class="content-wrapper">
+            <div class="settings-container">
+                <!-- Settings Tabs -->
+                <div class="settings-tabs">
+                    <button class="tab-btn active" data-tab="general">
+                        <i class="fas fa-cog"></i>
+                        General
+                    </button>
+                    <button class="tab-btn" data-tab="notifications">
+                        <i class="fas fa-bell"></i>
+                        Notifications
+                    </button>
+                    <button class="tab-btn" data-tab="security">
+                        <i class="fas fa-shield-alt"></i>
+                        Security
+                    </button>
+                    <button class="tab-btn" data-tab="api">
+                        <i class="fas fa-code"></i>
+                        API Keys
+                    </button>
+                    <button class="tab-btn" data-tab="backup">
+                        <i class="fas fa-database"></i>
+                        Backup
+                    </button>
+                </div>
+
+                <!-- Settings Content -->
+                <div class="settings-content">
+                    <!-- General Tab -->
+                    <div class="tab-content active" id="general">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>General Settings</h2>
+                            </div>
+                            <div class="card-body">
+                                <form class="settings-form">
+                                    <div class="form-group">
+                                        <label for="app-name">Application Name</label>
+                                        <input type="text" id="app-name" value="Ingrevo">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="app-tagline">Tagline</label>
+                                        <input type="text" id="app-tagline" value="Read Beyond The Label!">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="support-email">Support Email</label>
+                                        <input type="email" id="support-email" value="support@ingrevo.com">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="timezone">Timezone</label>
+                                        <select id="timezone">
+                                            <option value="UTC">UTC</option>
+                                            <option value="EST" selected>Eastern Standard Time</option>
+                                            <option value="PST">Pacific Standard Time</option>
+                                            <option value="CST">Central Standard Time</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="language">Default Language</label>
+                                        <select id="language">
+                                            <option value="en" selected>English</option>
+                                            <option value="es">Spanish</option>
+                                            <option value="fr">French</option>
+                                        </select>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Save Changes
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications Tab -->
+                    <div class="tab-content" id="notifications">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Notification Preferences</h2>
+                            </div>
+                            <div class="card-body">
+                                <form class="settings-form">
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Email Notifications</h3>
+                                            <p>Receive email updates about system activities</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>New User Registration</h3>
+                                            <p>Get notified when a new user registers</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Product Updates</h3>
+                                            <p>Alerts when products are added or modified</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Allergen Alerts</h3>
+                                            <p>Critical allergen-related notifications</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Weekly Reports</h3>
+                                            <p>Receive weekly analytics summary via email</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        Save Preferences
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security Tab -->
+                    <div class="tab-content" id="security">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Security Settings</h2>
+                            </div>
+                            <div class="card-body">
+                                <form class="settings-form">
+                                    <div class="form-group">
+                                        <label for="current-password">Current Password</label>
+                                        <input type="password" id="current-password">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="new-password">New Password</label>
+                                        <input type="password" id="new-password">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="confirm-password">Confirm New Password</label>
+                                        <input type="password" id="confirm-password">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-key"></i>
+                                        Change Password
+                                    </button>
+                                </form>
+
+                                <hr style="margin: 2rem 0;">
+
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Two-Factor Authentication</h3>
+                                        <p>Add an extra layer of security to your account</p>
+                                    </div>
+                                    <button class="btn btn-secondary">Enable 2FA</button>
+                                </div>
+
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Active Sessions</h3>
+                                        <p>Manage your active login sessions</p>
+                                    </div>
+                                    <button class="btn btn-secondary">View Sessions</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- API Tab -->
+                    <div class="tab-content" id="api">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>API Configuration</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info">
+                                    <i class="fas fa-info-circle"></i>
+                                    Keep your API keys secure. Never share them in public repositories.
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Firebase API Key</label>
+                                    <div class="api-key-display">
+                                        <code>AIzaSyDAmeRJEcjufUaMIiip4i9s-P5UnkPBZ60</code>
+                                        <button class="btn btn-sm btn-secondary">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Project ID</label>
+                                    <div class="api-key-display">
+                                        <code>ingrevo-98c4c</code>
+                                        <button class="btn btn-sm btn-secondary">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-sync"></i>
+                                    Regenerate Keys
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backup Tab -->
+                    <div class="tab-content" id="backup">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>Backup & Restore</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="setting-item">
+                                    <div class="setting-info">
+                                        <h3>Automatic Backups</h3>
+                                        <p>Enable daily automatic database backups</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Backup Frequency</label>
+                                    <select>
+                                        <option value="daily" selected>Daily</option>
+                                        <option value="weekly">Weekly</option>
+                                        <option value="monthly">Monthly</option>
+                                    </select>
+                                </div>
+
+                                <div class="backup-actions">
+                                    <button class="btn btn-primary">
+                                        <i class="fas fa-download"></i>
+                                        Download Backup
+                                    </button>
+                                    <button class="btn btn-secondary">
+                                        <i class="fas fa-upload"></i>
+                                        Restore from Backup
+                                    </button>
+                                </div>
+
+                                <hr style="margin: 2rem 0;">
+
+                                <h3>Recent Backups</h3>
+                                <div class="backup-list">
+                                    <div class="backup-item">
+                                        <i class="fas fa-file-archive"></i>
+                                        <div class="backup-info">
+                                            <strong>Backup_2024_10_30.zip</strong>
+                                            <small>October 30, 2024 - 245 MB</small>
+                                        </div>
+                                        <button class="btn btn-sm btn-secondary">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                    </div>
+                                    <div class="backup-item">
+                                        <i class="fas fa-file-archive"></i>
+                                        <div class="backup-info">
+                                            <strong>Backup_2024_10_29.zip</strong>
+                                            <small>October 29, 2024 - 243 MB</small>
+                                        </div>
+                                        <button class="btn btn-sm btn-secondary">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="../firebase-config.js"></script>
+    
+    <!-- Dashboard Script -->
+    <script src="dashboard.js"></script>
+    
+    <!-- Settings Script -->
+    <script src="settings.js"></script>
+</body>
+</html>

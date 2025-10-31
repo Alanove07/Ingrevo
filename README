@@ -1,0 +1,186 @@
+INGREVO — Full Project Description (copyable)
+
+Project Name: INGREVO
+Tagline: Smart Ingredient & Allergen Awareness System for Hypermarkets
+
+Elevator Pitch
+
+Ingrevo is an in-store smart system (kiosk + smart trolley + mobile app) that instantly identifies product ingredients, allergens, and safety information using barcode/QR scanning and AI image recognition. It alerts users (two-beep alarm + visual warning) when a selected product contains an ingredient they marked as dangerous, offers healthier/safer alternatives, supports voice and multi-language interaction, and provides AR shelf overlays and analytics for retailers.
+
+Problem Statement
+
+Shoppers in large hypermarkets routinely buy food, cosmetics, and household products without easy access to understandable ingredient or allergen information. Labels are small, technical, and often in English only. This creates health risks (allergic reactions, unsuitable purchases for diabetics, hypertensive patients, etc.), frustration for elderly/visually impaired shoppers, and missed opportunities for retailers to demonstrate trust and improve customer experience.
+
+Who Benefits
+
+Consumers with allergies or dietary restrictions (nuts, gluten, lactose, etc.)
+
+Health-conscious shoppers (vegan, diabetic, low-sodium)
+
+Parents buying for children with sensitivities
+
+Elderly and visually impaired shoppers
+
+Hypermarket management (improved customer satisfaction, analytics)
+
+Brands (better product transparency)
+
+Core Solution (What Ingrevo Does)
+
+Instant Product Identification — Barcode/QR scanning and AI image recognition identify products quickly.
+
+Allergen Alert (Two-Beep System) — Users pre-select allergens/ingredients to avoid. If a scanned product contains any, the kiosk/trolley beeps twice and shows a red alert screen and clear text.
+
+AI-Powered Health Advisor — Matches product ingredients to a user’s health profile (optional) and recommends safer/healthier alternatives. Integrates with health apps later for personalization.
+
+Voice + Visual Assistance — Voice commands, text-to-speech ingredient summaries, and multi-language UI (English, Malayalam, Hindi, etc.) for accessibility.
+
+Smart Trolley Integration — Trolley-mounted module auto-scans items as they’re placed in the cart, shows running total, alerts, and syncs with checkout.
+
+Mobile App & Loyalty Integration — Saves scan history, preferences, and gives personalized offers and reward points for healthy/eco buys.
+
+AR Product View — Use the mobile app camera to see AR tags on shelf items showing allergen icons, nutrition highlights, eco-score, and quick ratings.
+
+Community Health Ecosystem & Analytics — Anonymous in-store analytics for retailers (top allergens searched, most avoided ingredients, product trends). Enables community programs and targeted stocking/promotion.
+
+Unique Selling Points (USPs)
+
+First solution combining in-store kiosk, smart trolley, AI recognition, voice accessibility, AR, and personalized health advice.
+
+Two-beep audible alert — immediate safety feedback that’s hard to miss.
+
+Localized for Indian market — Indian brand coverage, regional languages, offline/edge mode for low connectivity.
+
+Store integration (POS, loyalty) — reduces checkout time and provides actionable retailer analytics.
+
+High-Level Architecture (concept)
+
+Hardware: Kiosk (touchscreen, barcode/QR scanner, AI camera, speaker/mic, beeper), Smart Trolley Module (mini display + scanner + wireless).
+
+Software: Frontend kiosk UI, mobile app (iOS/Android), backend (DB for products & ingredients), AI services (image recognition, ingredient parsing, recommendation engine).
+
+Data: Product database (ingredients, allergens, nutrition, eco-score), user preferences (opt-in), anonymized analytics for stores.
+
+Integration: POS APIs for checkout sync, Firebase or equivalent for auth & storage (prototype), optional health app APIs for personalization.
+
+Privacy & Safety (brief)
+
+User health data is optional and stored only with consent.
+
+Default behavior: alerts work without storing personal health data (user can set allergens locally).
+
+Anonymized analytics only; no PII in store reports.
+
+Follow local data protection guidelines and secure storage best practices.
+
+Pilot Plan (minimum viable pilot)
+
+Preparation (1–2 months): Research, local product data collection, basic kiosk UI mockups.
+
+Prototype Build (2–4 months): Kiosk hardware + scanner, trolley prototype, minimal app, AI model for image recognition (basic).
+
+Pilot Deployment (1–2 months): Install in 1–2 hypermarket locations for field testing. Train staff, collect feedback.
+
+Refinement (1–2 months): Improve datasets, UI, alert accuracy, and integrate POS checkout sync.
+
+Pilot KPIs: detection accuracy, avg. time per scan, number of prevented unsafe purchases, user satisfaction score.
+
+Timeline (prototype to pilot)
+
+Research & Requirements: 1–2 months
+
+Prototype Development: 3–5 months
+
+Pilot Testing: 1–2 months
+
+Feature Expansion & Scaling: ongoing after pilot
+
+Estimated Budget (Prototype + Pilot) — scaled project
+
+Total: ₹3,00,000 – ₹5,00,000 (3–5 Lakh) — includes hardware, software, AI research, testing, and pilot deployment.
+(Exact split available on request — includes kiosk hardware, smart trolley module, software development, AR, voice features, testing & pilot installation.)
+
+Business Model (revenue streams)
+
+Hardware sales / leasing to hypermarkets (kiosk & trolley units).
+
+Subscription / SaaS for product database updates and analytics dashboard for stores.
+
+Premium features (brand-verified content, certified ingredient feeds) as add-ons.
+
+Affiliate / promotion deals for healthier product recommendations or featured placements (careful with trust).
+
+Data services (anonymized trends & insights) for retailers/brands.
+
+Risks & Mitigation
+
+Incomplete product data (regional brands): Mitigate by building local ingestion pipelines and partnerships with brands & FSSAI datasets.
+
+False negatives/positives from AI: Use hybrid model (barcode first, image recognition fallback) and human-verified product entries initially.
+
+User privacy concerns: Keep health profile optional, anonymize analytics, publish privacy policy.
+
+Store adoption resistance: Pilot with clear ROI metrics (reduced checkout time, happier customers) and low-risk leasing models.
+
+Success Metrics (example KPIs)
+
+% of scanned products correctly identified (target ≥ 90% after iteration)
+
+prevented unsafe purchases per pilot month
+
+Avg time saved at checkout (minutes)
+
+Daily active kiosk users per store
+
+Retailer satisfaction score (post-pilot)
+
+Suggested Team Roles (core for prototype/pilot)
+
+Project Lead / PM
+
+Researcher & Data Curator (ingredient & allergen datasets)
+
+Hardware Engineer (kiosk & trolley prototype)
+
+Software Developer (frontend + backend + mobile)
+
+AI/ML Engineer (image recognition & recommendation engine)
+
+UI/UX Designer & Accessibility Specialist
+
+QA / Prototype Tester
+
+Field Coordinator / Pilot Manager
+
+Business / Partnership Lead
+
+Legal & Privacy Advisor (part time)
+
+Demo Script (short)
+
+Shopper approaches kiosk and scans barcode or shows product to camera.
+
+Kiosk displays ingredient breakdown, highlights flagged allergens.
+
+If user has that allergen selected, kiosk beeps twice, shows red alert and suggests alternatives.
+
+Shopper places product in smart trolley → trolley auto-scans and shows running total + any alerts.
+
+At checkout, cart data syncs to POS; receipt can include a simple health confirmation/summary.
+
+Next Steps (for immediate work)
+
+Build index/login page + Firebase placeholder (project skeleton).
+
+Start a small product ingredient database (local brands) and survey shoppers in target hypermarket.
+
+Prototype kiosk UI mockups and trolley placement.
+
+Train a simple image recognition model with 100–300 product images for pilot categories.
+
+Plan pilot partnerships with 1–2 local hypermarkets.
+
+Contact / Team Reference
+
+Prepared by: Alanove Jenny Bazil (Project Lead)
+Project: Ingrevo — Smart Ingredient & Allergen Awareness System

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Survey - Ingrevo</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Survey Stylesheet -->
+    <link rel="stylesheet" href="survey-style.css">
+</head>
+<body>
+    <div class="survey-container">
+        <!-- Header -->
+        <header class="survey-header">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Ingrevo</span>
+            </div>
+            <p class="tagline">Read Beyond The Label!</p>
+        </header>
+
+        <!-- Survey Form -->
+        <div class="survey-content">
+            <div class="survey-intro">
+                <h1><i class="fas fa-store"></i> Hypermarket Staff / Manager Survey</h1>
+                <p>Help us understand your experiences with customers, their questions about ingredients, and how we can support your work better.</p>
+                <div class="info-badge">
+                    <i class="fas fa-clock"></i>
+                    <span>Estimated time: 4-6 minutes</span>
+                </div>
+            </div>
+
+            <form id="staff-survey-form">
+                <!-- Section A: Staff Information -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">A</div>
+                        <h2>Staff Information</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Position *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="position" value="Store Manager" required>
+                                    <span>Store Manager</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="position" value="Cashier" required>
+                                    <span>Cashier</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="position" value="Sales Assistant" required>
+                                    <span>Sales Assistant</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="position" value="Department Manager" required>
+                                    <span>Department Manager</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="position" value="Customer Service" required>
+                                    <span>Customer Service</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="position" value="Other" required>
+                                    <span>Other</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="store_name">Store Name / Branch *</label>
+                        <input type="text" id="store_name" name="store_name" required placeholder="Enter store name and branch">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="experience_years">Years of Experience in Retail *</label>
+                            <input type="number" id="experience_years" name="experience_years" min="0" max="50" required placeholder="e.g., 5">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="store_location">Store District / City *</label>
+                            <input type="text" id="store_location" name="store_location" required placeholder="e.g., Colombo">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section B: Customer Interactions -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">B</div>
+                        <h2>Customer Interactions & Challenges</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How often do customers ask about product ingredients or allergen information? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="ingredient_questions_frequency" value="Multiple times per day" required>
+                                <span>Multiple times per day</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="ingredient_questions_frequency" value="Once per day" required>
+                                <span>Once per day</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="ingredient_questions_frequency" value="A few times per week" required>
+                                <span>A few times per week</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="ingredient_questions_frequency" value="Rarely (once a month or less)" required>
+                                <span>Rarely (once a month or less)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="ingredient_questions_frequency" value="Never" required>
+                                <span>Never</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What types of ingredient-related questions do customers ask most? * (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="question_types" value="Allergen information (nuts, gluten, dairy, etc.)">
+                                <span>Allergen information (nuts, gluten, dairy, etc.)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="question_types" value="Artificial additives and preservatives">
+                                <span>Artificial additives and preservatives</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="question_types" value="Sugar and sweetener content">
+                                <span>Sugar and sweetener content</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="question_types" value="Halal/Kosher certification">
+                                <span>Halal/Kosher certification</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="question_types" value="Organic or natural ingredients">
+                                <span>Organic or natural ingredients</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="question_types" value="Nutritional values (calories, protein, etc.)">
+                                <span>Nutritional values (calories, protein, etc.)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="question_types" value="Country of origin">
+                                <span>Country of origin</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Are staff members trained to answer detailed ingredient or allergen questions? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="staff_trained" value="Yes, comprehensive training provided" required>
+                                <span>Yes, comprehensive training provided</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="staff_trained" value="Yes, basic training only" required>
+                                <span>Yes, basic training only</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="staff_trained" value="No, but we learn on the job" required>
+                                <span>No, but we learn on the job</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="staff_trained" value="No training at all" required>
+                                <span>No training at all</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What difficulties do customers face when shopping for safe products? * (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="customer_difficulties" value="Understanding complex ingredient names">
+                                <span>Understanding complex ingredient names</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="customer_difficulties" value="Text on labels too small to read">
+                                <span>Text on labels too small to read</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="customer_difficulties" value="Finding products suitable for allergies">
+                                <span>Finding products suitable for allergies</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="customer_difficulties" value="Comparing similar products">
+                                <span>Comparing similar products</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="customer_difficulties" value="Identifying trustworthy brands">
+                                <span>Identifying trustworthy brands</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="customer_difficulties" value="Language barriers (labels in foreign languages)">
+                                <span>Language barriers (labels in foreign languages)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="customer_difficulties" value="Time constraints while shopping">
+                                <span>Time constraints while shopping</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Do customers return or complain about products due to allergies or ingredient misinformation? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="product_returns" value="Yes, frequently (multiple times per month)" required>
+                                <span>Yes, frequently (multiple times per month)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="product_returns" value="Sometimes (a few times per year)" required>
+                                <span>Sometimes (a few times per year)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="product_returns" value="Rarely (once or twice ever)" required>
+                                <span>Rarely (once or twice ever)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="product_returns" value="Never" required>
+                                <span>Never</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="specific_incidents">Can you describe a specific incident where a customer had concerns about ingredients? (Optional)</label>
+                        <textarea id="specific_incidents" name="specific_incidents" rows="3" placeholder="Share any memorable situations..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Section C: System Awareness & Interest -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">C</div>
+                        <h2>Technology & Innovation Interest</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Does your store currently use any digital product information tools? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="current_digital_tools" value="Yes, advanced systems" required>
+                                <span>Yes, advanced systems (digital screens, apps, kiosks)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="current_digital_tools" value="Yes, basic systems" required>
+                                <span>Yes, basic systems (barcode scanners only)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="current_digital_tools" value="No, all manual" required>
+                                <span>No, all information provided manually</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="tools-specify" style="display: none;">
+                        <label for="tools_description">Please describe the digital tools you currently use</label>
+                        <textarea id="tools_description" name="tools_description" rows="2" placeholder="e.g., Self-checkout kiosks, mobile app, digital price tags..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How helpful would an AI-powered ingredient information kiosk be for your staff and customers? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="kiosk_helpfulness" value="Extremely helpful - would solve many problems" required>
+                                <span>Extremely helpful - would solve many problems</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="kiosk_helpfulness" value="Very helpful - would improve service" required>
+                                <span>Very helpful - would improve service</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="kiosk_helpfulness" value="Somewhat helpful - nice to have" required>
+                                <span>Somewhat helpful - nice to have</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="kiosk_helpfulness" value="Not very helpful - current system works fine" required>
+                                <span>Not very helpful - current system works fine</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What features would be most valuable in an ingredient safety system? * (Select top 3)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="valuable_features" value="Instant allergen alerts">
+                                <span>Instant allergen alerts</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="valuable_features" value="Multi-language support">
+                                <span>Multi-language support</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="valuable_features" value="Product comparison tool">
+                                <span>Product comparison tool</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="valuable_features" value="Healthier alternative suggestions">
+                                <span>Healthier alternative suggestions</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="valuable_features" value="Voice-guided navigation">
+                                <span>Voice-guided navigation</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="valuable_features" value="Detailed ingredient breakdown">
+                                <span>Detailed ingredient breakdown</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="valuable_features" value="Staff training module">
+                                <span>Staff training module</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="valuable_features" value="Customer feedback collection">
+                                <span>Customer feedback collection</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Would your store management be open to testing or hosting an Ingrevo kiosk for a pilot program? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="pilot_interest" value="Yes, very interested" required>
+                                <span>Yes, very interested</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="pilot_interest" value="Maybe, need more information" required>
+                                <span>Maybe, need more information</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="pilot_interest" value="Not sure, would need management approval" required>
+                                <span>Not sure, would need management approval</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="pilot_interest" value="No, not interested" required>
+                                <span>No, not interested</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="suggestions">Any additional suggestions or features you'd like in such a system?</label>
+                        <textarea id="suggestions" name="suggestions" rows="4" placeholder="Share your ideas for improving customer experience and staff efficiency..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact_email">Email Address (Optional - for pilot program updates)</label>
+                        <input type="email" id="contact_email" name="contact_email" placeholder="your.email@example.com">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Survey
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer class="survey-footer">
+            <p>&copy; 2024 Ingrevo. All rights reserved.</p>
+            <p>Your responses are confidential and will be used to improve our services.</p>
+        </footer>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Thank You!</h2>
+            <p>Your survey response has been submitted successfully.</p>
+            <p>We appreciate your valuable feedback!</p>
+            <button onclick="window.location.href='../index.html'" class="btn-home">
+                <i class="fas fa-home"></i> Go to Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="../firebase-config.js"></script>
+    
+    <!-- Survey Script -->
+    <script src="staff-survey.js"></script>
+</body>
+</html>

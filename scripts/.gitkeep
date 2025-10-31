@@ -1,0 +1,10 @@
+# Scripts Folder
+
+This folder will contain additional JavaScript modules.
+
+## Planned Files:
+- `database.js` - Firestore database operations
+- `utils.js` - Utility functions and helpers
+- `validation.js` - Form validation logic
+- `api.js` - External API integrations
+- `charts.js` - Data visualization helpers

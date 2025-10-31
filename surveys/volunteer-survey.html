@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Survey - Ingrevo</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Survey Stylesheet -->
+    <link rel="stylesheet" href="survey-style.css">
+</head>
+<body>
+    <div class="survey-container">
+        <!-- Header -->
+        <header class="survey-header">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Ingrevo</span>
+            </div>
+            <p class="tagline">Read Beyond The Label!</p>
+        </header>
+
+        <!-- Survey Form -->
+        <div class="survey-content">
+            <div class="survey-intro">
+                <h1><i class="fas fa-clipboard-list"></i> Research Volunteer / Data Collection Form</h1>
+                <p>Thank you for your hard work in collecting survey data! This form helps us track progress, identify challenges, and improve our data collection process.</p>
+                <div class="info-badge">
+                    <i class="fas fa-clock"></i>
+                    <span>Estimated time: 3-4 minutes</span>
+                </div>
+            </div>
+
+            <form id="volunteer-survey-form">
+                <!-- Section A: Volunteer Details -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">A</div>
+                        <h2>Volunteer Information</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Role / Responsibility *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="role" value="Field Survey Collector" required>
+                                <span>Field Survey Collector</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="role" value="Data Entry Specialist" required>
+                                <span>Data Entry Specialist</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="role" value="Technical Support" required>
+                                <span>Technical Support</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="role" value="Research Analyst" required>
+                                <span>Research Analyst</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="role" value="Team Coordinator" required>
+                                <span>Team Coordinator</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="role" value="Other" required>
+                                <span>Other</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact_phone">Contact Number *</label>
+                            <input type="tel" id="contact_phone" name="contact_phone" required placeholder="+94 XX XXX XXXX">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact_email">Email Address *</label>
+                            <input type="email" id="contact_email" name="contact_email" required placeholder="your.email@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="assigned_region">Assigned Store / Region / Area *</label>
+                        <input type="text" id="assigned_region" name="assigned_region" required placeholder="e.g., Arpico Supercentre - Colombo 7">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="collection_date">Date of Data Collection *</label>
+                        <input type="date" id="collection_date" name="collection_date" required>
+                    </div>
+                </div>
+
+                <!-- Section B: Data Collection Progress -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">B</div>
+                        <h2>Data Collection Progress & Notes</h2>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="surveys_collected_today">Number of Surveys Collected Today *</label>
+                            <input type="number" id="surveys_collected_today" name="surveys_collected_today" min="0" required placeholder="e.g., 15">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="surveys_collected_week">Total Surveys This Week *</label>
+                            <input type="number" id="surveys_collected_week" name="surveys_collected_week" min="0" required placeholder="e.g., 67">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Which survey types did you collect today? * (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="survey_types_collected" value="Customer / Shopper Surveys">
+                                <span>Customer / Shopper Surveys</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="survey_types_collected" value="Staff / Manager Surveys">
+                                <span>Staff / Manager Surveys</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="survey_types_collected" value="Health Professional Surveys">
+                                <span>Health Professional Surveys</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notable_responses">Notable Responses or Feedback Received</label>
+                        <textarea id="notable_responses" name="notable_responses" rows="4" placeholder="Share any interesting insights, common themes, or unexpected responses from participants..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="explanation_challenges">What challenges did you face while explaining Ingrevo to participants?</label>
+                        <textarea id="explanation_challenges" name="explanation_challenges" rows="3" placeholder="e.g., Difficulty explaining technical concepts, language barriers, time constraints..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How receptive were people to participating? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="participation_receptiveness" value="Very receptive - most agreed immediately" required>
+                                <span>Very receptive - most agreed immediately</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="participation_receptiveness" value="Moderately receptive - needed some convincing" required>
+                                <span>Moderately receptive - needed some convincing</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="participation_receptiveness" value="Somewhat reluctant - many declined" required>
+                                <span>Somewhat reluctant - many declined</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="participation_receptiveness" value="Very difficult - most people refused" required>
+                                <span>Very difficult - most people refused</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What was the average time per survey completion? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="avg_completion_time" value="3-5 minutes" required>
+                                <span>3-5 minutes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="avg_completion_time" value="5-8 minutes" required>
+                                <span>5-8 minutes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="avg_completion_time" value="8-12 minutes" required>
+                                <span>8-12 minutes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="avg_completion_time" value="More than 12 minutes" required>
+                                <span>More than 12 minutes</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ui_improvements">Suggestions for Improving Survey Flow or User Interface</label>
+                        <textarea id="ui_improvements" name="ui_improvements" rows="3" placeholder="e.g., Make forms shorter, add skip logic, simplify language, add visual aids..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Section C: Progress Tracking & Technical Issues -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">C</div>
+                        <h2>Progress Tracking & Technical Issues</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pending_locations">Pending Stores / Areas to Visit</label>
+                        <textarea id="pending_locations" name="pending_locations" rows="2" placeholder="List any stores or regions you plan to visit next..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="target_surveys">Target Number of Surveys for This Week</label>
+                        <input type="number" id="target_surveys" name="target_surveys" min="0" placeholder="e.g., 100">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Did you encounter any technical issues during data collection? *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="technical_issues" value="Network connectivity problems">
+                                <span>Network connectivity problems</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="technical_issues" value="Device problems (tablet/phone)">
+                                <span>Device problems (tablet/phone)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="technical_issues" value="Survey form errors or bugs">
+                                <span>Survey form errors or bugs</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="technical_issues" value="Data not saving properly">
+                                <span>Data not saving properly</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="technical_issues" value="Confusion with form navigation">
+                                <span>Confusion with form navigation</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="technical_issues" value="Battery drain issues">
+                                <span>Battery drain issues</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="technical_issues" value="No issues - everything worked smoothly">
+                                <span>No issues - everything worked smoothly</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="technical_details">Describe any technical issues in detail (if applicable)</label>
+                        <textarea id="technical_details" name="technical_details" rows="3" placeholder="Provide details about errors, when they occurred, and how you resolved them..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Overall, how would you rate today's data collection session? *</label>
+                        <div class="rating-group">
+                            <input type="radio" name="session_rating" value="1" id="rating-1" required>
+                            <label for="rating-1" class="star-label">
+                                <i class="fas fa-star"></i>
+                                <span>1</span>
+                            </label>
+                            <input type="radio" name="session_rating" value="2" id="rating-2" required>
+                            <label for="rating-2" class="star-label">
+                                <i class="fas fa-star"></i>
+                                <span>2</span>
+                            </label>
+                            <input type="radio" name="session_rating" value="3" id="rating-3" required>
+                            <label for="rating-3" class="star-label">
+                                <i class="fas fa-star"></i>
+                                <span>3</span>
+                            </label>
+                            <input type="radio" name="session_rating" value="4" id="rating-4" required>
+                            <label for="rating-4" class="star-label">
+                                <i class="fas fa-star"></i>
+                                <span>4</span>
+                            </label>
+                            <input type="radio" name="session_rating" value="5" id="rating-5" required>
+                            <label for="rating-5" class="star-label">
+                                <i class="fas fa-star"></i>
+                                <span>5</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additional_feedback">Additional Feedback or Suggestions for the Research Team</label>
+                        <textarea id="additional_feedback" name="additional_feedback" rows="4" placeholder="Any other comments, suggestions for improvement, or concerns you'd like to share..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="next_session">When do you plan your next data collection session?</label>
+                        <input type="date" id="next_session" name="next_session">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Report
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer class="survey-footer">
+            <p>&copy; 2024 Ingrevo. All rights reserved.</p>
+            <p>Thank you for your dedication to this research project!</p>
+        </footer>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Report Submitted!</h2>
+            <p>Your data collection report has been received successfully.</p>
+            <p>Keep up the great work! 🎉</p>
+            <button onclick="window.location.href='../index.html'" class="btn-home">
+                <i class="fas fa-home"></i> Go to Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="../firebase-config.js"></script>
+    
+    <!-- Survey Script -->
+    <script src="volunteer-survey.js"></script>
+</body>
+</html>

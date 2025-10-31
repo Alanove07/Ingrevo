@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users - Ingrevo Admin Portal</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Admin Stylesheet -->
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="brand">
+                <i class="fas fa-leaf"></i>
+                <span class="brand-name">Ingrevo</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="products.html" class="nav-item">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+            <a href="ingredients.html" class="nav-item">
+                <i class="fas fa-flask"></i>
+                <span>Ingredients</span>
+            </a>
+            <a href="allergens.html" class="nav-item">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Allergens</span>
+            </a>
+            <a href="surveys.html" class="nav-item">
+                <i class="fas fa-poll"></i>
+                <span>Surveys</span>
+            </a>
+            <a href="survey-details.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>Survey Responses</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="users.html" class="nav-item active">
+                <i class="fas fa-users"></i>
+                <span>Users</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" class="nav-item" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="topbar-left">
+                <h1 class="page-title">Users Management</h1>
+            </div>
+
+            <div class="topbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search users..." id="search-input">
+                </div>
+                
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+
+                <div class="user-menu">
+                    <img src="../assets/logo.jpg" alt="User" class="user-avatar" onerror="this.style.display='none'">
+                    <div class="user-info">
+                        <span class="user-name" id="user-name">Admin</span>
+                        <span class="user-role">Administrator</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Users Content -->
+        <div class="content-wrapper">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #DBEAFE; color: #3B82F6;">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Total Users</p>
+                        <h3>8,932</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #D1FAE5; color: #10B981;">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Active Users</p>
+                        <h3>6,745</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #FEF3C7; color: #F59E0B;">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>New This Month</p>
+                        <h3>342</h3>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #E9D5FF; color: #8B5CF6;">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Admin Users</p>
+                        <h3>12</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions Bar -->
+            <div class="actions-bar">
+                <div class="actions-left">
+                    <button class="btn btn-primary" id="add-user-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Add User
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-file-export"></i>
+                        Export Users
+                    </button>
+                </div>
+                <div class="actions-right">
+                    <select class="filter-select">
+                        <option value="">All Roles</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
+                        <option value="moderator">Moderator</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">All Statuses</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="suspended">Suspended</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Users Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h2>All Users</h2>
+                    <span class="badge badge-primary">8,932 Users</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all"></th>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Allergen Tracking</th>
+                                <th>Joined</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="user-avatar-sm">JD</div>
+                                        <strong>John Doe</strong>
+                                    </div>
+                                </td>
+                                <td>john.doe@email.com</td>
+                                <td><span class="badge badge-info">User</span></td>
+                                <td><span class="badge badge-warning">Peanuts</span> <span class="badge badge-warning">Lactose</span></td>
+                                <td>Jan 15, 2024</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon btn-danger" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="user-avatar-sm">JS</div>
+                                        <strong>Jane Smith</strong>
+                                    </div>
+                                </td>
+                                <td>jane.smith@email.com</td>
+                                <td><span class="badge badge-purple">Admin</span></td>
+                                <td><span class="badge badge-warning">Gluten</span></td>
+                                <td>Feb 20, 2024</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon btn-danger" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="user-avatar-sm">MJ</div>
+                                        <strong>Mike Johnson</strong>
+                                    </div>
+                                </td>
+                                <td>mike.j@email.com</td>
+                                <td><span class="badge badge-info">User</span></td>
+                                <td><span class="badge badge-success">None</span></td>
+                                <td>Mar 10, 2024</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon btn-danger" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="user-avatar-sm">SW</div>
+                                        <strong>Sarah Williams</strong>
+                                    </div>
+                                </td>
+                                <td>sarah.w@email.com</td>
+                                <td><span class="badge badge-info">User</span></td>
+                                <td><span class="badge badge-warning">Soy</span> <span class="badge badge-warning">Shellfish</span></td>
+                                <td>Apr 5, 2024</td>
+                                <td><span class="badge badge-secondary">Inactive</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon btn-danger" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-cell">
+                                        <div class="user-avatar-sm">DB</div>
+                                        <strong>David Brown</strong>
+                                    </div>
+                                </td>
+                                <td>david.brown@email.com</td>
+                                <td><span class="badge badge-info">User</span></td>
+                                <td><span class="badge badge-warning">Eggs</span></td>
+                                <td>May 12, 2024</td>
+                                <td><span class="badge badge-success">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn-icon" title="View">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-icon" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-icon btn-danger" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-footer">
+                    <div class="pagination">
+                        <button class="btn btn-sm">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span>Page 1 of 893</span>
+                        <button class="btn btn-sm">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="../firebase-config.js"></script>
+    
+    <!-- Dashboard Script -->
+    <script src="dashboard.js"></script>
+    
+    <script>
+        document.getElementById('add-user-btn').addEventListener('click', function() {
+            alert('Add user functionality coming soon!');
+        });
+    </script>
+</body>
+</html>

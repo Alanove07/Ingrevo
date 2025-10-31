@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ingrevo - Smart Ingredient & Allergen Awareness System for Hypermarkets">
+    <title>Ingrevo - Admin Login</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Back to Home Link -->
+    <a href="index.html" class="back-to-home">
+        <span>←</span> Back to Home
+    </a>
+
+    <!-- Main Login Container -->
+    <div class="login-container">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <img src="assets/logo.jpg" alt="Ingrevo Logo" class="logo" id="logo-img">
+            <h1 class="brand-title">Ingrevo</h1>
+            <p class="brand-subtitle">Smart Ingredient & Allergen Awareness System</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="login-card">
+            <h2>Admin Portal Login</h2>
+            <p class="login-description">Enter your credentials to access the admin dashboard</p>
+            
+            <!-- Login Form -->
+            <form id="login-form" class="login-form">
+                <!-- Email Input -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="admin@ingrevo.com"
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Enter your password"
+                            required
+                            autocomplete="current-password"
+                        >
+                        <button type="button" class="toggle-password" id="toggle-password">
+                            <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-password" id="forgot-password">Forgot password?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="login-btn" id="login-btn">
+                    <span>Sign In</span>
+                </button>
+            </form>
+
+            <!-- Loading Indicator (Hidden by default) -->
+            <div id="loading-indicator" class="loading-indicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Signing you in...</p>
+            </div>
+
+            <!-- Error Message (Hidden by default) -->
+            <div id="error-message" class="error-message" style="display: none;">
+                <p id="error-text"></p>
+            </div>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="success-message" class="success-message" style="display: none;">
+                <p id="success-text"></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Ingrevo. All rights reserved.</p>
+            <p class="footer-note">Internal admin access only</p>
+        </footer>
+    </div>
+
+    <!-- Firebase SDK -->
+    <!-- Firebase App (core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <!-- Firebase Authentication -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    
+    <!-- Firebase Configuration -->
+    <script src="firebase-config.js"></script>
+    
+    <!-- Login Logic -->
+    <script src="login.js"></script>
+</body>
+</html>

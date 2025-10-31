@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Survey - Ingrevo</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Survey Stylesheet -->
+    <link rel="stylesheet" href="survey-style.css">
+</head>
+<body>
+    <div class="survey-container">
+        <!-- Header -->
+        <header class="survey-header">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Ingrevo</span>
+            </div>
+            <p class="tagline">Read Beyond The Label!</p>
+        </header>
+
+        <!-- Survey Form -->
+        <div class="survey-content">
+            <div class="survey-intro">
+                <h1><i class="fas fa-shopping-cart"></i> Customer / Shopper Survey</h1>
+                <p>Help us understand how you shop and your awareness about ingredients. Your feedback will help us create a safer shopping experience.</p>
+                <div class="info-badge">
+                    <i class="fas fa-clock"></i>
+                    <span>Estimated time: 5-7 minutes</span>
+                </div>
+            </div>
+
+            <form id="customer-survey-form">
+                <!-- Section A: Personal Information -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">A</div>
+                        <h2>Personal Information</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name (Optional)</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="age">Age *</label>
+                            <input type="number" id="age" name="age" min="1" max="120" required placeholder="Enter age">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="Male" required>
+                                    <span>Male</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="Female" required>
+                                    <span>Female</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="Other" required>
+                                    <span>Other</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">District / Location *</label>
+                        <input type="text" id="location" name="location" required placeholder="Enter your district or location">
+                    </div>
+                </div>
+
+                <!-- Section B: Shopping Behavior -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">B</div>
+                        <h2>Shopping Behavior</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How often do you visit a hypermarket? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="visit_frequency" value="Weekly" required>
+                                <span>Weekly</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="visit_frequency" value="Monthly" required>
+                                <span>Monthly</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="visit_frequency" value="Occasionally" required>
+                                <span>Occasionally</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="visit_frequency" value="Rarely" required>
+                                <span>Rarely</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What types of products do you usually buy? * (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="product_types" value="Food & Groceries">
+                                <span>Food & Groceries</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="product_types" value="Cosmetics">
+                                <span>Cosmetics</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="product_types" value="Cleaning Items">
+                                <span>Cleaning Items</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="product_types" value="All">
+                                <span>All</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>When selecting a product, what do you usually check first? * (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="check_first" value="Price">
+                                <span>Price</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="check_first" value="Brand Name">
+                                <span>Brand Name</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="check_first" value="Packaging Design">
+                                <span>Packaging Design</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="check_first" value="Ingredients">
+                                <span>Ingredients</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="check_first" value="Expiry Date">
+                                <span>Expiry Date</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="check_first" value="Offers">
+                                <span>Offers</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Do you usually read ingredient or allergen information before buying? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="read_ingredients" value="Always" required>
+                                <span>Always</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="read_ingredients" value="Sometimes" required>
+                                <span>Sometimes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="read_ingredients" value="Rarely" required>
+                                <span>Rarely</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="read_ingredients" value="Never" required>
+                                <span>Never</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="reason-group" style="display: none;">
+                        <label>If not, why? (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="not_reading_reason" value="Too small to read">
+                                <span>Too small to read</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="not_reading_reason" value="Too technical to understand">
+                                <span>Too technical to understand</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="not_reading_reason" value="No time">
+                                <span>No time</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="not_reading_reason" value="I trust the brand">
+                                <span>I trust the brand</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section C: Health & Awareness -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">C</div>
+                        <h2>Health & Awareness</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Do you or anyone in your family have any allergies or dietary restrictions? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="has_allergies" value="Yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="has_allergies" value="No" required>
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="allergy-specify" style="display: none;">
+                        <label for="allergy_details">Please specify the allergies or dietary restrictions</label>
+                        <textarea id="allergy_details" name="allergy_details" rows="3" placeholder="e.g., Peanut allergy, Lactose intolerance, Gluten-free diet"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Have you ever faced a health issue due to product ingredients? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="health_issue" value="Yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="health_issue" value="No" required>
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Would you like a system that alerts you about allergens or chemicals before buying? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="want_alert_system" value="Yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="want_alert_system" value="Maybe" required>
+                                <span>Maybe</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="want_alert_system" value="No" required>
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Which feature would be most useful for you? * (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="useful_features" value="Allergen alerts">
+                                <span>Allergen alerts</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="useful_features" value="Voice support">
+                                <span>Voice support</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="useful_features" value="Safer product alternatives">
+                                <span>Safer product alternatives</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="useful_features" value="Nutritional comparison">
+                                <span>Nutritional comparison</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="useful_features" value="Mobile app connection">
+                                <span>Mobile app connection</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section D: Experience & Suggestions -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">D</div>
+                        <h2>Experience & Suggestions</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rate your satisfaction with current product labeling * (1 = Very Dissatisfied, 5 = Very Satisfied)</label>
+                        <div class="rating-group">
+                            <input type="radio" name="satisfaction_rating" value="1" id="rating-1" required>
+                            <label for="rating-1" class="star-label">
+                                <i class="fas fa-star"></i>
+                                <span>1</span>
+                            </label>
+                            <input type="radio" name="satisfaction_rating" value="2" id="rating-2" required>
+                            <label for="rating-2" class="star-label">
+                                <i class="fas fa-star"></i>
+                                <span>2</span>
+                            </label>
+                            <input type="radio" name="satisfaction_rating" value="3" id="rating-3" required>
+                            <label for="rating-3" class="star-label">
+                                <i class="fas fa-star"></i>
+                                <span>3</span>
+                            </label>
+                            <input type="radio" name="satisfaction_rating" value="4" id="rating-4" required>
+                            <label for="rating-4" class="star-label">
+                                <i class="fas fa-star"></i>
+                                <span>4</span>
+                            </label>
+                            <input type="radio" name="satisfaction_rating" value="5" id="rating-5" required>
+                            <label for="rating-5" class="star-label">
+                                <i class="fas fa-star"></i>
+                                <span>5</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Would you use a kiosk in a store to check product safety? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="use_kiosk" value="Yes" required>
+                                <span>Yes</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="use_kiosk" value="Maybe" required>
+                                <span>Maybe</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="use_kiosk" value="No" required>
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="suggestions">Any additional suggestions for improvement</label>
+                        <textarea id="suggestions" name="suggestions" rows="4" placeholder="Share your thoughts and ideas..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Survey
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer class="survey-footer">
+            <p>&copy; 2024 Ingrevo. All rights reserved.</p>
+            <p>Your responses are confidential and will be used to improve our services.</p>
+        </footer>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Thank You!</h2>
+            <p>Your survey response has been submitted successfully.</p>
+            <p>We appreciate your valuable feedback!</p>
+            <button onclick="window.location.href='../index.html'" class="btn-home">
+                <i class="fas fa-home"></i> Go to Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="../firebase-config.js"></script>
+    
+    <!-- Survey Script -->
+    <script src="customer-survey.js"></script>
+</body>
+</html>

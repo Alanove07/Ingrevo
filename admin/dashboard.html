@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Ingrevo Admin Portal</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Admin Stylesheet -->
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="brand">
+                <i class="fas fa-leaf"></i>
+                <span class="brand-name">Ingrevo</span>
+            </div>
+            <button class="sidebar-toggle" id="sidebar-toggle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="products.html" class="nav-item">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+            <a href="ingredients.html" class="nav-item">
+                <i class="fas fa-flask"></i>
+                <span>Ingredients</span>
+            </a>
+            <a href="allergens.html" class="nav-item">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>Allergens</span>
+            </a>
+            <a href="surveys.html" class="nav-item">
+                <i class="fas fa-poll"></i>
+                <span>Surveys</span>
+            </a>
+            <a href="survey-details.html" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>Survey Responses</span>
+            </a>
+            <a href="analytics.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Analytics</span>
+            </a>
+            <a href="users.html" class="nav-item">
+                <i class="fas fa-users"></i>
+                <span>Users</span>
+            </a>
+            <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" class="nav-item" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="topbar-left">
+                <h1 class="page-title">Dashboard</h1>
+            </div>
+
+            <div class="topbar-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+
+                <div class="user-menu">
+                    <img src="assets/logo.jpg" alt="User" class="user-avatar" onerror="this.style.display='none'">
+                    <div class="user-info">
+                        <span class="user-name" id="user-name">Admin</span>
+                        <span class="user-role">Administrator</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="content-wrapper">
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-products">1,247</h3>
+                        <p>Total Products</p>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 12%
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-ingredients">2,543</h3>
+                        <p>Ingredients</p>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 8%
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-allergens">156</h3>
+                        <p>Allergen Alerts</p>
+                    </div>
+                    <div class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i> 3%
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon purple">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="total-users">8,932</h3>
+                        <p>Active Users</p>
+                    </div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> 24%
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts and Recent Activity -->
+            <div class="dashboard-grid">
+                <!-- Chart Section -->
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h2>Product Scans Overview</h2>
+                        <select class="filter-select">
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                            <option>Last 3 months</option>
+                        </select>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="scans-chart" height="100"></canvas>
+                    </div>
+                </div>
+
+                <!-- Recent Alerts -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Recent Allergen Alerts</h2>
+                        <a href="allergens.html" class="view-all-link">View All</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert-list">
+                            <div class="alert-item">
+                                <div class="alert-icon warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <h4>Peanut Allergen Detected</h4>
+                                    <p>Product: Chocolate Bar #1234</p>
+                                    <span class="time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-icon warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <h4>Lactose Detected</h4>
+                                    <p>Product: Milk Powder #5678</p>
+                                    <span class="time">5 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="alert-item">
+                                <div class="alert-icon warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="alert-content">
+                                    <h4>Gluten Warning</h4>
+                                    <p>Product: Wheat Bread #9012</p>
+                                    <span class="time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables -->
+            <div class="dashboard-grid">
+                <!-- Recent Products -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Recently Added Products</h2>
+                        <a href="products.html" class="btn btn-sm btn-primary">Add New</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Category</th>
+                                        <th>Brand</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Organic Almond Milk</td>
+                                        <td>Dairy Alternative</td>
+                                        <td>NatureBest</td>
+                                        <td><span class="badge-success">Active</span></td>
+                                        <td>
+                                            <button class="btn-icon" title="Edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Delete"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gluten-Free Pasta</td>
+                                        <td>Grains</td>
+                                        <td>HealthyChoice</td>
+                                        <td><span class="badge-success">Active</span></td>
+                                        <td>
+                                            <button class="btn-icon" title="Edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Delete"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sugar-Free Cookies</td>
+                                        <td>Snacks</td>
+                                        <td>DiabetCare</td>
+                                        <td><span class="badge-warning">Pending</span></td>
+                                        <td>
+                                            <button class="btn-icon" title="Edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-icon" title="Delete"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Allergens -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Top Searched Allergens</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="allergen-list">
+                            <div class="allergen-item">
+                                <span class="allergen-name">Peanuts</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <span class="allergen-count">850</span>
+                            </div>
+                            <div class="allergen-item">
+                                <span class="allergen-name">Lactose</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 72%"></div>
+                                </div>
+                                <span class="allergen-count">720</span>
+                            </div>
+                            <div class="allergen-item">
+                                <span class="allergen-name">Gluten</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 68%"></div>
+                                </div>
+                                <span class="allergen-count">680</span>
+                            </div>
+                            <div class="allergen-item">
+                                <span class="allergen-name">Soy</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                                <span class="allergen-count">450</span>
+                            </div>
+                            <div class="allergen-item">
+                                <span class="allergen-name">Shellfish</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 32%"></div>
+                                </div>
+                                <span class="allergen-count">320</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                    <a href="products.html" class="action-card">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Add Product</span>
+                    </a>
+                    <a href="ingredients.html" class="action-card">
+                        <i class="fas fa-flask"></i>
+                        <span>Add Ingredient</span>
+                    </a>
+                    <a href="surveys.html" class="action-card">
+                        <i class="fas fa-poll"></i>
+                        <span>Create Survey</span>
+                    </a>
+                    <a href="analytics.html" class="action-card">
+                        <i class="fas fa-file-export"></i>
+                        <span>Export Report</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="../firebase-config.js"></script>
+    
+    <!-- Dashboard Script -->
+    <script src="dashboard.js"></script>
+</body>
+</html>

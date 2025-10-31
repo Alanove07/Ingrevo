@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Professional Survey - Ingrevo</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Survey Stylesheet -->
+    <link rel="stylesheet" href="survey-style.css">
+</head>
+<body>
+    <div class="survey-container">
+        <!-- Header -->
+        <header class="survey-header">
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Ingrevo</span>
+            </div>
+            <p class="tagline">Read Beyond The Label!</p>
+        </header>
+
+        <!-- Survey Form -->
+        <div class="survey-content">
+            <div class="survey-intro">
+                <h1><i class="fas fa-user-md"></i> Health Professional Survey</h1>
+                <p>As a healthcare professional, your expertise is invaluable in validating the importance of ingredient awareness and allergen safety. Help us create a medically-informed solution.</p>
+                <div class="info-badge">
+                    <i class="fas fa-clock"></i>
+                    <span>Estimated time: 5-8 minutes</span>
+                </div>
+            </div>
+
+            <form id="health-survey-form">
+                <!-- Section A: Professional Profile -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">A</div>
+                        <h2>Professional Profile</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Profession *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="profession" value="Medical Doctor (General Practitioner)" required>
+                                <span>Medical Doctor (General Practitioner)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="profession" value="Medical Doctor (Specialist)" required>
+                                <span>Medical Doctor (Specialist)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="profession" value="Dietician / Clinical Nutritionist" required>
+                                <span>Dietician / Clinical Nutritionist</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="profession" value="Pharmacist" required>
+                                <span>Pharmacist</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="profession" value="Nutritionist / Wellness Coach" required>
+                                <span>Nutritionist / Wellness Coach</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="profession" value="Allergist / Immunologist" required>
+                                <span>Allergist / Immunologist</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="profession" value="Other Healthcare Professional" required>
+                                <span>Other Healthcare Professional</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="specialty-group" style="display: none;">
+                        <label for="specialty">Please specify your specialty</label>
+                        <input type="text" id="specialty" name="specialty" placeholder="e.g., Dermatology, Pediatrics, etc.">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="experience_years">Years of Professional Experience *</label>
+                            <input type="number" id="experience_years" name="experience_years" min="0" max="60" required placeholder="e.g., 10">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="patients_per_month">Average Patients/Clients Per Month *</label>
+                            <input type="number" id="patients_per_month" name="patients_per_month" min="0" required placeholder="e.g., 150">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="institution">Institution / Clinic / Practice Name *</label>
+                        <input type="text" id="institution" name="institution" required placeholder="Enter institution name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City / District *</label>
+                        <input type="text" id="city" name="city" required placeholder="e.g., Colombo">
+                    </div>
+                </div>
+
+                <!-- Section B: Clinical Observations -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">B</div>
+                        <h2>Clinical Observations & Experiences</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How common are allergy or ingredient-related health issues among your patients? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="issue_frequency" value="Very Common (>30% of patients)" required>
+                                <span>Very Common (more than 30% of patients)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="issue_frequency" value="Common (15-30% of patients)" required>
+                                <span>Common (15-30% of patients)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="issue_frequency" value="Moderate (5-15% of patients)" required>
+                                <span>Moderate (5-15% of patients)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="issue_frequency" value="Rare (<5% of patients)" required>
+                                <span>Rare (less than 5% of patients)</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="issue_frequency" value="Not applicable to my practice" required>
+                                <span>Not applicable to my practice</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What types of ingredient-related health problems do you commonly encounter? * (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="health_problems" value="Food allergies (immediate reactions)">
+                                <span>Food allergies (immediate reactions)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="health_problems" value="Food intolerances (delayed reactions)">
+                                <span>Food intolerances (delayed reactions)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="health_problems" value="Skin reactions from cosmetics">
+                                <span>Skin reactions from cosmetics</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="health_problems" value="Digestive issues from additives">
+                                <span>Digestive issues from additives</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="health_problems" value="Asthma triggered by preservatives">
+                                <span>Asthma triggered by preservatives</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="health_problems" value="Metabolic issues (diabetes, obesity)">
+                                <span>Metabolic issues (diabetes, obesity) related to ingredients</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="health_problems" value="Chronic inflammation">
+                                <span>Chronic inflammation from food additives</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="health_problems" value="None">
+                                <span>None</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Do your patients typically know which specific ingredients or allergens to avoid? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="patient_knowledge" value="Yes, most are well-informed" required>
+                                <span>Yes, most are well-informed</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="patient_knowledge" value="Some have knowledge, others don't" required>
+                                <span>Some have knowledge, others don't</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="patient_knowledge" value="No, most lack awareness" required>
+                                <span>No, most lack awareness</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="patient_knowledge" value="They know some, but not hidden ingredients" required>
+                                <span>They know common allergens, but not hidden ingredients</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What are the most common harmful ingredients/allergens you advise patients about? * (Select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Peanuts and tree nuts">
+                                <span>Peanuts and tree nuts</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Milk and dairy products">
+                                <span>Milk and dairy products</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Eggs">
+                                <span>Eggs</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Gluten / Wheat">
+                                <span>Gluten / Wheat</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Soy products">
+                                <span>Soy products</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Fish and shellfish">
+                                <span>Fish and shellfish</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Sulfites and preservatives">
+                                <span>Sulfites and preservatives (E220-E228)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Artificial sweeteners">
+                                <span>Artificial sweeteners (aspartame, sucralose)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="MSG (Monosodium Glutamate)">
+                                <span>MSG (Monosodium Glutamate)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Parabens (in cosmetics)">
+                                <span>Parabens (in cosmetics)</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Artificial colors">
+                                <span>Artificial colors and dyes</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="common_allergens" value="Trans fats">
+                                <span>Trans fats and hydrogenated oils</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Have you encountered serious health emergencies due to ingredient exposure? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="serious_emergencies" value="Yes, multiple cases" required>
+                                <span>Yes, multiple cases</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="serious_emergencies" value="Yes, a few cases" required>
+                                <span>Yes, a few cases</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="serious_emergencies" value="Rarely, one or two cases" required>
+                                <span>Rarely, one or two cases</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="serious_emergencies" value="No, never" required>
+                                <span>No, never</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="case_description">Can you briefly describe a memorable case involving ingredient-related health issues? (Optional)</label>
+                        <textarea id="case_description" name="case_description" rows="3" placeholder="Share any relevant clinical experiences (maintaining patient confidentiality)..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Would an in-store ingredient alert system help reduce such health incidents? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="alert_system_benefit" value="Definitely - would prevent many incidents" required>
+                                <span>Definitely - would prevent many incidents</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="alert_system_benefit" value="Probably - would help somewhat" required>
+                                <span>Probably - would help somewhat</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="alert_system_benefit" value="Maybe - depends on implementation" required>
+                                <span>Maybe - depends on implementation</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="alert_system_benefit" value="Not sure - hard to say" required>
+                                <span>Not sure - hard to say</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section C: Feedback on Ingrevo -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <div class="section-number">C</div>
+                        <h2>Feedback on Ingrevo System</h2>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How effective do you think Ingrevo could be in promoting safe product choices? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="system_effectiveness" value="Very Effective - could be a game-changer" required>
+                                <span>Very Effective - could be a game-changer</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="system_effectiveness" value="Effective - would help many people" required>
+                                <span>Effective - would help many people</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="system_effectiveness" value="Somewhat Effective - limited impact" required>
+                                <span>Somewhat Effective - limited impact</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="system_effectiveness" value="Not Effective - wouldn't change much" required>
+                                <span>Not Effective - wouldn't change much</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What medical features should be prioritized in the system? * (Select top 3)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="priority_features" value="Comprehensive allergen database">
+                                <span>Comprehensive allergen database</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="priority_features" value="Cross-contamination warnings">
+                                <span>Cross-contamination warnings</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="priority_features" value="Hidden ingredient identification">
+                                <span>Hidden ingredient identification</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="priority_features" value="Medical condition-specific recommendations">
+                                <span>Medical condition-specific recommendations</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="priority_features" value="Emergency contact information">
+                                <span>Emergency contact information integration</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="priority_features" value="Drug-food interaction warnings">
+                                <span>Drug-food interaction warnings</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="priority_features" value="Nutritional value analysis">
+                                <span>Nutritional value analysis for health conditions</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="priority_features" value="Health professional verification">
+                                <span>Health professional verification system</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Would you recommend such a system to your patients? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="recommend_to_patients" value="Yes, definitely" required>
+                                <span>Yes, definitely</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="recommend_to_patients" value="Yes, with some reservations" required>
+                                <span>Yes, with some reservations</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="recommend_to_patients" value="Maybe, need to see it first" required>
+                                <span>Maybe, need to see it first</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="recommend_to_patients" value="No, probably not" required>
+                                <span>No, probably not</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Would you be interested in collaborating or advising for ingredient safety accuracy? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="collaboration_interest" value="Yes, very interested" required>
+                                <span>Yes, very interested in active collaboration</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="collaboration_interest" value="Yes, as an advisor" required>
+                                <span>Yes, as an advisor or consultant</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="collaboration_interest" value="Maybe, with more information" required>
+                                <span>Maybe, with more information</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="collaboration_interest" value="No, too busy" required>
+                                <span>No, currently too busy</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="awareness_suggestions">What strategies would you suggest for improving public awareness about allergens and ingredient safety?</label>
+                        <textarea id="awareness_suggestions" name="awareness_suggestions" rows="4" placeholder="Share your professional recommendations for public health education..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact_email">Professional Email (Optional - for collaboration inquiries)</label>
+                        <input type="email" id="contact_email" name="contact_email" placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+94 XX XXX XXXX">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Survey
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer class="survey-footer">
+            <p>&copy; 2024 Ingrevo. All rights reserved.</p>
+            <p>Your responses are confidential and will be used for medical validation and research purposes only.</p>
+        </footer>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Thank You, Doctor!</h2>
+            <p>Your expert medical input has been submitted successfully.</p>
+            <p>Your contribution will help create a safer shopping experience!</p>
+            <button onclick="window.location.href='../index.html'" class="btn-home">
+                <i class="fas fa-home"></i> Go to Home
+            </button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- Firebase Config -->
+    <script src="../firebase-config.js"></script>
+    
+    <!-- Survey Script -->
+    <script src="health-survey.js"></script>
+</body>
+</html>

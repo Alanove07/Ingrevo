@@ -1,0 +1,10 @@
+# Admin Dashboard Folder
+
+This folder will contain all admin portal pages.
+
+## Planned Files:
+- `dashboard.html` - Main admin dashboard with navigation
+- `surveys.html` - Survey data collection and management
+- `ingredients.html` - Ingredient database interface
+- `analytics.html` - Analytics and reporting dashboard
+- `settings.html` - Admin settings and configuration

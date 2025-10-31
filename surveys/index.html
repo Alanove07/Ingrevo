@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingrevo Surveys - Voice of Stakeholders</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .logo i {
+            font-size: 3.5rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+        }
+
+        .survey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .survey-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .survey-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .survey-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .survey-card:nth-child(1) .survey-icon {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .survey-card:nth-child(2) .survey-icon {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .survey-card:nth-child(3) .survey-icon {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .survey-card:nth-child(4) .survey-icon {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .survey-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+
+        .survey-card p {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .survey-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #F3F4F6;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            color: #6B7280;
+            margin-top: auto;
+        }
+
+        .info-section {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .info-section h2 {
+            color: #111827;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .info-section h2 i {
+            color: #667eea;
+        }
+
+        .info-section p {
+            color: #6B7280;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-section li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #E5E7EB;
+            color: #6B7280;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .info-section li:last-child {
+            border-bottom: none;
+        }
+
+        .info-section li i {
+            color: #10B981;
+            font-size: 1.25rem;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            display: flex;
+            width: fit-content;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .survey-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-leaf"></i>
+                <span>Ingrevo</span>
+            </div>
+            <h1>Voice of Stakeholders</h1>
+            <p>Help us shape the future of safe shopping</p>
+        </header>
+
+        <div class="info-section">
+            <h2><i class="fas fa-info-circle"></i> About This Survey</h2>
+            <p>
+                Welcome to the Ingrevo Voice of Stakeholders (VOS) Survey Program. Your feedback is crucial in helping us develop 
+                an intelligent system that promotes safer product choices and allergen awareness in hypermarkets.
+            </p>
+            <p><strong>Why Your Input Matters:</strong></p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Shape the development of AI-powered product safety features</li>
+                <li><i class="fas fa-check-circle"></i> Help create better allergen alert systems</li>
+                <li><i class="fas fa-check-circle"></i> Improve ingredient transparency for everyone</li>
+                <li><i class="fas fa-check-circle"></i> Contribute to a safer shopping experience</li>
+            </ul>
+        </div>
+
+        <div class="survey-grid">
+            <a href="customer-survey.html" class="survey-card">
+                <div class="survey-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>Customer Survey</h3>
+                <p>For shoppers and consumers. Share your shopping habits and product safety concerns.</p>
+                <span class="survey-badge"><i class="fas fa-clock"></i> 5-7 minutes</span>
+            </a>
+
+            <a href="staff-survey.html" class="survey-card">
+                <div class="survey-icon">
+                    <i class="fas fa-store"></i>
+                </div>
+                <h3>Staff Survey</h3>
+                <p>For hypermarket staff and managers. Share your customer interaction experiences.</p>
+                <span class="survey-badge"><i class="fas fa-clock"></i> 4-6 minutes</span>
+            </a>
+
+            <a href="health-survey.html" class="survey-card">
+                <div class="survey-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3>Health Professional</h3>
+                <p>For doctors, nutritionists, and dieticians. Validate health importance of allergen awareness.</p>
+                <span class="survey-badge"><i class="fas fa-clock"></i> 3-5 minutes</span>
+            </a>
+
+            <a href="volunteer-survey.html" class="survey-card">
+                <div class="survey-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>Volunteer Form</h3>
+                <p>For research volunteers and data collectors. Report your field survey activities.</p>
+                <span class="survey-badge"><i class="fas fa-clock"></i> 2-3 minutes</span>
+            </a>
+        </div>
+
+        <div class="info-section">
+            <h2><i class="fas fa-shield-alt"></i> Privacy & Confidentiality</h2>
+            <p>
+                All responses are confidential and will be used solely for research and development purposes. 
+                Your personal information is protected and will never be shared with third parties.
+            </p>
+        </div>
+
+        <a href="../index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+    </div>
+</body>
+</html>

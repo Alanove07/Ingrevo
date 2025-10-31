@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Product Gallery - Ingrevo</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Model Viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+    
+    <!-- Gallery Stylesheet -->
+    <link rel="stylesheet" href="3d-gallery-style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="nav">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>Ingrevo</span>
+                </div>
+                <nav class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="3d-gallery.html" class="active">3D Gallery</a>
+                    <a href="login.html">Admin</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">
+                <i class="fas fa-cube"></i> 3D Product Gallery
+            </h1>
+            <p class="hero-subtitle">Explore Ingrevo's innovative AI-powered kiosk in stunning 3D</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <!-- Model Selection Tabs -->
+            <div class="model-tabs">
+                <button class="tab-btn active" data-model="fixed">
+                    <i class="fas fa-desktop"></i>
+                    <span>Fixed Kiosk</span>
+                </button>
+                <button class="tab-btn" data-model="cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Shopping Cart Mount</span>
+                </button>
+            </div>
+
+            <!-- 3D Model Viewer Container -->
+            <div class="viewer-container">
+                <!-- Fixed Kiosk Model -->
+                <div class="model-viewer-wrapper active" id="fixed-model">
+                    <model-viewer
+                        src="3D/ingrevo-fixed.glb"
+                        alt="Ingrevo Fixed Kiosk - 3D Model"
+                        shadow-intensity="1"
+                        camera-controls
+                        auto-rotate
+                        auto-rotate-delay="3000"
+                        rotation-per-second="30deg"
+                        touch-action="pan-y"
+                        ar
+                        ar-modes="webxr scene-viewer quick-look"
+                        camera-orbit="45deg 75deg 2.5m"
+                        min-camera-orbit="auto auto 1m"
+                        max-camera-orbit="auto auto 10m"
+                        loading="eager">
+                        
+                        <!-- AR Button -->
+                        <button slot="ar-button" class="ar-button">
+                            <i class="fas fa-mobile-alt"></i>
+                            View in AR
+                        </button>
+
+                        <!-- Loading Indicator -->
+                        <div class="loading-indicator" slot="poster">
+                            <div class="spinner"></div>
+                            <p>Loading 3D Model...</p>
+                        </div>
+
+                        <!-- Controls Info -->
+                        <div class="controls-info">
+                            <div class="control-item">
+                                <i class="fas fa-mouse"></i>
+                                <span>Drag to rotate</span>
+                            </div>
+                            <div class="control-item">
+                                <i class="fas fa-arrows-alt"></i>
+                                <span>Scroll to zoom</span>
+                            </div>
+                            <div class="control-item">
+                                <i class="fas fa-hand-pointer"></i>
+                                <span>Two-finger to pan</span>
+                            </div>
+                        </div>
+                    </model-viewer>
+                </div>
+
+                <!-- Shopping Cart Model -->
+                <div class="model-viewer-wrapper" id="cart-model">
+                    <model-viewer
+                        src="3D/ingrevo-cart.glb"
+                        alt="Ingrevo Shopping Cart Mount - 3D Model"
+                        shadow-intensity="1"
+                        camera-controls
+                        auto-rotate
+                        auto-rotate-delay="3000"
+                        rotation-per-second="30deg"
+                        touch-action="pan-y"
+                        ar
+                        ar-modes="webxr scene-viewer quick-look"
+                        camera-orbit="45deg 75deg 2.5m"
+                        min-camera-orbit="auto auto 1m"
+                        max-camera-orbit="auto auto 10m"
+                        loading="eager">
+                        
+                        <!-- AR Button -->
+                        <button slot="ar-button" class="ar-button">
+                            <i class="fas fa-mobile-alt"></i>
+                            View in AR
+                        </button>
+
+                        <!-- Loading Indicator -->
+                        <div class="loading-indicator" slot="poster">
+                            <div class="spinner"></div>
+                            <p>Loading 3D Model...</p>
+                        </div>
+
+                        <!-- Controls Info -->
+                        <div class="controls-info">
+                            <div class="control-item">
+                                <i class="fas fa-mouse"></i>
+                                <span>Drag to rotate</span>
+                            </div>
+                            <div class="control-item">
+                                <i class="fas fa-arrows-alt"></i>
+                                <span>Scroll to zoom</span>
+                            </div>
+                            <div class="control-item">
+                                <i class="fas fa-hand-pointer"></i>
+                                <span>Two-finger to pan</span>
+                            </div>
+                        </div>
+                    </model-viewer>
+                </div>
+            </div>
+
+            <!-- Model Info Cards -->
+            <div class="info-cards">
+                <div class="info-card" id="fixed-info">
+                    <div class="card-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Fixed Kiosk Installation</h3>
+                    <p>Our standalone AI-powered kiosk designed for permanent installation at store entrances or strategic locations. Features a robust build with integrated scanner, touchscreen display, and real-time allergen detection system.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> 24" HD Touchscreen Display</li>
+                        <li><i class="fas fa-check-circle"></i> High-Speed Barcode Scanner</li>
+                        <li><i class="fas fa-check-circle"></i> Built-in Camera for Product Recognition</li>
+                        <li><i class="fas fa-check-circle"></i> Weatherproof Enclosure (Optional)</li>
+                        <li><i class="fas fa-check-circle"></i> Easy Installation & Maintenance</li>
+                    </ul>
+                </div>
+
+                <div class="info-card" id="cart-info" style="display: none;">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Shopping Cart Mount</h3>
+                    <p>Innovative tablet mount designed to attach directly to shopping carts, providing on-the-go ingredient scanning and allergen alerts while customers shop. Lightweight and easy to use.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Universal Cart Compatibility</li>
+                        <li><i class="fas fa-check-circle"></i> Adjustable Tablet Holder</li>
+                        <li><i class="fas fa-check-circle"></i> Secure Locking Mechanism</li>
+                        <li><i class="fas fa-check-circle"></i> Quick Release System</li>
+                        <li><i class="fas fa-check-circle"></i> Portable & Lightweight Design</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="reset-camera">
+                    <i class="fas fa-redo"></i>
+                    Reset Camera
+                </button>
+                <button class="btn btn-secondary" id="toggle-rotate">
+                    <i class="fas fa-sync-alt"></i>
+                    <span id="rotate-text">Pause Rotation</span>
+                </button>
+                <button class="btn btn-success" id="fullscreen-btn">
+                    <i class="fas fa-expand"></i>
+                    Fullscreen
+                </button>
+            </div>
+
+            <!-- Specifications -->
+            <div class="specifications">
+                <h2><i class="fas fa-info-circle"></i> Technical Specifications</h2>
+                <div class="spec-grid">
+                    <div class="spec-card">
+                        <h4>Fixed Kiosk</h4>
+                        <table class="spec-table">
+                            <tr>
+                                <td>Dimensions</td>
+                                <td>180cm × 60cm × 40cm</td>
+                            </tr>
+                            <tr>
+                                <td>Weight</td>
+                                <td>45 kg</td>
+                            </tr>
+                            <tr>
+                                <td>Power</td>
+                                <td>220V AC, 150W</td>
+                            </tr>
+                            <tr>
+                                <td>Display</td>
+                                <td>24" Full HD Touchscreen</td>
+                            </tr>
+                            <tr>
+                                <td>Connectivity</td>
+                                <td>WiFi, Ethernet, 4G LTE</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="spec-card">
+                        <h4>Cart Mount</h4>
+                        <table class="spec-table">
+                            <tr>
+                                <td>Dimensions</td>
+                                <td>35cm × 25cm × 15cm</td>
+                            </tr>
+                            <tr>
+                                <td>Weight</td>
+                                <td>1.2 kg</td>
+                            </tr>
+                            <tr>
+                                <td>Tablet Size</td>
+                                <td>7" - 12" Compatible</td>
+                            </tr>
+                            <tr>
+                                <td>Material</td>
+                                <td>Aluminum Alloy</td>
+                            </tr>
+                            <tr>
+                                <td>Mount Type</td>
+                                <td>Universal Clamp System</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-leaf"></i> Ingrevo</h3>
+                    <p>Smart ingredient safety for everyone</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="3d-gallery.html">3D Gallery</a>
+                    <a href="surveys/index.html">Surveys</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@ingrevo.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ingrevo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Gallery Script -->
+    <script src="3d-gallery.js"></script>
+</body>
+</html>

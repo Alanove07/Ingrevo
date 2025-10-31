@@ -1,0 +1,8 @@
+# Assets Folder
+
+Place your images, logos, and icons here.
+
+## Recommended Files:
+- `logo.png` - Main Ingrevo logo (512x512px or larger)
+- `favicon.ico` - Browser tab icon
+- `icons/` - Additional icons for the admin dashboard
