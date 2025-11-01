@@ -23,87 +23,93 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Initialize profile page
+ * Initialize profile page with simplified navigation
  */
 function initializeProfilePage() {
     console.log('🔧 Initializing profile page navigation...');
     
-    // Profile navigation
-    const navItems = document.querySelectorAll('.profile-nav-item');
-    const sections = document.querySelectorAll('.profile-section');
+    // Get all navigation buttons and sections
+    const navButtons = document.querySelectorAll('.profile-nav-item');
+    const allSections = document.querySelectorAll('.profile-section');
     
-    console.log(`Found ${navItems.length} navigation items and ${sections.length} sections`);
+    console.log(`✅ Found ${navButtons.length} navigation buttons`);
+    console.log(`✅ Found ${allSections.length} sections`);
     
-    if (navItems.length === 0) {
-        console.error('❌ No navigation items found!');
+    // Verify elements exist
+    if (navButtons.length === 0 || allSections.length === 0) {
+        console.error('❌ Navigation elements not found!');
         return;
     }
     
-    navItems.forEach((item, index) => {
-        item.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            const sectionName = this.getAttribute('data-section');
-            const sectionId = sectionName + '-section';
-            
-            console.log(`🔄 Switching to section: ${sectionName} (ID: ${sectionId})`);
-            
-            // Remove active class from all nav items
-            navItems.forEach(nav => {
-                nav.classList.remove('active');
-                console.log(`  Removed active from: ${nav.getAttribute('data-section')}`);
-            });
-            
-            // Remove active class from all sections
-            sections.forEach(section => {
-                section.classList.remove('active');
-                section.style.setProperty('display', 'none', 'important'); // Force hide with !important
-                console.log(`  Hiding section: ${section.id}`);
-            });
-            
-            // Add active class to clicked nav item
-            this.classList.add('active');
-            console.log(`  ✅ Nav item ${sectionName} is now active`);
-            
-            // Show target section
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-                targetSection.style.setProperty('display', 'block', 'important'); // Force show with !important
-                console.log(`  ✅ Section ${sectionId} is now visible`);
-                
-                // Scroll to top of section
-                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            } else {
-                console.error(`  ❌ Section ${sectionId} not found in DOM!`);
-                console.log('  Available sections:', Array.from(sections).map(s => s.id));
-            }
+    /**
+     * Function to switch between sections
+     */
+    function switchToSection(targetSectionName) {
+        console.log(`\n🔄 Switching to: ${targetSectionName}`);
+        
+        // Hide ALL sections first
+        allSections.forEach(section => {
+            section.classList.remove('active');
+            section.style.cssText = 'display: none !important;';
         });
         
-        console.log(`✅ Added listener to nav item ${index + 1}: ${item.getAttribute('data-section')}`);
-    });
-    
-    // Initialize first section to be visible
-    console.log('🎬 Initializing default section visibility...');
-    sections.forEach((section, idx) => {
-        if (idx === 0) {
-            section.classList.add('active');
-            section.style.setProperty('display', 'block', 'important');
-            console.log(`  ✅ Set ${section.id} as default active section`);
+        // Remove active from ALL nav buttons
+        navButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Find and show the target section
+        const targetSection = document.getElementById(targetSectionName + '-section');
+        if (targetSection) {
+            targetSection.classList.add('active');
+            targetSection.style.cssText = 'display: block !important;';
+            console.log(`✅ Showing section: ${targetSectionName}-section`);
         } else {
-            section.classList.remove('active');
-            section.style.setProperty('display', 'none', 'important');
-            console.log(`  Hidden ${section.id}`);
+            console.error(`❌ Section not found: ${targetSectionName}-section`);
         }
+        
+        // Activate the corresponding nav button
+        const activeButton = document.querySelector(`.profile-nav-item[data-section="${targetSectionName}"]`);
+        if (activeButton) {
+            activeButton.classList.add('active');
+            console.log(`✅ Activated button: ${targetSectionName}`);
+        }
+    }
+    
+    /**
+     * Attach click handlers to all navigation buttons
+     */
+    navButtons.forEach((button, index) => {
+        const sectionName = button.getAttribute('data-section');
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log(`\n🖱️ Clicked: ${sectionName}`);
+            switchToSection(sectionName);
+        });
+        
+        console.log(`  ${index + 1}. Attached listener to: ${sectionName}`);
     });
     
-    // Dietary preferences
+    /**
+     * Initialize: Show first section by default
+     */
+    console.log('\n🎬 Setting up initial state...');
+    const firstButton = navButtons[0];
+    if (firstButton) {
+        const firstSection = firstButton.getAttribute('data-section');
+        switchToSection(firstSection);
+        console.log(`✅ Initial section set to: ${firstSection}`);
+    }
+    
+    /**
+     * Dietary preferences interaction
+     */
     const preferenceCards = document.querySelectorAll('.preference-card input');
     preferenceCards.forEach(input => {
-        input.addEventListener('change', () => {
-            const card = input.closest('.preference-card');
-            if (input.checked) {
+        input.addEventListener('change', function() {
+            const card = this.closest('.preference-card');
+            if (this.checked) {
                 card.classList.add('selected');
             } else {
                 card.classList.remove('selected');
@@ -115,6 +121,8 @@ function initializeProfilePage() {
             input.closest('.preference-card').classList.add('selected');
         }
     });
+    
+    console.log('\n✨ Profile navigation initialized successfully!\n');
 }
 
 /**
