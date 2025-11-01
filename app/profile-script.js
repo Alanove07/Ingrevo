@@ -42,27 +42,60 @@ function initializeProfilePage() {
     navItems.forEach((item, index) => {
         item.addEventListener('click', function(e) {
             e.preventDefault();
-            const sectionId = this.getAttribute('data-section') + '-section';
+            e.stopPropagation();
             
-            console.log(`🔄 Switching to section: ${sectionId}`);
+            const sectionName = this.getAttribute('data-section');
+            const sectionId = sectionName + '-section';
             
-            // Remove active class from all
-            navItems.forEach(nav => nav.classList.remove('active'));
-            sections.forEach(section => section.classList.remove('active'));
+            console.log(`🔄 Switching to section: ${sectionName} (ID: ${sectionId})`);
             
-            // Add active class to clicked
+            // Remove active class from all nav items
+            navItems.forEach(nav => {
+                nav.classList.remove('active');
+                console.log(`  Removed active from: ${nav.getAttribute('data-section')}`);
+            });
+            
+            // Remove active class from all sections
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.style.display = 'none'; // Force hide
+                console.log(`  Hiding section: ${section.id}`);
+            });
+            
+            // Add active class to clicked nav item
             this.classList.add('active');
+            console.log(`  ✅ Nav item ${sectionName} is now active`);
             
+            // Show target section
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.add('active');
-                console.log(`✅ Section ${sectionId} is now active`);
+                targetSection.style.display = 'block'; // Force show
+                console.log(`  ✅ Section ${sectionId} is now visible`);
+                
+                // Scroll to top of section
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             } else {
-                console.error(`❌ Section ${sectionId} not found!`);
+                console.error(`  ❌ Section ${sectionId} not found in DOM!`);
+                console.log('  Available sections:', Array.from(sections).map(s => s.id));
             }
         });
         
         console.log(`✅ Added listener to nav item ${index + 1}: ${item.getAttribute('data-section')}`);
+    });
+    
+    // Initialize first section to be visible
+    console.log('🎬 Initializing default section visibility...');
+    sections.forEach((section, idx) => {
+        if (idx === 0) {
+            section.classList.add('active');
+            section.style.display = 'block';
+            console.log(`  ✅ Set ${section.id} as default active section`);
+        } else {
+            section.classList.remove('active');
+            section.style.display = 'none';
+            console.log(`  Hidden ${section.id}`);
+        }
     });
     
     // Dietary preferences
