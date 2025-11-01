@@ -92,29 +92,75 @@ function handleLogin(e) {
 /**
  * Theme Toggle
  */
+/**
+ * Initialize Theme System (Light/Dark Mode)
+ */
 function initTheme() {
     const themeToggle = document.getElementById('theme-toggle');
     
     if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
+        console.log('🎨 Theme system initialized');
+        
+        // Toggle theme function
+        const toggleTheme = () => {
+            const isDark = document.body.classList.toggle('dark-mode');
             const icon = themeToggle.querySelector('i');
-            icon.classList.toggle('fa-moon');
-            icon.classList.toggle('fa-sun');
+            
+            // Update icon
+            if (isDark) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
             
             // Save preference
-            const isDark = document.body.classList.contains('dark-mode');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
+            console.log(`✨ Theme switched to: ${isDark ? 'dark' : 'light'}`);
+            
+            // Dispatch custom event for other components
+            window.dispatchEvent(new CustomEvent('themeChanged', { 
+                detail: { theme: isDark ? 'dark' : 'light' } 
+            }));
+        };
         
-        // Load saved theme
+        // Add click event
+        themeToggle.addEventListener('click', toggleTheme);
+        
+        // Load saved theme on page load
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+        
+        if (shouldBeDark) {
             document.body.classList.add('dark-mode');
             const icon = themeToggle.querySelector('i');
             icon.classList.remove('fa-moon');
             icon.classList.add('fa-sun');
+            console.log('🌙 Dark mode loaded from preferences');
+        } else {
+            console.log('☀️ Light mode active');
         }
+        
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                    document.body.classList.add('dark-mode');
+                    const icon = themeToggle.querySelector('i');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    const icon = themeToggle.querySelector('i');
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+        });
+    } else {
+        console.warn('⚠️ Theme toggle button not found');
     }
 }
 

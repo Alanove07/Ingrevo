@@ -78,13 +78,12 @@
 
 /* Current Product Card */
 .current-product-card {
-    background: white;
+    background: var(--bg-card);
     border-radius: 1.5rem;
     padding: 2rem;
     margin-bottom: 2.5rem;
-    box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(0, 0, 0, 0.02);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
     position: relative;
     overflow: hidden;
     animation: fadeInUp 0.6s ease 0.1s backwards;
@@ -205,12 +204,12 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: white;
-    border: 2px solid var(--gray-200);
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
     padding: 0.75rem 1.25rem;
     border-radius: 3rem;
     font-weight: 600;
-    color: var(--gray-700);
+    color: var(--text-primary);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 0.9375rem;
@@ -304,12 +303,11 @@
 
 /* Recommendation Card */
 .recommendation-card {
-    background: white;
+    background: var(--bg-card);
     border-radius: 1.5rem;
     overflow: hidden;
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.06),
-        0 0 0 1px rgba(0, 0, 0, 0.02);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-light);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     animation: fadeInUp 0.6s ease backwards;
@@ -321,13 +319,6 @@
 .recommendation-card:nth-child(4) { animation-delay: 0.55s; }
 .recommendation-card:nth-child(5) { animation-delay: 0.6s; }
 .recommendation-card:nth-child(6) { animation-delay: 0.65s; }
-
-.recommendation-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.12),
-        0 0 0 1px rgba(20, 184, 166, 0.1);
-}
 
 .recommendation-card.best-match {
     border: 2px solid var(--primary);
@@ -537,10 +528,11 @@
 }
 
 .comparison-table {
-    background: white;
+    background: var(--bg-card);
     border-radius: 1.5rem;
     overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light);
 }
 
 .comparison-table table {
@@ -726,3 +718,382 @@
         padding: 1.25rem;
     }
 }
+
+/* ===========================
+   DARK MODE STYLES - RECOMMENDATIONS
+   =========================== */
+
+/* Page Background */
+body.dark-mode .recommendations-page {
+    background: var(--bg-primary);
+}
+
+/* Hero Section */
+body.dark-mode .recommendations-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+body.dark-mode .recommendations-hero::before {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+}
+
+body.dark-mode .page-title {
+    color: var(--text-primary);
+}
+
+body.dark-mode .page-subtitle {
+    color: var(--text-secondary);
+}
+
+/* Filter Chips */
+body.dark-mode .filter-chip {
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .filter-chip:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+body.dark-mode .filter-chip.active {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+/* Recommendation Cards */
+body.dark-mode .recommendation-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .recommendation-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 10px 40px rgba(20, 184, 166, 0.15);
+}
+
+body.dark-mode .card-header h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .card-header .brand {
+    color: var(--text-tertiary);
+}
+
+body.dark-mode .card-content p {
+    color: var(--text-secondary);
+}
+
+/* Alternative Cards */
+body.dark-mode .alternative-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .alternative-card:hover {
+    border-color: var(--primary);
+}
+
+body.dark-mode .alternative-card h4 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .alternative-card p {
+    color: var(--text-secondary);
+}
+
+/* Tags & Badges */
+body.dark-mode .tag {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+body.dark-mode .tag.safe {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+body.dark-mode .tag.warning {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning);
+}
+
+/* AI Tips Section */
+body.dark-mode .ai-tips {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .ai-tips h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .ai-tips ul li {
+    color: var(--text-secondary);
+}
+
+/* Comparison Table */
+body.dark-mode .comparison-table {
+    background: var(--bg-card);
+}
+
+body.dark-mode .comparison-table table {
+    background: var(--bg-card);
+}
+
+body.dark-mode .comparison-table th {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .comparison-table td {
+    color: var(--text-secondary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .comparison-table tbody tr:hover {
+    background: var(--bg-hover);
+}
+
+/* Improve table text contrast */
+body.dark-mode .comparison-table tbody tr td {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .comparison-table tbody tr td:first-child {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Original (baseline) product row in dark mode */
+body.dark-mode .comparison-table tbody tr.original {
+    background: rgba(239, 68, 68, 0.12);
+}
+
+body.dark-mode .comparison-table tbody tr.original:hover {
+    background: rgba(239, 68, 68, 0.18);
+}
+
+body.dark-mode .comparison-table tbody tr.original td {
+    color: var(--text-primary);
+}
+
+/* Price Display */
+body.dark-mode .price {
+    color: var(--primary);
+}
+
+/* Rating Stars */
+body.dark-mode .stars {
+    filter: brightness(1.2);
+}
+
+/* Section Headers */
+body.dark-mode .section-header {
+    color: var(--text-primary);
+}
+
+body.dark-mode .section-subtitle {
+    color: var(--text-secondary);
+}
+
+/* Empty States */
+body.dark-mode .empty-state {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .empty-state h3 {
+    color: var(--text-primary);
+}
+
+/* Product Images */
+body.dark-mode .product-image {
+    background: var(--bg-tertiary);
+}
+
+/* Score Indicators */
+body.dark-mode .score-indicator {
+    background: var(--bg-tertiary);
+}
+
+body.dark-mode .score-indicator.high {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+body.dark-mode .score-indicator.medium {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning);
+}
+
+body.dark-mode .score-indicator.low {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--error);
+}
+
+/* ==================================
+   Dark Mode Visibility Fixes
+   ================================== */
+
+/* Ensure all headings are clearly visible */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+/* Page titles and subtitles */
+body.dark-mode .page-title {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .page-subtitle {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Section headers */
+body.dark-mode .section-header {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .section-subtitle {
+    color: var(--text-secondary) !important;
+    opacity: 0.9;
+}
+
+/* Current product card - ensure text is visible */
+body.dark-mode .current-product-card h3 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .current-product-card .product-brand {
+    color: var(--text-secondary) !important;
+}
+
+body.dark-mode .current-product-card p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Recommendation cards - improve visibility */
+body.dark-mode .recommendation-card h3 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .recommendation-card .product-brand {
+    color: var(--text-secondary) !important;
+    opacity: 0.85;
+}
+
+body.dark-mode .recommendation-card p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+body.dark-mode .recommendation-card .product-description {
+    color: var(--text-secondary) !important;
+    line-height: 1.7;
+}
+
+/* Product tags - better contrast */
+body.dark-mode .product-tag {
+    color: var(--text-secondary) !important;
+    opacity: 0.9;
+}
+
+/* Match scores and percentages */
+body.dark-mode .match-score {
+    color: var(--primary) !important;
+    font-weight: 700;
+}
+
+body.dark-mode .match-percentage {
+    color: var(--text-secondary) !important;
+}
+
+/* Comparison table text */
+body.dark-mode .comparison-table th {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .comparison-table td {
+    color: var(--text-secondary) !important;
+}
+
+/* Filter chips */
+body.dark-mode .filter-chip {
+    color: var(--text-secondary) !important;
+}
+
+body.dark-mode .filter-chip.active {
+    color: white !important;
+}
+
+/* Empty state text */
+body.dark-mode .empty-state h3 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .empty-state p {
+    color: var(--text-secondary) !important;
+    opacity: 0.9;
+}
+
+/* Product info labels */
+body.dark-mode .product-info-label {
+    color: var(--text-tertiary) !important;
+    opacity: 0.8;
+}
+
+body.dark-mode .product-info-value {
+    color: var(--text-primary) !important;
+}
+
+/* All card paragraphs */
+body.dark-mode .recommendation-card p,
+body.dark-mode .current-product-card p,
+body.dark-mode .product-card p {
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+/* --- Additional Dark Mode Fixes (cards + stats) --- */
+/* Top card banner image */
+body.dark-mode .card-image {
+    background: var(--bg-secondary);
+}
+
+/* Badge (neutral) */
+body.dark-mode .card-badge:not(.best):not(.good) {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border-color: var(--border-light);
+}
+
+/* Inline product image placeholder */
+body.dark-mode .product-image {
+    background: var(--bg-tertiary);
+    color: var(--text-tertiary);
+    border-color: var(--border-light);
+}
+
+/* Comparison stats container + items */
+body.dark-mode .comparison-stats {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-light);
+}
+
+body.dark-mode .stat-label {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .stat-value {
+    color: var(--text-primary);
+}
+

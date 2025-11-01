@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Stylesheets -->
+    <link rel="stylesheet" href="theme-variables.css">
     <link rel="stylesheet" href="app-style.css">
     <link rel="stylesheet" href="enhanced-style.css">
     <link rel="stylesheet" href="profile-enhanced.css">
@@ -539,11 +540,19 @@
         console.log('🔍 Inline debug script running...');
         console.log('Navigation items:', document.querySelectorAll('.profile-nav-item').length);
         console.log('Sections:', document.querySelectorAll('.profile-section').length);
+        console.log('Allergen items:', document.querySelectorAll('.allergen-item').length);
+        console.log('Toggles:', document.querySelectorAll('.toggle input').length);
         
-        // Test direct click handler
-        document.querySelectorAll('.profile-nav-item').forEach((btn, i) => {
-            console.log(`Nav button ${i}:`, btn.getAttribute('data-section'));
-        });
+        // Test allergen structure
+        const firstAllergen = document.querySelector('.allergen-item');
+        if (firstAllergen) {
+            console.log('First allergen:', firstAllergen.dataset.allergen);
+            const toggle = firstAllergen.querySelector('.toggle input');
+            console.log('Toggle found:', toggle ? 'YES' : 'NO');
+            if (toggle) {
+                console.log('Toggle checked:', toggle.checked);
+            }
+        }
     </script>
 </body>
 </html>

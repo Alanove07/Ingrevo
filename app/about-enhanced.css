@@ -75,7 +75,7 @@
 /* Mission Section */
 .mission-section {
     padding: 6rem 0;
-    background: white;
+    background: var(--bg-card);
     animation: fadeIn 1s ease;
 }
 
@@ -202,7 +202,7 @@
 }
 
 .value-card {
-    background: white;
+    background: var(--bg-card);
     padding: 2.5rem;
     border-radius: 1.5rem;
     text-align: center;
@@ -274,7 +274,7 @@
 /* Team Section */
 .team-section {
     padding: 6rem 0;
-    background: white;
+    background: var(--bg-card);
 }
 
 .team-section h2 {
@@ -316,7 +316,7 @@
 }
 
 .capability-item {
-    background: white;
+    background: var(--bg-card);
     padding: 1.25rem 1.5rem;
     border-radius: 0.75rem;
     display: flex;
@@ -480,7 +480,7 @@
 }
 
 .tech-feature {
-    background: white;
+    background: var(--bg-card);
     padding: 2rem;
     border-radius: 1.5rem;
     display: flex;
@@ -530,7 +530,7 @@
 /* Contact Section */
 .contact-section {
     padding: 6rem 0;
-    background: white;
+    background: var(--bg-card);
 }
 
 .contact-simple {
@@ -737,7 +737,7 @@
 }
 
 .faq-item {
-    background: white;
+    background: var(--bg-card);
     border-radius: 1rem;
     margin-bottom: 1rem;
     overflow: hidden;
@@ -974,3 +974,487 @@
         font-size: 2rem;
     }
 }
+
+/* ===========================
+   DARK MODE STYLES - ABOUT
+   =========================== */
+
+/* Page Background */
+body.dark-mode .about-page {
+    background: var(--bg-primary);
+}
+
+/* Hero Section */
+body.dark-mode .about-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+body.dark-mode .about-hero::before {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+}
+
+body.dark-mode .about-hero h1 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .about-hero .lead {
+    color: var(--text-secondary);
+}
+
+/* Mission Section */
+body.dark-mode .mission-section {
+    background: var(--bg-primary);
+}
+
+body.dark-mode .mission-text h2 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .mission-text p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .mission-stats {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .stat-box h3 {
+    color: var(--primary);
+}
+
+body.dark-mode .stat-box p {
+    color: var(--text-secondary);
+}
+
+/* Values Section */
+body.dark-mode .values-section {
+    background: var(--bg-secondary);
+}
+
+body.dark-mode .values-section h2 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .value-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .value-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 10px 40px rgba(20, 184, 166, 0.15);
+}
+
+body.dark-mode .value-card h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .value-card p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .value-icon {
+    background: var(--bg-tertiary);
+}
+
+/* Team Section */
+body.dark-mode .team-section {
+    background: var(--bg-primary);
+}
+
+body.dark-mode .team-section h2 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .team-overview {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .team-overview h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .team-overview p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .team-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .team-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 10px 40px rgba(20, 184, 166, 0.15);
+}
+
+body.dark-mode .team-info h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .team-role {
+    color: var(--text-tertiary);
+}
+
+body.dark-mode .team-bio {
+    color: var(--text-secondary);
+}
+
+/* Capabilities Grid */
+body.dark-mode .capabilities-grid {
+    background: var(--bg-secondary);
+}
+
+body.dark-mode .capability-item {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .capability-item:hover {
+    border-color: var(--primary);
+}
+
+body.dark-mode .capability-item h4 {
+    color: var(--text-primary);
+}
+
+/* Technology Section */
+body.dark-mode .technology-section {
+    background: var(--bg-secondary);
+}
+
+body.dark-mode .technology-section h2 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .tech-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .tech-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 10px 40px rgba(20, 184, 166, 0.15);
+}
+
+body.dark-mode .tech-card h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .tech-card p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .tech-icon {
+    background: var(--bg-tertiary);
+}
+
+/* FAQ Section */
+body.dark-mode .faq-section {
+    background: var(--bg-primary);
+}
+
+body.dark-mode .faq-section h2 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .faq-item {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .faq-item:hover {
+    border-color: var(--primary);
+}
+
+body.dark-mode .faq-question {
+    color: var(--text-primary);
+}
+
+body.dark-mode .faq-answer {
+    color: var(--text-secondary);
+}
+
+/* Timeline Section */
+body.dark-mode .timeline-section {
+    background: var(--bg-secondary);
+}
+
+body.dark-mode .timeline-item {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .timeline-item::before {
+    background: var(--primary);
+}
+
+body.dark-mode .timeline-date {
+    color: var(--primary);
+}
+
+body.dark-mode .timeline-content h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .timeline-content p {
+    color: var(--text-secondary);
+}
+
+/* Contact Section */
+body.dark-mode .contact-section {
+    background: var(--bg-primary);
+}
+
+body.dark-mode .contact-section h2 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .contact-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .contact-card:hover {
+    border-color: var(--primary);
+}
+
+body.dark-mode .contact-info h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .contact-info p,
+body.dark-mode .contact-info a {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .contact-info a:hover {
+    color: var(--primary);
+}
+
+/* Social Links */
+body.dark-mode .social-links a {
+    color: var(--text-secondary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .social-links a:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* Footer */
+body.dark-mode .footer {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+body.dark-mode .footer h4 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .footer-column a {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .footer-column a:hover {
+    color: var(--primary);
+}
+
+body.dark-mode .footer-bottom {
+    border-top-color: var(--border-light);
+}
+
+body.dark-mode .footer-bottom p {
+    color: var(--text-tertiary);
+}
+
+/* Section Dividers */
+body.dark-mode .section-divider {
+    background: var(--border-light);
+}
+
+/* ==================================
+   Dark Mode Visibility Fixes
+   ================================== */
+
+/* Ensure all headings are clearly visible */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+/* Hero Section - Clear heading and lead text */
+body.dark-mode .about-hero h1 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .about-hero .lead {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Mission Section - Improve text visibility */
+body.dark-mode .mission-text h2 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .mission-text p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+    line-height: 1.8;
+}
+
+/* Stats Box - Better contrast for numbers and labels */
+body.dark-mode .stat-box h3 {
+    color: var(--primary) !important;
+    font-weight: 700;
+}
+
+body.dark-mode .stat-box p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Values Cards - Ensure titles and descriptions are readable */
+body.dark-mode .value-card h3 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .value-card p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Team Section - Clear team member info */
+body.dark-mode .team-overview h3 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .team-overview p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+body.dark-mode .team-info h3 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .team-role {
+    color: var(--primary) !important;
+    opacity: 0.9;
+}
+
+body.dark-mode .team-bio {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Capabilities Grid - Fix faded text */
+body.dark-mode .capability-item h4 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .capability-item p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Technology Cards - Better visibility */
+body.dark-mode .tech-card h3 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .tech-card p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* FAQ Section - Clear questions and answers */
+body.dark-mode .faq-question {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .faq-answer {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+    line-height: 1.8;
+}
+
+/* Timeline Items */
+body.dark-mode .timeline-item h4 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .timeline-item p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Section titles */
+body.dark-mode .values-section h2,
+body.dark-mode .team-section h2,
+body.dark-mode .technology-section h2,
+body.dark-mode .faq-section h2 {
+    color: var(--text-primary) !important;
+    font-weight: 700;
+}
+
+/* All paragraph text in cards for better readability */
+body.dark-mode .value-card p,
+body.dark-mode .team-card p,
+body.dark-mode .tech-card p,
+body.dark-mode .capability-item p {
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+/* --- Additional Dark Mode Fixes (visibility + backgrounds) --- */
+/* Mission stats cards */
+body.dark-mode .mission-stats .stat {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .mission-stats .stat p {
+    color: var(--text-secondary);
+}
+
+/* Team capabilities container background */
+body.dark-mode .team-capabilities {
+    background: var(--bg-secondary);
+    box-shadow: none;
+}
+
+/* Contact email card and form */
+body.dark-mode .email-card,
+body.dark-mode .contact-form-container {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .contact-info-centered h2,
+body.dark-mode .method-info h4 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .contact-info-centered > p,
+body.dark-mode .method-info p {
+    color: var(--text-secondary);
+}
+
+/* Social link buttons */
+body.dark-mode .social-link {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+/* Card image banner at top of cards */
+body.dark-mode .card-image {
+    background: var(--bg-secondary);
+}
+

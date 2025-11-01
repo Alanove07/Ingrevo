@@ -1054,3 +1054,321 @@
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ===========================
+   DARK MODE STYLES - ENHANCED
+   =========================== */
+
+/* Gradient Orbs Dark Mode */
+body.dark-mode .gradient-orb {
+    opacity: 0.15;
+}
+
+body.dark-mode .gradient-orb.primary {
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.4) 0%, transparent 70%);
+}
+
+body.dark-mode .gradient-orb.secondary {
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.4) 0%, transparent 70%);
+}
+
+/* Glass Cards Dark Mode */
+body.dark-mode .glass-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(20px);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .glass-card:hover {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: var(--primary);
+}
+
+/* Floating Elements Dark Mode */
+body.dark-mode .floating-card,
+body.dark-mode .floating-element {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+/* Neon Effects Dark Mode */
+body.dark-mode .neon-text {
+    text-shadow: 
+        0 0 10px rgba(20, 184, 166, 0.7),
+        0 0 20px rgba(20, 184, 166, 0.5),
+        0 0 30px rgba(20, 184, 166, 0.3);
+}
+
+body.dark-mode .neon-border {
+    border-color: var(--primary);
+    box-shadow: 
+        0 0 10px rgba(20, 184, 166, 0.3),
+        inset 0 0 10px rgba(20, 184, 166, 0.1);
+}
+
+/* Pattern Overlays Dark Mode */
+body.dark-mode .pattern-overlay {
+    opacity: 0.03;
+}
+
+/* Pulse Animation Dark Mode */
+body.dark-mode .pulse {
+    box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.7);
+}
+
+/* Feature Icons Dark Mode */
+body.dark-mode .feature-icon-wrapper {
+    background: var(--bg-tertiary);
+}
+
+body.dark-mode .feature-icon {
+    color: var(--primary);
+}
+
+/* Phone Mockup Dark Mode */
+body.dark-mode .phone-mockup {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-color: var(--border-medium);
+}
+
+body.dark-mode .phone-screen {
+    background: var(--bg-primary);
+}
+
+/* Stat Items Dark Mode */
+body.dark-mode .stat-item {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .stat-value {
+    color: var(--primary);
+}
+
+body.dark-mode .stat-label {
+    color: var(--text-secondary);
+}
+
+/* Progress Bars Dark Mode */
+body.dark-mode .progress-bar {
+    background: var(--bg-tertiary);
+}
+
+body.dark-mode .progress-fill {
+    background: var(--gradient-primary);
+}
+
+/* Tooltip Dark Mode */
+body.dark-mode .tooltip {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Code Blocks Dark Mode */
+body.dark-mode pre,
+body.dark-mode code {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+/* Highlight Dark Mode */
+body.dark-mode .highlight {
+    background: rgba(20, 184, 166, 0.2);
+    color: var(--primary);
+}
+
+/* Dividers Dark Mode */
+body.dark-mode hr,
+body.dark-mode .divider {
+    background: var(--border-light);
+}
+
+/* Blockquote Dark Mode */
+body.dark-mode blockquote {
+    background: var(--bg-card);
+    border-left-color: var(--primary);
+    color: var(--text-secondary);
+}
+
+/* List Items Dark Mode */
+body.dark-mode ul.styled li::before {
+    color: var(--primary);
+}
+
+/* Enhanced Buttons Dark Mode */
+body.dark-mode .btn-gradient {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+body.dark-mode .btn-glass {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(20px);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .btn-glass:hover {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: var(--primary);
+}
+
+/* Skeleton Loaders Dark Mode */
+body.dark-mode .skeleton {
+    background: var(--bg-tertiary);
+}
+
+body.dark-mode .skeleton::after {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.05),
+        transparent
+    );
+}
+
+/* Dropdown Dark Mode */
+body.dark-mode .dropdown {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+    box-shadow: var(--shadow-xl);
+}
+
+body.dark-mode .dropdown-item {
+    color: var(--text-primary);
+}
+
+body.dark-mode .dropdown-item:hover {
+    background: var(--bg-hover);
+    color: var(--primary);
+}
+
+/* Pagination Dark Mode */
+body.dark-mode .pagination {
+    background: var(--bg-card);
+}
+
+body.dark-mode .page-link {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .page-link:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary);
+}
+
+body.dark-mode .page-link.active {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+/* Breadcrumb Dark Mode */
+body.dark-mode .breadcrumb {
+    background: var(--bg-card);
+}
+
+body.dark-mode .breadcrumb-item {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .breadcrumb-item.active {
+    color: var(--primary);
+}
+
+/* Accordion Dark Mode */
+body.dark-mode .accordion-item {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .accordion-header {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+body.dark-mode .accordion-header:hover {
+    background: var(--bg-hover);
+}
+
+body.dark-mode .accordion-content {
+    background: var(--bg-card);
+    color: var(--text-secondary);
+}
+
+/* ==================================
+   Dark Mode Visibility Fixes
+   ================================== */
+
+/* Ensure all headings are clearly visible */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+    color: var(--text-primary) !important;
+}
+
+/* Glass card text */
+body.dark-mode .glass-card h3,
+body.dark-mode .glass-card h4 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .glass-card p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Stat items - improve visibility */
+body.dark-mode .stat-value {
+    color: var(--primary) !important;
+    font-weight: 700;
+}
+
+body.dark-mode .stat-label {
+    color: var(--text-secondary) !important;
+    opacity: 0.9;
+}
+
+/* Feature descriptions */
+body.dark-mode .feature-description {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+/* Blockquote text */
+body.dark-mode blockquote {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Accordion content */
+body.dark-mode .accordion-content {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* Tooltip text */
+body.dark-mode .tooltip {
+    color: var(--text-primary) !important;
+}
+
+/* All paragraph text */
+body.dark-mode p {
+    opacity: 0.95;
+}
+
+/* All card text */
+body.dark-mode .card p,
+body.dark-mode .glass-card p,
+body.dark-mode .feature-card p {
+    line-height: 1.7;
+    opacity: 0.95;
+}
+

@@ -80,7 +80,7 @@ body {
     font-family: var(--font-primary);
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--gray-800);
+    color: var(--text-primary);
     background: var(--white);
     overflow-x: hidden;
 }
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 600;
     line-height: 1.2;
-    color: var(--gray-900);
+    color: var(--text-primary);
 }
 
 h1 { font-size: 3rem; }
@@ -182,7 +182,7 @@ input, textarea, select {
     font-family: var(--font-display);
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--gray-900);
+    color: var(--text-primary);
 }
 
 .nav-brand i {
@@ -197,7 +197,7 @@ input, textarea, select {
 }
 
 .nav-links a {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: var(--radius);
@@ -207,7 +207,7 @@ input, textarea, select {
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--primary);
-    background: var(--gray-50);
+    background: var(--bg-primary);
 }
 
 .nav-actions {
@@ -219,7 +219,7 @@ input, textarea, select {
 .mobile-menu-toggle {
     display: none;
     font-size: 1.5rem;
-    color: var(--gray-700);
+    color: var(--text-secondary);
 }
 
 /* ===========================
@@ -253,12 +253,14 @@ input, textarea, select {
 }
 
 .btn-secondary {
-    background: var(--gray-100);
-    color: var(--gray-700);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-light);
 }
 
 .btn-secondary:hover {
-    background: var(--gray-200);
+    background: var(--bg-hover);
+    border-color: var(--primary);
 }
 
 .btn-outline {
@@ -290,14 +292,17 @@ input, textarea, select {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--gray-100);
-    color: var(--gray-600);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 2px solid var(--border-light);
+    cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .btn-icon:hover {
-    background: var(--gray-200);
-    color: var(--gray-900);
+    background: var(--bg-hover);
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 /* ===========================
@@ -393,7 +398,7 @@ input, textarea, select {
 
 .hero-description {
     font-size: 1.25rem;
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin-bottom: 2.5rem;
     line-height: 1.8;
 }
@@ -423,7 +428,7 @@ input, textarea, select {
 
 .stat-label {
     font-size: 0.875rem;
-    color: var(--gray-600);
+    color: var(--text-secondary);
 }
 
 /* Phone Mockup */
@@ -461,7 +466,7 @@ input, textarea, select {
 
 .scan-preview {
     text-align: center;
-    color: var(--gray-400);
+    color: var(--text-tertiary);
 }
 
 .scan-preview i {
@@ -489,7 +494,7 @@ input, textarea, select {
    =========================== */
 .features {
     padding: var(--section-padding) 0;
-    background: var(--gray-50);
+    background: var(--bg-primary);
 }
 
 .section-header {
@@ -503,7 +508,7 @@ input, textarea, select {
 
 .section-header p {
     font-size: 1.125rem;
-    color: var(--gray-600);
+    color: var(--text-secondary);
 }
 
 .features-grid {
@@ -553,7 +558,7 @@ input, textarea, select {
 
 .feature-icon.purple {
     background: rgba(139, 92, 246, 0.1);
-    color: #8B5CF6;
+    color: var(--accent-purple, #8B5CF6);
 }
 
 .feature-icon.orange {
@@ -572,7 +577,7 @@ input, textarea, select {
 }
 
 .feature-card p {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin: 0;
 }
 
@@ -617,7 +622,7 @@ input, textarea, select {
 }
 
 .step-content p {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
 
@@ -648,7 +653,7 @@ input, textarea, select {
    =========================== */
 .cta {
     padding: var(--section-padding) 0;
-    background: var(--gray-50);
+    background: var(--bg-primary);
 }
 
 .cta-card {
@@ -707,7 +712,7 @@ input, textarea, select {
    =========================== */
 .footer {
     background: var(--gray-900);
-    color: var(--gray-400);
+    color: var(--text-tertiary);
     padding: 4rem 0 2rem;
 }
 
@@ -748,7 +753,7 @@ input, textarea, select {
     height: 2.5rem;
     border-radius: var(--radius-full);
     background: var(--gray-800);
-    color: var(--gray-400);
+    color: var(--text-tertiary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -782,7 +787,7 @@ input, textarea, select {
 }
 
 .footer-column a {
-    color: var(--gray-400);
+    color: var(--text-tertiary);
     transition: color var(--transition-fast);
 }
 
@@ -856,8 +861,8 @@ input, textarea, select {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: var(--radius-full);
-    background: var(--gray-100);
-    color: var(--gray-600);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -865,8 +870,8 @@ input, textarea, select {
 }
 
 .modal-close:hover {
-    background: var(--gray-200);
-    color: var(--gray-900);
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
 }
 
 .modal-header {
@@ -879,7 +884,7 @@ input, textarea, select {
 }
 
 .modal-header p {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin: 0;
 }
 
@@ -904,11 +909,11 @@ input, textarea, select {
 .social-login.google {
     background: var(--white);
     border-color: var(--gray-300);
-    color: var(--gray-700);
+    color: var(--text-secondary);
 }
 
 .social-login.google:hover {
-    border-color: var(--gray-400);
+    border-color: var(--text-tertiary);
     box-shadow: var(--shadow);
 }
 
@@ -926,7 +931,7 @@ input, textarea, select {
     align-items: center;
     gap: 1rem;
     margin: 1.5rem 0;
-    color: var(--gray-400);
+    color: var(--text-tertiary);
 }
 
 .divider::before,
@@ -945,7 +950,7 @@ input, textarea, select {
     display: block;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: var(--gray-700);
+    color: var(--text-secondary);
 }
 
 .form-group input,
@@ -953,7 +958,7 @@ input, textarea, select {
 .form-group select {
     width: 100%;
     padding: 0.875rem 1rem;
-    border: 2px solid var(--gray-300);
+    border: 2px solid var(--border-medium);
     border-radius: var(--radius);
     transition: all var(--transition-fast);
 }
@@ -987,7 +992,7 @@ input, textarea, select {
 .signup-link {
     text-align: center;
     margin-top: 1.5rem;
-    color: var(--gray-600);
+    color: var(--text-secondary);
 }
 
 .signup-link a {
@@ -1141,7 +1146,7 @@ input, textarea, select {
 }
 
 .scan-card > p {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin-bottom: 2rem;
 }
 
@@ -1149,7 +1154,7 @@ input, textarea, select {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
-    background: var(--gray-100);
+    background: var(--bg-secondary);
     padding: 0.5rem;
     border-radius: var(--radius-lg);
 }
@@ -1159,7 +1164,7 @@ input, textarea, select {
     padding: 0.875rem 1.5rem;
     border-radius: var(--radius);
     font-weight: 600;
-    color: var(--gray-600);
+    color: var(--text-secondary);
     transition: all var(--transition-fast);
     display: flex;
     align-items: center;
@@ -1290,7 +1295,7 @@ input, textarea, select {
     left: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--gray-400);
+    color: var(--text-tertiary);
 }
 
 .input-with-icon input {
@@ -1306,7 +1311,7 @@ input, textarea, select {
 }
 
 .quick-test p {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     font-size: 0.875rem;
     margin-bottom: 1rem;
 }
@@ -1319,9 +1324,9 @@ input, textarea, select {
 
 .sample-btn {
     padding: 0.75rem 1.5rem;
-    background: var(--gray-100);
+    background: var(--bg-secondary);
     border-radius: var(--radius);
-    color: var(--gray-700);
+    color: var(--text-secondary);
     font-family: monospace;
     font-weight: 600;
     transition: all var(--transition-fast);
@@ -1391,12 +1396,12 @@ input, textarea, select {
 
 .alert-content h4 {
     margin-bottom: 0.25rem;
-    color: var(--gray-900);
+    color: var(--text-primary);
 }
 
 .alert-content p {
     margin: 0;
-    color: var(--gray-700);
+    color: var(--text-secondary);
 }
 
 .alert-close {
@@ -1407,7 +1412,7 @@ input, textarea, select {
     height: 2rem;
     border-radius: var(--radius-full);
     background: rgba(0, 0, 0, 0.1);
-    color: var(--gray-600);
+    color: var(--text-secondary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1438,7 +1443,7 @@ input, textarea, select {
     height: 200px;
     object-fit: cover;
     border-radius: var(--radius-lg);
-    background: var(--gray-100);
+    background: var(--bg-secondary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1467,7 +1472,7 @@ input, textarea, select {
 }
 
 .product-brand {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     font-size: 1.125rem;
     margin-bottom: 0.5rem;
 }
@@ -1485,7 +1490,7 @@ input, textarea, select {
 .product-meta {
     display: flex;
     gap: 2rem;
-    color: var(--gray-600);
+    color: var(--text-secondary);
 }
 
 .meta-item {
@@ -1497,7 +1502,7 @@ input, textarea, select {
 /* Health Score Card */
 .health-score-card {
     background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--border-light);
     border-radius: var(--radius-xl);
     padding: 2rem;
     margin-bottom: 2rem;
@@ -1514,7 +1519,7 @@ input, textarea, select {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--gray-900);
+    color: var(--text-primary);
 }
 
 .score-header i {
@@ -1602,12 +1607,12 @@ input, textarea, select {
 .score-rating {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--gray-900);
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
 .score-description {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin: 0;
 }
 
@@ -1619,14 +1624,14 @@ input, textarea, select {
 
 .breakdown-item span {
     display: block;
-    color: var(--gray-700);
+    color: var(--text-secondary);
     font-size: 0.875rem;
     margin-bottom: 0.5rem;
 }
 
 .progress-bar {
     height: 8px;
-    background: var(--gray-200);
+    background: var(--bg-tertiary);
     border-radius: var(--radius-full);
     overflow: hidden;
 }
@@ -1641,7 +1646,7 @@ input, textarea, select {
 /* Info Cards */
 .info-card {
     background: var(--white);
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--border-light);
     border-radius: var(--radius-xl);
     padding: 2rem;
     margin-bottom: 2rem;
@@ -1652,7 +1657,7 @@ input, textarea, select {
     align-items: center;
     gap: 0.75rem;
     margin-bottom: 1.5rem;
-    color: var(--gray-900);
+    color: var(--text-primary);
 }
 
 .ingredients-list {
@@ -1663,9 +1668,9 @@ input, textarea, select {
 
 .ingredient-tag {
     padding: 0.5rem 1rem;
-    background: var(--gray-100);
+    background: var(--bg-secondary);
     border-radius: var(--radius-full);
-    color: var(--gray-700);
+    color: var(--text-secondary);
     font-size: 0.875rem;
     transition: all var(--transition-fast);
 }
@@ -1756,7 +1761,7 @@ input, textarea, select {
 .loading-spinner {
     width: 60px;
     height: 60px;
-    border: 4px solid var(--gray-200);
+    border: 4px solid var(--border-light);
     border-top-color: var(--primary);
     border-radius: var(--radius-full);
     animation: spin 1s linear infinite;
@@ -1766,4 +1771,423 @@ input, textarea, select {
 @keyframes spin {
     to { transform: rotate(360deg); }
 }
+
+/* ===========================
+   DARK MODE STYLES
+   =========================== */
+
+/* Navigation Dark Mode */
+body.dark-mode .navbar {
+    background: var(--bg-card);
+    border-bottom-color: var(--border-light);
+}
+
+body.dark-mode .logo {
+    color: var(--text-primary);
+}
+
+body.dark-mode .nav-links a {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .nav-links a:hover {
+    color: var(--primary);
+}
+
+body.dark-mode .nav-links a.active {
+    color: var(--primary);
+}
+
+body.dark-mode .nav-actions .btn-outline {
+    color: var(--text-primary);
+    border-color: var(--border-medium);
+}
+
+body.dark-mode .nav-actions .btn-outline:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary);
+}
+
+body.dark-mode .btn-icon {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .btn-icon:hover {
+    background: var(--bg-hover);
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+body.dark-mode .mobile-menu-toggle {
+    color: var(--text-primary);
+}
+
+/* Hero Section Dark Mode */
+body.dark-mode .hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+body.dark-mode .hero-title {
+    color: var(--text-primary);
+}
+
+body.dark-mode .hero-subtitle {
+    color: var(--text-secondary);
+}
+
+/* Cards Dark Mode */
+body.dark-mode .card,
+body.dark-mode .feature-card,
+body.dark-mode .stat-card,
+body.dark-mode .product-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+    color: var(--text-primary);
+}
+
+body.dark-mode .card:hover,
+body.dark-mode .feature-card:hover,
+body.dark-mode .product-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 30px rgba(20, 184, 166, 0.15);
+}
+
+body.dark-mode .card-title,
+body.dark-mode .feature-title {
+    color: var(--text-primary);
+}
+
+body.dark-mode .card-text,
+body.dark-mode .feature-description {
+    color: var(--text-secondary);
+}
+
+/* Inputs Dark Mode */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select,
+body.dark-mode .form-control {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: var(--text-tertiary);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+}
+
+/* Buttons Dark Mode */
+body.dark-mode .btn-primary {
+    box-shadow: 0 4px 15px rgba(20, 184, 166, 0.4);
+}
+
+body.dark-mode .btn-primary:hover {
+    box-shadow: 0 8px 25px rgba(20, 184, 166, 0.5);
+}
+
+body.dark-mode .btn-secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .btn-secondary:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary);
+}
+
+body.dark-mode .btn-outline {
+    color: var(--text-primary);
+    border-color: var(--border-medium);
+}
+
+body.dark-mode .btn-outline:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+body.dark-mode .btn-ghost {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .btn-ghost:hover {
+    color: var(--primary);
+    background: var(--bg-hover);
+}
+
+/* Modal Dark Mode */
+body.dark-mode .modal-content {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+body.dark-mode .modal-header {
+    border-bottom-color: var(--border-light);
+}
+
+body.dark-mode .modal-footer {
+    border-top-color: var(--border-light);
+}
+
+body.dark-mode .close-btn {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .close-btn:hover {
+    color: var(--text-primary);
+}
+
+/* Tabs Dark Mode */
+body.dark-mode .tabs {
+    background: var(--bg-secondary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .tab-btn {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .tab-btn.active {
+    color: var(--primary);
+    background: var(--bg-card);
+}
+
+/* Badges Dark Mode */
+body.dark-mode .badge {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+body.dark-mode .badge.success {
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--success);
+}
+
+body.dark-mode .badge.warning {
+    background: rgba(245, 158, 11, 0.2);
+    color: var(--warning);
+}
+
+body.dark-mode .badge.danger {
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--error);
+}
+
+/* Alert Dark Mode */
+body.dark-mode .alert {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .alert.success {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--success);
+}
+
+body.dark-mode .alert.warning {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--warning);
+}
+
+body.dark-mode .alert.danger {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--error);
+}
+
+/* Table Dark Mode */
+body.dark-mode table {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+body.dark-mode thead {
+    background: var(--bg-tertiary);
+}
+
+body.dark-mode th {
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode td {
+    color: var(--text-secondary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode tbody tr:hover {
+    background: var(--bg-hover);
+}
+
+/* Loading Overlay Dark Mode */
+body.dark-mode .loading-overlay {
+    background: rgba(15, 23, 42, 0.95);
+}
+
+body.dark-mode .loading-spinner {
+    border-color: var(--border-medium);
+    border-top-color: var(--primary);
+}
+
+/* Sections Dark Mode */
+body.dark-mode .section {
+    background: var(--bg-primary);
+}
+
+body.dark-mode .section.alt {
+    background: var(--bg-secondary);
+}
+
+/* Footer Dark Mode */
+body.dark-mode .footer {
+    background: var(--bg-card);
+    border-top-color: var(--border-light);
+}
+
+body.dark-mode .footer-links a {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .footer-links a:hover {
+    color: var(--primary);
+}
+
+/* Page Headers Dark Mode */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .scan-card h1,
+body.dark-mode .scan-section h1 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .scan-card > p {
+    color: var(--text-secondary) !important;
+}
+
+/* How It Works Section Dark Mode */
+body.dark-mode .how-it-works {
+    background: var(--bg-secondary);
+}
+
+body.dark-mode .step-content h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .step-content p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .step-connector::after {
+    color: var(--primary-light);
+}
+
+/* Scan Page Dark Mode */
+body.dark-mode .scan-page {
+    background: var(--bg-primary);
+}
+body.dark-mode .scan-card {
+    background: var(--bg-card);
+}
+
+body.dark-mode .scan-tabs {
+    background: var(--bg-tertiary);
+}
+
+body.dark-mode .tab-btn.active {
+    background: var(--bg-card);
+    color: var(--primary);
+}
+
+body.dark-mode .camera-preview {
+    background: var(--bg-primary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .scan-instruction {
+    color: var(--text-primary);
+}
+
+/* Stats Cards Dark Mode */
+body.dark-mode .stat-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .stat-card h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .stat-card p {
+    color: var(--text-tertiary);
+}
+
+/* Section Titles Dark Mode */
+body.dark-mode .section-title,
+body.dark-mode .page-header h1,
+body.dark-mode .hero-title {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .section-subtitle,
+body.dark-mode .page-header p,
+body.dark-mode .hero-subtitle {
+    color: var(--text-secondary) !important;
+}
+
+/* Feature Text Dark Mode */
+body.dark-mode .feature-card h3,
+body.dark-mode .feature-title {
+    color: var(--text-primary);
+}
+
+body.dark-mode .feature-description {
+    color: var(--text-secondary);
+}
+
+/* Sample Buttons Dark Mode */
+body.dark-mode .sample-btn {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .sample-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--primary);
+}
+
+/* Form Labels Dark Mode */
+body.dark-mode label,
+body.dark-mode .form-label {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode small {
+    color: var(--text-tertiary);
+}
+
+/* CTA Section Dark Mode */
+body.dark-mode .cta-card h2 {
+    color: white;
+}
+
+body.dark-mode .cta-card p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
 

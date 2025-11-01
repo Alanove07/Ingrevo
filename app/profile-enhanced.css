@@ -182,10 +182,10 @@
     right: 5px;
     width: 45px;
     height: 45px;
-    background: linear-gradient(135deg, #FFFFFF 0%, #F0FDFA 100%);
+    background: var(--bg-card);
     color: var(--primary);
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.5);
+    border: 3px solid var(--border-light);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -313,7 +313,7 @@
 }
 
 .profile-header .btn-outline:hover {
-    background: white;
+    background: var(--bg-card);
     color: var(--primary);
     border-color: white;
     transform: translateY(-3px);
@@ -351,7 +351,7 @@
 }
 
 .profile-nav {
-    background: white;
+    background: var(--bg-card);
     border-radius: 1.5rem;
     padding: 1rem;
     box-shadow: 
@@ -370,7 +370,7 @@
     border-radius: 1rem;
     border: none;
     background: transparent;
-    color: var(--gray-700);
+    color: var(--text-secondary);
     font-weight: 500;
     font-size: 0.9375rem;
     cursor: pointer;
@@ -438,7 +438,7 @@
    Profile Main Content Area
    =========================== */
 .profile-main {
-    background: white;
+    background: var(--bg-card);
     border-radius: 1.5rem;
     padding: 3rem;
     box-shadow: 
@@ -448,12 +448,12 @@
 }
 
 .profile-section {
-    display: none;
+    display: none !important;
     animation: sectionSlide 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .profile-section.active {
-    display: block;
+    display: block !important;
 }
 
 @keyframes sectionSlide {
@@ -477,7 +477,7 @@
 }
 
 .profile-section > p {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin-bottom: 2.5rem;
     font-size: 1.0625rem;
 }
@@ -504,8 +504,8 @@
 }
 
 .preference-card .card-content {
-    background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
-    border: 2px solid var(--gray-200);
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
     border-radius: 1.25rem;
     padding: 2rem 1.5rem;
     text-align: center;
@@ -543,12 +543,12 @@
 .preference-card .card-content h3 {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    color: var(--gray-900);
+    color: var(--text-primary);
 }
 
 .preference-card .card-content p {
     font-size: 0.875rem;
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin: 0;
 }
 
@@ -559,8 +559,8 @@
     right: 1rem;
     width: 32px;
     height: 32px;
-    background: white;
-    border: 2px solid var(--gray-300);
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -571,7 +571,7 @@
 }
 
 .card-check i {
-    color: white;
+    color: var(--primary);
     font-size: 0.875rem;
 }
 
@@ -602,13 +602,88 @@
 }
 
 /* ===========================
-   Allergen Selector - Premium
+   Allergens Section Header
+   =========================== */
+#allergens-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#allergens-section h2::before {
+    content: '\f071';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+#allergens-section > p {
+    margin-bottom: 1.5rem;
+}
+
+/* Info Card for Allergens Section */
+.allergen-info-card {
+    background: linear-gradient(135deg, 
+        rgba(59, 130, 246, 0.08) 0%, 
+        rgba(147, 197, 253, 0.05) 100%
+    );
+    border: 2px solid rgba(59, 130, 246, 0.2);
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.allergen-info-card i {
+    font-size: 1.5rem;
+    color: var(--info);
+}
+
+.allergen-info-card p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+}
+
+/* ===========================
+   Allergen Selector - Premium Design
    =========================== */
 .allergen-selector {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.25rem;
     margin-bottom: 2.5rem;
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1) translateY(0);
+    }
+    25% {
+        transform: scale(1.05) translateY(-5px);
+    }
+    50% {
+        transform: scale(0.98) translateY(3px);
+    }
+    75% {
+        transform: scale(1.02) translateY(-2px);
+    }
 }
 
 .allergen-item {
@@ -616,16 +691,51 @@
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 1.5rem;
-    padding: 1.5rem;
-    background: linear-gradient(90deg, 
-        rgba(249, 250, 251, 0.8) 0%, 
-        white 100%
-    );
-    border: 2px solid var(--gray-200);
-    border-radius: 1.25rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1.75rem 1.5rem;
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
+    border-radius: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    animation: slideInRight 0.5s ease backwards;
+}
+
+/* Staggered animations for allergen items */
+.allergen-item:nth-child(1) { animation-delay: 0.1s; }
+.allergen-item:nth-child(2) { animation-delay: 0.2s; }
+.allergen-item:nth-child(3) { animation-delay: 0.3s; }
+.allergen-item:nth-child(4) { animation-delay: 0.4s; }
+.allergen-item:nth-child(5) { animation-delay: 0.5s; }
+.allergen-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Gradient Background Effect */
+.allergen-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, 
+        rgba(20, 184, 166, 0.03) 0%, 
+        transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
 }
 
 /* Animated Left Border */
@@ -634,128 +744,375 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 5px;
+    width: 4px;
     height: 100%;
     background: linear-gradient(180deg, var(--primary), var(--primary-dark));
     transform: scaleY(0);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .allergen-item:hover::before {
     transform: scaleY(1);
 }
 
+.allergen-item:hover::after {
+    opacity: 1;
+}
+
 .allergen-item:hover {
-    border-color: var(--primary-light);
-    box-shadow: 0 8px 30px rgba(20, 184, 166, 0.15);
-    transform: translateX(8px);
+    border-color: rgba(20, 184, 166, 0.3);
+    box-shadow: 
+        0 10px 40px -10px rgba(20, 184, 166, 0.2),
+        0 0 0 1px rgba(20, 184, 166, 0.1);
+    transform: translateX(5px);
+}
+
+/* Active/Checked State */
+.allergen-item.active {
+    background: linear-gradient(135deg, 
+        rgba(20, 184, 166, 0.08) 0%, 
+        rgba(20, 184, 166, 0.03) 100%
+    );
+    border-color: var(--primary);
+    box-shadow: 0 4px 20px rgba(20, 184, 166, 0.15);
+}
+
+.allergen-item.active::before {
+    transform: scaleY(1);
 }
 
 /* Allergen Icon */
 .allergen-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 1rem;
+    width: 70px;
+    height: 70px;
+    border-radius: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.75rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    font-size: 2rem;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.allergen-icon i {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
 }
 
 .allergen-item:hover .allergen-icon {
-    transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.allergen-item:hover .allergen-icon i {
+    transform: rotate(-10deg);
+}
+
+.allergen-item.active .allergen-icon {
+    transform: scale(1.05);
 }
 
 /* Allergen Info */
-.allergen-info h4 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--gray-900);
-    margin-bottom: 0.25rem;
+.allergen-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
+.allergen-info h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.allergen-item:hover .allergen-info h4 {
+    color: var(--primary-dark);
+}
+
+.allergen-item.active .allergen-info h4 {
+    color: var(--primary);
+}
+
+/* Severity Badges */
 .severity {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
     border-radius: 9999px;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.75px;
+    width: fit-content;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.severity::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
 }
 
 .severity.high {
     background: linear-gradient(135deg, #FEE2E2, #FECACA);
     color: #DC2626;
+    border: 1px solid #FCA5A5;
 }
 
 .severity.medium {
     background: linear-gradient(135deg, #FEF3C7, #FDE68A);
     color: #D97706;
+    border: 1px solid #FCD34D;
 }
 
 .severity.low {
     background: linear-gradient(135deg, #D1FAE5, #A7F3D0);
     color: #059669;
+    border: 1px solid #6EE7B7;
+}
+
+.allergen-item:hover .severity {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
 /* ===========================
-   Toggle Switch - Modern
+   Toggle Switch - Enhanced Modern Design
    =========================== */
 .toggle {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 32px;
+    width: 64px;
+    height: 36px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .toggle input {
     opacity: 0;
     width: 0;
     height: 0;
+    position: absolute;
 }
 
 .slider {
     position: absolute;
     inset: 0;
-    background: var(--gray-300);
+    background: linear-gradient(135deg, #E5E7EB, #D1D5DB);
     border-radius: 9999px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+        inset 0 2px 6px rgba(0, 0, 0, 0.15),
+        0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 2px solid transparent;
 }
 
+/* Toggle Knob */
 .slider::before {
     content: '';
     position: absolute;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     left: 4px;
-    top: 4px;
-    background: white;
+    top: 2px;
+    background: linear-gradient(135deg, #FFFFFF, #F9FAFB);
     border-radius: 50%;
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 3px 10px rgba(0, 0, 0, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Icons inside toggle */
+.slider::after {
+    content: '\f00d';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+    font-size: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+/* Checked State */
 .toggle input:checked + .slider {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    background: linear-gradient(135deg, #14B8A6, #0D9488);
     box-shadow: 
-        inset 0 2px 4px rgba(0, 0, 0, 0.1),
-        0 0 20px rgba(20, 184, 166, 0.4);
+        inset 0 2px 6px rgba(0, 0, 0, 0.1),
+        0 0 20px rgba(20, 184, 166, 0.4),
+        0 4px 12px rgba(20, 184, 166, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .toggle input:checked + .slider::before {
     transform: translateX(28px);
+    background: linear-gradient(135deg, #FFFFFF, #ECFDF5);
+    box-shadow: 
+        0 4px 15px rgba(20, 184, 166, 0.4),
+        0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
+.toggle input:checked + .slider::after {
+    content: '\f00c';
+    left: 10px;
+    right: auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Hover States */
 .toggle:hover .slider {
     box-shadow: 
-        inset 0 2px 4px rgba(0, 0, 0, 0.1),
-        0 0 0 4px rgba(20, 184, 166, 0.1);
+        inset 0 2px 6px rgba(0, 0, 0, 0.15),
+        0 0 0 4px rgba(20, 184, 166, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.toggle input:checked:hover + .slider {
+    background: linear-gradient(135deg, #0D9488, #0F766E);
+    box-shadow: 
+        inset 0 2px 6px rgba(0, 0, 0, 0.1),
+        0 0 25px rgba(20, 184, 166, 0.5),
+        0 0 0 4px rgba(20, 184, 166, 0.2);
+}
+
+/* Active/Pressed State */
+.toggle:active .slider::before {
+    width: 32px;
+}
+
+/* Focus State for Accessibility */
+.toggle input:focus + .slider {
+    box-shadow: 
+        inset 0 2px 6px rgba(0, 0, 0, 0.15),
+        0 0 0 4px rgba(20, 184, 166, 0.2);
+}
+
+/* Disabled State */
+.toggle input:disabled + .slider {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ===========================
+   Allergen Counter/Summary
+   =========================== */
+.allergen-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: linear-gradient(135deg, 
+        rgba(20, 184, 166, 0.1) 0%, 
+        rgba(20, 184, 166, 0.05) 100%
+    );
+    border: 2px solid rgba(20, 184, 166, 0.2);
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.allergen-counter i {
+    color: var(--primary);
+    font-size: 1.125rem;
+}
+
+.allergen-counter .count {
+    background: var(--primary);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+/* ===========================
+   Responsive Design for Allergens
+   =========================== */
+@media (max-width: 768px) {
+    .allergen-item {
+        padding: 1.25rem 1rem;
+        gap: 1rem;
+    }
+    
+    .allergen-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .allergen-info h4 {
+        font-size: 1.0625rem;
+    }
+    
+    .toggle {
+        width: 56px;
+        height: 32px;
+    }
+    
+    .slider::before {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .toggle input:checked + .slider::before {
+        transform: translateX(24px);
+    }
+}
+
+@media (max-width: 480px) {
+    .allergen-item {
+        grid-template-columns: auto 1fr;
+        gap: 0.75rem;
+    }
+    
+    .allergen-item .toggle {
+        grid-column: 1 / -1;
+        justify-self: center;
+        margin-top: 0.5rem;
+    }
+    
+    .allergen-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+    
+    .allergen-info h4 {
+        font-size: 1rem;
+    }
+    
+    .severity {
+        font-size: 0.6875rem;
+        padding: 0.25rem 0.625rem;
+    }
 }
 
 /* ===========================
@@ -777,11 +1134,11 @@
 .search-input,
 .filter-select {
     padding: 0.875rem 1.25rem;
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--border-light);
     border-radius: 1rem;
     font-size: 0.9375rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: white;
+    background: var(--bg-card);
 }
 
 .search-input {
@@ -814,8 +1171,8 @@
     align-items: center;
     gap: 1.5rem;
     padding: 1.5rem;
-    background: linear-gradient(90deg, var(--gray-50), white);
-    border: 2px solid var(--gray-100);
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
     border-radius: 1.25rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -872,13 +1229,13 @@
 .history-info h4 {
     font-size: 1.0625rem;
     font-weight: 600;
-    color: var(--gray-900);
+    color: var(--text-primary);
     margin-bottom: 0.25rem;
 }
 
 .history-info p {
     font-size: 0.875rem;
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin: 0;
 }
 
@@ -918,8 +1275,8 @@
 }
 
 .product-card {
-    background: white;
-    border: 2px solid var(--gray-200);
+    background: var(--bg-card);
+    border: 2px solid var(--border-light);
     border-radius: 1.25rem;
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -954,12 +1311,12 @@
 .product-card-image {
     width: 100%;
     height: 200px;
-    background: linear-gradient(135deg, var(--gray-100), var(--gray-50));
+    background: var(--bg-secondary);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 4rem;
-    color: var(--gray-300);
+    color: var(--text-tertiary);
     position: relative;
     overflow: hidden;
 }
@@ -997,13 +1354,13 @@
 .product-card-info h4 {
     font-size: 1.125rem;
     margin-bottom: 0.5rem;
-    color: var(--gray-900);
+    color: var(--text-primary);
     font-weight: 600;
 }
 
 .product-card-info p {
     font-size: 0.875rem;
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin-bottom: 1rem;
 }
 
@@ -1044,12 +1401,12 @@
     height: 40px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--border-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gray-600);
+    color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
@@ -1076,7 +1433,7 @@
 .settings-group h3 {
     font-size: 1.25rem;
     margin-bottom: 1.5rem;
-    color: var(--gray-900);
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -1093,7 +1450,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem;
-    background: var(--gray-50);
+    background: var(--bg-card);
     border: 2px solid transparent;
     border-radius: 1rem;
     margin-bottom: 1rem;
@@ -1116,7 +1473,7 @@
 
 .setting-item:hover {
     border-color: var(--primary-light);
-    background: white;
+    background: var(--bg-card);
     box-shadow: 0 4px 20px rgba(20, 184, 166, 0.1);
 }
 
@@ -1127,13 +1484,13 @@
 .setting-info h4 {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--gray-900);
+    color: var(--text-primary);
     margin-bottom: 0.25rem;
 }
 
 .setting-info p {
     font-size: 0.875rem;
-    color: var(--gray-600);
+    color: var(--text-secondary);
     margin: 0;
 }
 
@@ -1143,7 +1500,7 @@
     gap: 1rem;
     margin-top: 3rem;
     padding-top: 2rem;
-    border-top: 2px solid var(--gray-200);
+    border-top: 2px solid var(--border-light);
 }
 
 .settings-actions .btn-outline.danger {
@@ -1279,3 +1636,380 @@
         page-break-before: always;
     }
 }
+
+/* ===========================
+   DARK MODE STYLES - PROFILE
+   =========================== */
+
+/* Profile Page Background */
+body.dark-mode .profile-page {
+    background: var(--bg-primary);
+}
+
+body.dark-mode .profile-page::before {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+}
+
+/* Profile Header */
+body.dark-mode .profile-header {
+    background: var(--bg-card);
+    border-bottom-color: var(--border-light);
+}
+
+body.dark-mode .profile-header::before {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+}
+
+body.dark-mode .profile-info h1 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .profile-info .email {
+    color: var(--text-tertiary);
+}
+
+body.dark-mode .profile-bio {
+    color: var(--text-secondary);
+}
+
+/* Profile Stats */
+body.dark-mode .stat {
+    background: var(--bg-secondary);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .stat-number {
+    color: var(--primary);
+}
+
+body.dark-mode .stat-label {
+    color: var(--text-tertiary);
+}
+
+/* Profile Navigation */
+body.dark-mode .profile-sidebar {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .profile-nav-item {
+    color: var(--text-secondary);
+    background: transparent;
+}
+
+body.dark-mode .profile-nav-item:hover {
+    background: var(--bg-hover);
+    color: var(--primary);
+}
+
+body.dark-mode .profile-nav-item.active {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+    color: var(--primary);
+}
+
+body.dark-mode .profile-nav-item.active::before {
+    background: var(--primary);
+}
+
+/* Section Headers */
+body.dark-mode .section-header h2 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .section-description {
+    color: var(--text-secondary);
+}
+
+/* Preference Cards */
+body.dark-mode .preference-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .preference-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 30px rgba(20, 184, 166, 0.15);
+}
+
+body.dark-mode .preference-card.selected {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+    border-color: var(--primary);
+}
+
+body.dark-mode .preference-icon {
+    background: var(--bg-tertiary);
+}
+
+body.dark-mode .preference-title {
+    color: var(--text-primary);
+}
+
+body.dark-mode .preference-desc {
+    color: var(--text-secondary);
+}
+
+/* Allergen Section */
+body.dark-mode .allergen-item {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .allergen-item:hover {
+    border-color: var(--primary);
+    box-shadow: 0 6px 25px rgba(20, 184, 166, 0.15);
+}
+
+body.dark-mode .allergen-item.active {
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+    border-color: var(--primary);
+}
+
+body.dark-mode .allergen-info h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .allergen-info p {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .allergen-icon {
+    background: var(--bg-tertiary);
+}
+
+/* Toggle Switches */
+body.dark-mode .toggle {
+    background: var(--bg-tertiary);
+}
+
+body.dark-mode .toggle input:checked + .slider {
+    background: var(--gradient-primary);
+}
+
+body.dark-mode .slider::before {
+    background: var(--bg-card);
+}
+
+/* Severity Badges */
+body.dark-mode .severity {
+    background: var(--bg-tertiary);
+}
+
+/* History Items */
+body.dark-mode .history-item {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .history-item:hover {
+    border-color: var(--primary);
+    box-shadow: 0 6px 25px rgba(20, 184, 166, 0.15);
+}
+
+body.dark-mode .history-info h4 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .history-info p {
+    color: var(--text-secondary);
+}
+
+/* Product Cards */
+body.dark-mode .product-card {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .product-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 30px rgba(20, 184, 166, 0.15);
+}
+
+body.dark-mode .product-info h3 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .product-brand {
+    color: var(--text-tertiary);
+}
+
+body.dark-mode .product-tags .tag {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+/* Settings Items */
+body.dark-mode .setting-item {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .setting-item:hover {
+    border-color: var(--border-medium);
+}
+
+body.dark-mode .setting-info h4 {
+    color: var(--text-primary);
+}
+
+body.dark-mode .setting-info p {
+    color: var(--text-secondary);
+}
+
+/* Search & Filter */
+body.dark-mode .search-box,
+body.dark-mode .filter-select {
+    background: var(--bg-primary);
+    border-color: var(--border-light);
+    color: var(--text-primary);
+}
+
+body.dark-mode .search-box:focus,
+body.dark-mode .filter-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.2);
+}
+
+/* Empty States */
+body.dark-mode .empty-state {
+    color: var(--text-secondary);
+}
+
+body.dark-mode .empty-state h3 {
+    color: var(--text-primary);
+}
+
+/* Avatar Upload */
+body.dark-mode .avatar-edit {
+    background: var(--bg-card);
+    border-color: var(--border-light);
+}
+
+body.dark-mode .avatar-edit:hover {
+    background: var(--bg-hover);
+}
+
+/* Modals */
+body.dark-mode .modal-overlay {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode .modal-content {
+    background: var(--bg-card);
+}
+
+body.dark-mode .modal-header {
+    border-bottom-color: var(--border-light);
+}
+
+body.dark-mode .modal-header h3 {
+    color: var(--text-primary);
+}
+
+/* Form Labels */
+body.dark-mode label {
+    color: var(--text-primary);
+}
+
+/* Score Badges Dark Mode */
+body.dark-mode .score-badge.good,
+body.dark-mode .score-badge.excellent,
+body.dark-mode .score-badge.warning {
+    box-shadow: var(--shadow-md);
+}
+
+/* ==================================
+   Dark Mode Visibility Fixes
+   ================================== */
+
+/* Ensure all headings are clearly visible */
+body.dark-mode .section-header h2 {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+    color: var(--text-primary) !important;
+}
+
+/* Dietary Preferences - Fix faded text */
+body.dark-mode .preference-card .card-content h3 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .preference-card .card-content p {
+    color: var(--text-secondary) !important;
+    opacity: 0.9;
+}
+
+body.dark-mode .preference-desc {
+    color: var(--text-secondary) !important;
+    opacity: 0.9;
+}
+
+/* Allergen Section - Improve text contrast */
+body.dark-mode .allergen-info h3 {
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+body.dark-mode .allergen-info p {
+    color: var(--text-secondary) !important;
+    opacity: 0.95;
+}
+
+/* History Items - Better visibility */
+body.dark-mode .history-info h4 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .history-info p {
+    color: var(--text-secondary) !important;
+}
+
+/* Product Cards - Clear text */
+body.dark-mode .product-info h3 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .product-brand {
+    color: var(--text-secondary) !important;
+    opacity: 0.85;
+}
+
+/* Settings Items - Better readability */
+body.dark-mode .setting-info h4 {
+    color: var(--text-primary) !important;
+}
+
+body.dark-mode .setting-info p {
+    color: var(--text-secondary) !important;
+    opacity: 0.9;
+}
+
+/* Profile Stats - Ensure labels are readable */
+body.dark-mode .stat-label {
+    color: var(--text-secondary) !important;
+    opacity: 0.9;
+}
+
+body.dark-mode .stat-number {
+    color: var(--primary) !important;
+}
+
+/* Section descriptions */
+body.dark-mode .section-description {
+    color: var(--text-secondary) !important;
+    opacity: 0.9;
+}
+
+/* All paragraphs in cards */
+body.dark-mode .preference-card p,
+body.dark-mode .allergen-item p,
+body.dark-mode .history-item p,
+body.dark-mode .product-card p,
+body.dark-mode .setting-item p {
+    opacity: 0.95;
+}
+
