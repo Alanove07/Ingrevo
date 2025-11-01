@@ -58,7 +58,7 @@ function initializeProfilePage() {
             // Remove active class from all sections
             sections.forEach(section => {
                 section.classList.remove('active');
-                section.style.display = 'none'; // Force hide
+                section.style.setProperty('display', 'none', 'important'); // Force hide with !important
                 console.log(`  Hiding section: ${section.id}`);
             });
             
@@ -70,7 +70,7 @@ function initializeProfilePage() {
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.add('active');
-                targetSection.style.display = 'block'; // Force show
+                targetSection.style.setProperty('display', 'block', 'important'); // Force show with !important
                 console.log(`  ✅ Section ${sectionId} is now visible`);
                 
                 // Scroll to top of section
@@ -89,11 +89,11 @@ function initializeProfilePage() {
     sections.forEach((section, idx) => {
         if (idx === 0) {
             section.classList.add('active');
-            section.style.display = 'block';
+            section.style.setProperty('display', 'block', 'important');
             console.log(`  ✅ Set ${section.id} as default active section`);
         } else {
             section.classList.remove('active');
-            section.style.display = 'none';
+            section.style.setProperty('display', 'none', 'important');
             console.log(`  Hidden ${section.id}`);
         }
     });

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Navigation Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            display: flex;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .sidebar {
+            width: 250px;
+        }
+        
+        .nav-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: #e0e0e0;
+        }
+        
+        .nav-btn.active {
+            background: #14B8A6;
+            color: white;
+            border-color: #14B8A6;
+        }
+        
+        .main-content {
+            flex: 1;
+        }
+        
+        .section {
+            display: none;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .section.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        h2 {
+            margin-top: 0;
+            color: #14B8A6;
+        }
+        
+        .debug {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Profile Navigation Test</h1>
+    
+    <div class="container">
+        <div class="sidebar">
+            <button class="nav-btn active" data-section="preferences">
+                Dietary Preferences
+            </button>
+            <button class="nav-btn" data-section="allergens">
+                My Allergens
+            </button>
+            <button class="nav-btn" data-section="history">
+                Scan History
+            </button>
+            <button class="nav-btn" data-section="saved">
+                Saved Products
+            </button>
+            <button class="nav-btn" data-section="settings">
+                Settings
+            </button>
+        </div>
+        
+        <div class="main-content">
+            <section class="section active" id="preferences-section">
+                <h2>Dietary Preferences</h2>
+                <p>This is the dietary preferences section. You can see this content by default.</p>
+                <p>Click other navigation buttons to switch sections.</p>
+            </section>
+            
+            <section class="section" id="allergens-section">
+                <h2>My Allergens</h2>
+                <p>This is the allergens section. Mark allergens you're sensitive to.</p>
+            </section>
+            
+            <section class="section" id="history-section">
+                <h2>Scan History</h2>
+                <p>This is the scan history section. View all your previously scanned products.</p>
+            </section>
+            
+            <section class="section" id="saved-section">
+                <h2>Saved Products</h2>
+                <p>This is the saved products section. Your collection of safe products.</p>
+            </section>
+            
+            <section class="section" id="settings-section">
+                <h2>Settings</h2>
+                <p>This is the settings section. Manage your account and preferences.</p>
+            </section>
+        </div>
+    </div>
+    
+    <div class="debug" id="debug-output">
+        Waiting for clicks...
+    </div>
+    
+    <script>
+        console.log('🚀 Test page loaded');
+        
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.section');
+        const debugOutput = document.getElementById('debug-output');
+        
+        console.log(`Found ${navButtons.length} nav buttons`);
+        console.log(`Found ${sections.length} sections`);
+        
+        let clickCount = 0;
+        
+        navButtons.forEach((btn, index) => {
+            btn.addEventListener('click', function() {
+                clickCount++;
+                const sectionName = this.getAttribute('data-section');
+                const sectionId = sectionName + '-section';
+                
+                console.log(`Click ${clickCount}: ${sectionName}`);
+                
+                // Update debug display
+                debugOutput.innerHTML = `
+                    <strong>Click #${clickCount}</strong><br>
+                    Section: ${sectionName}<br>
+                    Target ID: ${sectionId}<br>
+                    Time: ${new Date().toLocaleTimeString()}
+                `;
+                
+                // Remove active from all buttons
+                navButtons.forEach(b => b.classList.remove('active'));
+                
+                // Remove active from all sections
+                sections.forEach(s => {
+                    s.classList.remove('active');
+                    s.style.display = 'none';
+                });
+                
+                // Add active to clicked button
+                this.classList.add('active');
+                
+                // Show target section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    targetSection.style.display = 'block';
+                    console.log(`✅ Successfully showed ${sectionId}`);
+                } else {
+                    console.error(`❌ Could not find ${sectionId}`);
+                }
+            });
+            
+            console.log(`✅ Added listener to button ${index}: ${btn.getAttribute('data-section')}`);
+        });
+        
+        console.log('✨ All listeners attached successfully');
+    </script>
+</body>
+</html>
