@@ -68,6 +68,25 @@
             color: #64748b;
             font-size: 0.98rem;
         }
+        .hero-image {
+            width: 100%;
+            max-width: 420px;
+            margin: 24px auto;
+            display: block;
+            border-radius: 16px;
+        }
+        .product-showcase {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 32px 0;
+            gap: 16px;
+        }
+        .product-image {
+            width: 45%;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(30,41,59,0.08);
+        }
         .cta-btn {
             display: block;
             width: 100%;
@@ -100,6 +119,8 @@
             .content, .footer { padding: 18px 8px; }
             .features { flex-direction: column; }
             .feature { margin: 8px 0; }
+            .product-showcase { flex-direction: column; }
+            .product-image { width: 80%; }
         }
     </style>
 </head>
@@ -113,6 +134,12 @@
         <div class="content">
             <p style="font-size:1.08rem; color:#1e293b; margin-bottom:18px;">Hi there,<br>
             We're thrilled to have you join our community! Ingrevo empowers you to make informed choices by providing clear ingredient information and personalized recommendations.</p>
+            
+            <div class="product-showcase">
+                <img src="https://alanove.me/Ingrevo/Assets/Ingrevo-cart-nobg.png" alt="Smart Shopping Cart" class="product-image">
+                <img src="https://alanove.me/Ingrevo/Assets/Ingrevo-fixed-nobg.png" alt="Product Scanner" class="product-image">
+            </div>
+            
             <div class="features">
                 <div class="feature">
                     <div class="feature-title">Ingredient Transparency</div>
