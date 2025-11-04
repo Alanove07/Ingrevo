@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Ingrevo!</title>
+    <style>
+        body {
+            background: #f8fafc;
+            font-family: 'Inter', Arial, sans-serif;
+            color: #1e293b;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 520px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(30,41,59,0.10);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+            padding: 32px 0 24px 0;
+            text-align: center;
+        }
+        .logo {
+            width: 72px;
+            margin-bottom: 16px;
+        }
+        .headline {
+            color: #fff;
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+        .subheadline {
+            color: #e2e8f0;
+            font-size: 1.15rem;
+            margin-bottom: 0;
+        }
+        .content {
+            padding: 32px 32px 0 32px;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 32px 0 24px 0;
+        }
+        .feature {
+            flex: 1 1 45%;
+            background: #f1f5f9;
+            border-radius: 12px;
+            margin: 8px;
+            padding: 18px 14px;
+            text-align: left;
+        }
+        .feature-title {
+            font-weight: 600;
+            color: #22c55e;
+            margin-bottom: 6px;
+            font-size: 1.08rem;
+        }
+        .feature-desc {
+            color: #64748b;
+            font-size: 0.98rem;
+        }
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: #22c55e;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 16px 0;
+            border-radius: 12px;
+            margin: 32px 0 0 0;
+            text-align: center;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(34,197,94,0.08);
+            transition: background 0.2s;
+        }
+        .cta-btn:hover {
+            background: #16a34a;
+        }
+        .footer {
+            background: #f1f5f9;
+            text-align: center;
+            font-size: 0.98rem;
+            color: #64748b;
+            padding: 24px 32px;
+            margin-top: 32px;
+        }
+        @media (max-width: 600px) {
+            .email-container { max-width: 98vw; border-radius: 0; }
+            .content, .footer { padding: 18px 8px; }
+            .features { flex-direction: column; }
+            .feature { margin: 8px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <img src="https://alanove.me/Ingrevo/Assets/Ingrevo-nobg.png" alt="Ingrevo Logo" class="logo">
+            <div class="headline">Welcome to Ingrevo!</div>
+            <div class="subheadline">Shop Smarter. Shop Safer. Live Better.</div>
+        </div>
+        <div class="content">
+            <p style="font-size:1.08rem; color:#1e293b; margin-bottom:18px;">Hi there,<br>
+            We're thrilled to have you join our community! Ingrevo empowers you to make informed choices by providing clear ingredient information and personalized recommendations.</p>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-title">Ingredient Transparency</div>
+                    <div class="feature-desc">Instantly scan products and see what's inside, so you can shop with confidence.</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Personalized Insights</div>
+                    <div class="feature-desc">Get recommendations tailored to your dietary needs and preferences.</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Community Support</div>
+                    <div class="feature-desc">Connect with others, share experiences, and discover new products together.</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-title">Safe Shopping</div>
+                    <div class="feature-desc">Make safer choices for you and your family, every time you shop.</div>
+                </div>
+            </div>
+            <a href="https://ingrevo.com/login" class="cta-btn">Get Started</a>
+        </div>
+        <div class="footer">
+            If you have any questions, reply to this email or contact us at <a href="mailto:support@ingrevo.com">support@ingrevo.com</a>.<br>
+            &copy; 2025 Ingrevo. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
