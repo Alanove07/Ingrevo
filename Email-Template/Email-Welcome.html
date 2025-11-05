@@ -1,169 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Ingrevo Welcome Email - Responsive HTML -->
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Ingrevo!</title>
-    <style>
-        body {
-            background: #f8fafc;
-            font-family: 'Inter', Arial, sans-serif;
-            color: #1e293b;
-            margin: 0;
-            padding: 0;
-        }
-        .email-container {
-            max-width: 520px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(30,41,59,0.10);
-            overflow: hidden;
-        }
-        .header {
-            background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
-            padding: 32px 0 24px 0;
-            text-align: center;
-        }
-        .logo {
-            width: 72px;
-            margin-bottom: 16px;
-        }
-        .headline {
-            color: #fff;
-            font-size: 2.1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            letter-spacing: 0.5px;
-        }
-        .subheadline {
-            color: #e2e8f0;
-            font-size: 1.15rem;
-            margin-bottom: 0;
-        }
-        .content {
-            padding: 32px 32px 0 32px;
-        }
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 32px 0 24px 0;
-        }
-        .feature {
-            flex: 1 1 45%;
-            background: #f1f5f9;
-            border-radius: 12px;
-            margin: 8px;
-            padding: 18px 14px;
-            text-align: left;
-        }
-        .feature-title {
-            font-weight: 600;
-            color: #22c55e;
-            margin-bottom: 6px;
-            font-size: 1.08rem;
-        }
-        .feature-desc {
-            color: #64748b;
-            font-size: 0.98rem;
-        }
-        .hero-image {
-            width: 100%;
-            max-width: 420px;
-            margin: 24px auto;
-            display: block;
-            border-radius: 16px;
-        }
-        .product-showcase {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 32px 0;
-            gap: 16px;
-        }
-        .product-image {
-            width: 45%;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(30,41,59,0.08);
-        }
-        .cta-btn {
-            display: block;
-            width: 100%;
-            background: #22c55e;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            padding: 16px 0;
-            border-radius: 12px;
-            margin: 32px 0 0 0;
-            text-align: center;
-            letter-spacing: 0.5px;
-            box-shadow: 0 2px 8px rgba(34,197,94,0.08);
-            transition: background 0.2s;
-        }
-        .cta-btn:hover {
-            background: #16a34a;
-        }
-        .footer {
-            background: #f1f5f9;
-            text-align: center;
-            font-size: 0.98rem;
-            color: #64748b;
-            padding: 24px 32px;
-            margin-top: 32px;
-        }
-        @media (max-width: 600px) {
-            .email-container { max-width: 98vw; border-radius: 0; }
-            .content, .footer { padding: 18px 8px; }
-            .features { flex-direction: column; }
-            .feature { margin: 8px 0; }
-            .product-showcase { flex-direction: column; }
-            .product-image { width: 80%; }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Welcome to Ingrevo</title>
+  <style>
+    /* CLIENT-SPECIFIC */
+    body,table,td,a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    table,td { mso-table-lspace:0pt; mso-table-rspace:0pt; }
+    img { -ms-interpolation-mode:bicubic; border:0; outline:none; text-decoration:none; display:block; }
+    a[x-apple-data-detectors] { color:inherit; text-decoration:none; }
+
+    /* RESET */
+    body { margin:0; padding:0; width:100% !important; -webkit-font-smoothing:antialiased; background-color:#f4f6f8; }
+    .ExternalClass { width:100%; }
+    .ReadMsgBody { width:100%; }
+
+    /* MOBILE STYLES */
+    @media screen and (max-width:600px) {
+      .container { width:100% !important; padding: 0 12px !important; }
+      .stack-column, .stack-column-center { display:block !important; width:100% !important; max-width:100% !important; direction:ltr !important; }
+      .stack-column-center { text-align:center !important; }
+      .hero-padding { padding: 36px 18px !important; }
+      .mobile-hide { display:none !important; }
+      .full-width-img { width:100% !important; height:auto !important; }
+      .center-on-mobile { text-align:center !important; margin:0 auto !important; }
+    }
+
+    /* BUTTON */
+    .btn {
+      display:inline-block;
+      padding:12px 22px;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:600;
+    }
+  </style>
 </head>
-<body>
-    <div class="email-container">
-        <div class="header">
-            <img src="https://alanove.me/Ingrevo/Assets/Ingrevo-nobg.png" alt="Ingrevo Logo" class="logo">
-            <div class="headline">Welcome to Ingrevo!</div>
-            <div class="subheadline">Shop Smarter. Shop Safer. Live Better.</div>
-        </div>
-        <div class="content">
-            <p style="font-size:1.08rem; color:#1e293b; margin-bottom:18px;">Hi there,<br>
-            We're thrilled to have you join our community! Ingrevo empowers you to make informed choices by providing clear ingredient information and personalized recommendations.</p>
-            
-            <div class="product-showcase">
-                <img src="https://alanove.me/Ingrevo/Assets/Ingrevo-cart-nobg.png" alt="Smart Shopping Cart" class="product-image">
-                <img src="https://alanove.me/Ingrevo/Assets/Ingrevo-fixed-nobg.png" alt="Product Scanner" class="product-image">
-            </div>
-            
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-title">Ingredient Transparency</div>
-                    <div class="feature-desc">Instantly scan products and see what's inside, so you can shop with confidence.</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-title">Personalized Insights</div>
-                    <div class="feature-desc">Get recommendations tailored to your dietary needs and preferences.</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-title">Community Support</div>
-                    <div class="feature-desc">Connect with others, share experiences, and discover new products together.</div>
-                </div>
-                <div class="feature">
-                    <div class="feature-title">Safe Shopping</div>
-                    <div class="feature-desc">Make safer choices for you and your family, every time you shop.</div>
-                </div>
-            </div>
-            <a href="https://ingrevo.com/login" class="cta-btn">Get Started</a>
-        </div>
-        <div class="footer">
-            If you have any questions, reply to this email or contact us at <a href="mailto:support@ingrevo.com">support@ingrevo.com</a>.<br>
-            &copy; 2025 Ingrevo. All rights reserved.
-        </div>
-    </div>
+<body style="background-color:#f4f6f8; margin:0; padding:0;">
+
+  <!-- Outer container -->
+  <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+
+        <!-- Email container (max-width:600) -->
+        <table border="0" cellpadding="0" cellspacing="0" width="600" class="container" style="max-width:600px; width:100%; background-color:#ffffff; border-radius:8px; overflow:hidden;">
+          <!-- HERO -->
+          <tr>
+            <td style="background:linear-gradient(180deg,#00b4ff 0%, #0b83d5 100%); padding:40px 40px;" class="hero-padding" align="center">
+              <!-- Logo -->
+              <img src="cid:ingrevo-logo" alt="Ingrevo" width="140" style="display:block; margin:0 auto 16px auto;">
+
+              <!-- Headline -->
+              <h1 style="font-family:Helvetica,Arial,sans-serif; color:#ffffff; font-size:26px; margin:0 0 8px; line-height:1.1;">
+                Welcome to Ingrevo
+              </h1>
+
+              <!-- Tagline -->
+              <p style="font-family:Helvetica,Arial,sans-serif; color:#eaf8ff; margin:0 0 18px; font-size:14px;">
+                Shop Smarter. Shop Safer. Live Better
+              </p>
+
+              <!-- CTA -->
+              <a href="[INSERT_PORTAL_LINK]" target="_blank" class="btn" style="background-color:#ffffff; color:#0b83d5; border-radius:6px; font-family:Helvetica,Arial,sans-serif; font-size:15px;">
+                Explore Ingrevo
+              </a>
+            </td>
+          </tr>
+
+          <!-- BODY / Intro -->
+          <tr>
+            <td style="padding:28px 40px 18px 40px;">
+              <p style="font-family:Helvetica,Arial,sans-serif; color:#333333; font-size:16px; margin:0 0 12px; line-height:1.5;">
+                Hi <strong>[First name]</strong>,
+              </p>
+              <p style="font-family:Helvetica,Arial,sans-serif; color:#555555; font-size:15px; margin:0 0 12px; line-height:1.5;">
+                We’re excited to welcome you to <strong>Ingrevo</strong> — a place where practical ideas become real, useful products. Thank you for joining our community of makers, thinkers and doers.
+              </p>
+              <p style="font-family:Helvetica,Arial,sans-serif; color:#555555; font-size:15px; margin:0 0 8px; line-height:1.5;">
+                Here’s how to get started:
+              </p>
+            </td>
+          </tr>
+
+          <!-- FEATURES + PHONE FRAMES ROW -->
+          <tr>
+            <td style="padding:0 24px 24px 24px;">
+              <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+
+                  <!-- LEFT: Phone Frame 1 -->
+                  <td width="33.33%" valign="top" style="padding:12px;" class="stack-column stack-column-center">
+                    <img src="cid:phone-frame-1" alt="Ingrevo app preview 1" width="160" style="display:block; margin:0 auto 12px; border-radius:12px;" class="full-width-img">
+                    <h3 style="font-family:Helvetica,Arial,sans-serif; font-size:14px; margin:6px 0 4px; color:#333333; text-align:center;">Discover</h3>
+                    <p style="font-family:Helvetica,Arial,sans-serif; font-size:13px; color:#666666; margin:0; text-align:center;">Explore products & smart services.</p>
+                  </td>
+
+                  <!-- CENTER: Phone Frame 2 -->
+                  <td width="33.33%" valign="top" style="padding:12px;" class="stack-column stack-column-center">
+                    <img src="cid:phone-frame-2" alt="Ingrevo app preview 2" width="160" style="display:block; margin:0 auto 12px; border-radius:12px;" class="full-width-img">
+                    <h3 style="font-family:Helvetica,Arial,sans-serif; font-size:14px; margin:6px 0 4px; color:#333333; text-align:center;">Shop Safer</h3>
+                    <p style="font-family:Helvetica,Arial,sans-serif; font-size:13px; color:#666666; margin:0; text-align:center;">Verified sellers, secure checkout.</p>
+                  </td>
+
+                  <!-- RIGHT: Phone Frame 3 -->
+                  <td width="33.33%" valign="top" style="padding:12px;" class="stack-column stack-column-center">
+                    <img src="cid:phone-frame-3" alt="Ingrevo app preview 3" width="160" style="display:block; margin:0 auto 12px; border-radius:12px;" class="full-width-img">
+                    <h3 style="font-family:Helvetica,Arial,sans-serif; font-size:14px; margin:6px 0 4px; color:#333333; text-align:center;">Live Better</h3>
+                    <p style="font-family:Helvetica,Arial,sans-serif; font-size:13px; color:#666666; margin:0; text-align:center;">Smart tips and community deals.</p>
+                  </td>
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- SECONDARY CTA + NOTES -->
+          <tr>
+            <td align="center" style="padding:0 40px 28px 40px;">
+              <a href="[INSERT_PORTAL_LINK]" target="_blank" class="btn" style="background-color:#0b83d5; color:#ffffff; border-radius:6px; font-family:Helvetica,Arial,sans-serif; font-size:15px; display:inline-block; padding:12px 24px;">
+                Explore Ingrevo
+              </a>
+            </td>
+          </tr>
+
+          <!-- FOOTER BLOCK -->
+          <tr>
+            <td style="background-color:#f7fbff; padding:18px 40px 22px 40px;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-family:Helvetica,Arial,sans-serif; color:#666666; font-size:13px; line-height:1.4;">
+                    <strong>Need help?</strong> Reply to this email or reach us at <a href="mailto:contact@ingrevo.in" style="color:#0b83d5; text-decoration:none;">contact@ingrevo.in</a>
+                    <br><br>
+                    © <strong>Ingrevo</strong> — Innovation. Growth. Evolution.<br>
+                    <span style="color:#9aa7b4;">If you prefer not to receive these emails, <a href="[UNSUBSCRIBE_LINK]" style="color:#0b83d5; text-decoration:none;">unsubscribe</a>.</span>
+                  </td>
+                  <td align="right" class="mobile-hide" style="width:120px;">
+                    <!-- Social placeholders -->
+                    <a href="#"><img src="cid:icon-facebook" alt="Facebook" width="28" style="display:inline-block; margin-left:6px;"></a>
+                    <a href="#"><img src="cid:icon-instagram" alt="Instagram" width="28" style="display:inline-block; margin-left:6px;"></a>
+                    <a href="#"><img src="cid:icon-linkedin" alt="LinkedIn" width="28" style="display:inline-block; margin-left:6px;"></a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table> <!-- end container -->
+
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
